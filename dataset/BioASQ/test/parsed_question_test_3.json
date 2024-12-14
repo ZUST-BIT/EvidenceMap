@@ -1,0 +1,1693 @@
+{
+    "65d3715b1930410b13000046":
+    {
+        "question": "Is Durvalumab effective for locally advanced cervical cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "locally advanced cervical cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Durvalumab"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66099c57fdcbea915f000025":
+    {
+        "question": "What clinical conditions influence the prognostic after the liver metastasis resection from colorectal cancer patients?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "liver metastasis",
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "prognostic"
+            ]
+        }
+    },
+    "661be07748a2c27714000002":
+    {
+        "question": "What is Lennox-Gastaut syndrome?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Lennox-Gastaut syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6616547dfdcbea915f00004f":
+    {
+        "question": "What is the prevalence of neurofibromatosis?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "neurofibromatosis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d96c9eac11fad33000028":
+    {
+        "question": "What is the key transcription factor for melanocyte development and differentiation?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [
+                "transcription factor"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "melanocyte development",
+                "melanocyte differentiation"
+            ]
+        }
+    },
+    "661d48a2eac11fad33000018":
+    {
+        "question": "What is the cause of Phenylketonuria (PKU)?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Phenylketonuria"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cebc0c1930410b13000003":
+    {
+        "question": "Which disease is treated with nirsevimab?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "nirsevimab"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "660998ecfdcbea915f000014":
+    {
+        "question": "Why does rectal cancer have worse prognosis than other colon tumors?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "rectal cancer",
+                "colon tumors"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "worse prognosis"
+            ]
+        }
+    },
+    "661a6733fdcbea915f00005c":
+    {
+        "question": "Is Loeys-Dietz syndrome (LDS) associated with Aortic Aneurysm?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Loeys-Dietz syndrome",
+                "Aortic Aneurysm"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66150366fdcbea915f000046":
+    {
+        "question": "What is borderline personality disorder?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "borderline personality disorder"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d9cc3eac11fad33000029":
+    {
+        "question": "What is the role of the FOXA1 transcription factor in estrogen-receptor-positive (ER+) breast cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "breast cancer"
+            ],
+            "GeneProtein":
+            [
+                "FOXA1"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "estrogen-receptor-positive"
+            ]
+        }
+    },
+    "661d62dceac11fad33000026":
+    {
+        "question": "How is Huntington's Disease inherited?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Huntington's Disease"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cfcd541930410b13000019":
+    {
+        "question": "Burrow Ink Test can be used to diagnose which disease?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6609994bfdcbea915f000017":
+    {
+        "question": "What drugs are effective for the treatment of EGFR inhibitors skin rash?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "skin rash"
+            ],
+            "GeneProtein":
+            [
+                "EGFR"
+            ],
+            "Drug":
+            [
+                "EGFR inhibitors"
+            ]
+        }
+    },
+    "660810a0fdcbea915f000005":
+    {
+        "question": "Is MIRPE, also known as the Nuss procedure, considered to be an very invasive form of surgical treatment?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [
+                "MIRPE"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "Nuss procedure"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66154a32fdcbea915f00004b":
+    {
+        "question": "What are major complications of mastoiditis?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "mastoiditis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "complications"
+            ]
+        }
+    },
+    "661c41d448a2c27714000009":
+    {
+        "question": "Which DNA language models currently exist to model the human genome?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d1d2deac11fad33000015":
+    {
+        "question": "What biomarkers are used for the identification of neonatal sepsis in low-income countries?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "neonatal sepsis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cfdd9c1930410b13000027":
+    {
+        "question": "What is the mechanism of action of Mirikizumab?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Mirikizumab"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66099c30fdcbea915f000024":
+    {
+        "question": "What clinical indications does the self-expanding colon stent have in colorectal cancer patients?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "self-expanding colon stent"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661a624bfdcbea915f00005b":
+    {
+        "question": "List the cells which have CD21 on the surface.",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [
+                "CD21"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6616a250fdcbea915f000059":
+    {
+        "question": "Do PPIs increase the risk of gastric cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "gastric cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "PPIs"
+            ],
+            "EffectPhenotype":
+            [
+                "increase the risk"
+            ]
+        }
+    },
+    "661c414d48a2c27714000007":
+    {
+        "question": "Can enhancers act as promoters?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d575eeac11fad33000020":
+    {
+        "question": "How is pain treated in patients with Ehlers-Danlos Syndrome?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Ehlers-Danlos Syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "pain"
+            ]
+        }
+    },
+    "65cfa6201930410b1300000e":
+    {
+        "question": "Is Patisiran used for Transthyretin Cardiac Amyloidosis?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Transthyretin Cardiac Amyloidosis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Patisiran"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f77a32c4010b4d7800003a":
+    {
+        "question": "What are the molecular mechanisms for secondary resistance to Bevacizumab in advanced colorectal cancer patients?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "advanced colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Bevacizumab"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661a6a67fdcbea915f00005d":
+    {
+        "question": "Does early stage oral squamous cell carcinoma have  good survival rates?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "oral squamous cell carcinoma"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "good survival rates"
+            ]
+        }
+    },
+    "65f85fdbc4010b4d78000054":
+    {
+        "question": "What is the technique of choice to perform a caesarean section?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d9e79fe9d0b3967000001":
+    {
+        "question": "Which cell states can exist in melanomas?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "melanomas"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d1c3ceac11fad33000012":
+    {
+        "question": "Are there any molecular signatures identified for the differentiation between bacterial and viral infections?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "bacterial infections",
+                "viral infections"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65d1369c1930410b1300003b":
+    {
+        "question": "What are active ingredients of Xacduro?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Xacduro"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66099967fdcbea915f000018":
+    {
+        "question": "What is the faster length time for oxaliplatin infusion?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "oxaliplatin"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661be55f48a2c27714000003":
+    {
+        "question": "What disease is treated by Callosotomy",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "Callosotomy"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6614fe3dfdcbea915f000045":
+    {
+        "question": "Is there an approved vaccine to prevent Zika virus infection during pregnancy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Zika virus infection"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "vaccine"
+            ],
+            "Exposure":
+            [
+                "pregnancy"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661c416048a2c27714000008":
+    {
+        "question": "What are eRNAs and what is their function?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [
+                "eRNAs"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d20b7eac11fad33000016":
+    {
+        "question": "Can cytomegalovirus (CMV) be transmitted via breast milk to premature infants?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "cytomegalovirus"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "breast milk"
+            ],
+            "EffectPhenotype":
+            [
+                "premature infants"
+            ]
+        }
+    },
+    "65cfcb4c1930410b13000017":
+    {
+        "question": "What enzymes are inhibited by Vorasidenib?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Vorasidenib"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66099a03fdcbea915f00001d":
+    {
+        "question": "From what age is it recommended to start population screening for colorectal cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f03bf8c4010b4d78000003":
+    {
+        "question": "What is acupotomy?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "660d7324fdcbea915f000040":
+    {
+        "question": "How many people affected by Parkinson's Disease develop dementia?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Parkinson's Disease",
+                "dementia"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661c3d1448a2c27714000005":
+    {
+        "question": "What chromatin signatures are characteristic of active enhancers?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "active enhancers"
+            ]
+        }
+    },
+    "661d4fabeac11fad3300001c":
+    {
+        "question": "What are the types of Ehlers-Danlos Syndrome?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Ehlers-Danlos Syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cfe0381930410b13000029":
+    {
+        "question": "Can tacrolimus increase risk of Posterior Reversible Encephalopathy Syndrome?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Posterior Reversible Encephalopathy Syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "tacrolimus"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "increase risk"
+            ]
+        }
+    },
+    "660999e7fdcbea915f00001c":
+    {
+        "question": "What is the most effective immunotherapy regimen in patients with MSI-H advanced colorectal cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "MSI-H advanced colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "immunotherapy regimen"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661c03c848a2c27714000004":
+    {
+        "question": "What is the function of the paraoxonase (PON) multigene family?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [
+                "paraoxonase",
+                "PON"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "660d1285fdcbea915f000036":
+    {
+        "question": "Inflammatory breast cancer is the most aggressive form of breast cancer.",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Inflammatory breast cancer",
+                "breast cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "aggressive form"
+            ]
+        }
+    },
+    "661dc376fe9d0b3967000002":
+    {
+        "question": "Is the majority of genetic variation present in the coding regions of the genome?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d6252eac11fad33000025":
+    {
+        "question": "What is the cause of autosomal dominant Polycystic Kidney Disease?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "autosomal dominant Polycystic Kidney Disease"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65d1300e1930410b13000033":
+    {
+        "question": "Is zilucoplan effective for myasthenia gravis?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "myasthenia gravis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "zilucoplan"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f77618c4010b4d7800002e":
+    {
+        "question": "Which are the clinical indications for the use of Raltitrexed in patients with colorectal cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Raltitrexed"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661bdc9148a2c27714000001":
+    {
+        "question": "Please list the findings in lateral medullary (Wallenberg) syndrome",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "lateral medullary syndrome",
+                "Wallenberg syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6614fb7bfdcbea915f000044":
+    {
+        "question": "What are the new treatments for cystic fibrosis?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "cystic fibrosis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            []
+        }
+    },
+    "661c424588784bab31000001":
+    {
+        "question": "By which method do micro RNAs (miRNAs) primarily aid in transcriptional and post-transcriptional regulation?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [
+                "micro RNAs",
+                "miRNAs"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "transcriptional regulation",
+                "post-transcriptional regulation"
+            ]
+        }
+    },
+    "661d6473eac11fad33000027":
+    {
+        "question": "What is the cause of Autosomal Recessive Polycystic Kidney Disease?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Autosomal Recessive Polycystic Kidney Disease"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cf98431930410b1300000b":
+    {
+        "question": "What are the targets of Tarlatamab?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Tarlatamab"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f77465c4010b4d78000028":
+    {
+        "question": "Is liquid biopsy a cost-effective technique in general population screening for colorectal cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "liquid biopsy"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65ef8502dffffb9b6b000003":
+    {
+        "question": "What causes Mucormycosis?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Mucormycosis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66165f2afdcbea915f000051":
+    {
+        "question": "When was the first case of human monkey pox diagnosed?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "human monkey pox"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661c413f48a2c27714000006":
+    {
+        "question": "Does chromatin accessibility affect CRISPR-Cas9 efficiency?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [
+                "CRISPR-Cas9"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "chromatin accessibility"
+            ],
+            "EffectPhenotype":
+            [
+                "efficiency"
+            ]
+        }
+    },
+    "661d51fdeac11fad3300001d":
+    {
+        "question": "What diseases are included in the differential diagnosis of Ehlers-Danlos Syndrome?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Ehlers-Danlos Syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cfa70f1930410b1300000f":
+    {
+        "question": "What is the mechanism of action of Nemolizumab?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Nemolizumab"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f774a4c4010b4d78000029":
+    {
+        "question": "What type of colorectal cancer screening is the most cost-effective for general population?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f37aeac4010b4d7800000c":
+    {
+        "question": "Is Cri du Chat syndrome (CdCS) a genetic syndrome caused by deletions in the long arm of chromosome 5",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Cri du Chat syndrome",
+                "CdCS"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "deletions in the long arm of chromosome 5"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66168d7bfdcbea915f000056":
+    {
+        "question": "Mortality in schizophrenia.",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "schizophrenia"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "Mortality"
+            ]
+        }
+    },
+    "661d2428eac11fad33000017":
+    {
+        "question": "Is ICD-10 encoding sensitive for capturing paediatric sepsis?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "paediatric sepsis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cf96ce1930410b1300000a":
+    {
+        "question": "Is Amivantamab used for non–small-cell lung cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "non–small-cell lung cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Amivantamab"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f7754ec4010b4d7800002b":
+    {
+        "question": "Do very elderly stage III colorectal cancer patients present clinical benefit from oxaliplatin-based adjuvant chemotherapy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "oxaliplatin"
+            ],
+            "Exposure":
+            [
+                "adjuvant chemotherapy"
+            ],
+            "EffectPhenotype":
+            [
+                "clinical benefit"
+            ]
+        }
+    },
+    "660982eefdcbea915f000012":
+    {
+        "question": "Where would Odocoileus virginianus be found?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f868eac4010b4d78000056":
+    {
+        "question": "What is the rationale behind treating melanoma with immunotherapy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "melanoma"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "immunotherapy"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d56c0eac11fad3300001f":
+    {
+        "question": "Is there a specific cure for Ehlers-Danlos Syndrome?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Ehlers-Danlos Syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cfa8f81930410b13000010":
+    {
+        "question": "What mutation is associated with the VEXAS syndrome?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "VEXAS syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f774dec4010b4d7800002a":
+    {
+        "question": "Should routine PET-CT scan be indicated in the initial evaluation of locally advanced rectal cancer patients?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "locally advanced rectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "routine PET-CT scan"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f03163dffffb9b6b000005":
+    {
+        "question": "Please list the selective endothelin A receptor antagonists",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "selective endothelin A receptor antagonists"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f846bfc4010b4d78000045":
+    {
+        "question": "What is the transmission mechanism of the Hendra virus in humans?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Hendra virus"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d5c97eac11fad33000021":
+    {
+        "question": "What is the cause of Prader-Willi Syndrome?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Prader-Willi Syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cfe1d21930410b1300002a":
+    {
+        "question": "Can capivasertib be used for breast cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "breast cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "capivasertib"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f777d7c4010b4d78000032":
+    {
+        "question": "What is the optimal timing of surgical resection after a neoadjuvant chemoradiotherapy for locally advanced rectal cancer patients?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "locally advanced rectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "neoadjuvant chemoradiotherapy"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "660812b4fdcbea915f000006":
+    {
+        "question": "Is Kagami-Ogata associated with a deletion in chromosome 14",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Kagami-Ogata"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "deletion in chromosome 14"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6614f672fdcbea915f000042":
+    {
+        "question": "Are children affected by multiple sclerosis?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "multiple sclerosis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d4aa3eac11fad33000019":
+    {
+        "question": "What are the current approaches for gene therapy for Phenylketonuria (PKU)?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Phenylketonuria"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65d134bd1930410b13000037":
+    {
+        "question": "What disease can be treated with Trofinetide?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Trofinetide"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f7789dc4010b4d78000034":
+    {
+        "question": "Which is the most reliable liquid biopsy technique after complete resection of  colorectal cancer metastases?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "liquid biopsy technique"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f59e46c4010b4d78000015":
+    {
+        "question": "Where is the tumor of follicular infundibulum usually found?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "tumor of follicular infundibulum"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6616576afdcbea915f000050":
+    {
+        "question": "Mechanisms that explain irritable bowel syndrome.",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "irritable bowel syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d4c2eeac11fad3300001a":
+    {
+        "question": "What is the cause of Rett Syndrome?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Rett Syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    }
+}

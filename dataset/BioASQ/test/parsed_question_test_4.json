@@ -1,0 +1,1758 @@
+{
+    "65cfae831930410b13000015":
+    {
+        "question": "What is the use of P85-Ab?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [
+                "P85-Ab"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662fc44b187cba990d000015":
+    {
+        "question": "What are the indicated prophylaxis treatments for acute cholinergic syndrome secondary to irinotecan?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "acute cholinergic syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "irinotecan"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662cf81b187cba990d000001":
+    {
+        "question": "What is the function of FAM134B (also called JK-1, RETREG1)?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [
+                "FAM134B",
+                "JK-1",
+                "RETREG1"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661688cefdcbea915f000053":
+    {
+        "question": "What cancers are associated with human papilloma virus?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "human papilloma virus"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662fdb1e187cba990d000019":
+    {
+        "question": "What is the role of the transcription factor activator protein 2 (AP-2) alpha (TFAP2A) in tumor formation and metastasis?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "tumor formation",
+                "metastasis"
+            ],
+            "GeneProtein":
+            [
+                "activator protein 2",
+                "TFAP2A"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66300f53187cba990d00001d":
+    {
+        "question": "Which vaccines are safe to be administered for all pregnancies?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "vaccines"
+            ],
+            "Exposure":
+            [
+                "pregnancies"
+            ],
+            "EffectPhenotype":
+            [
+                "safe"
+            ]
+        }
+    },
+    "65d36e761930410b13000044":
+    {
+        "question": "What is the use of lebrikizumab?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "lebrikizumab"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662fc981187cba990d000018":
+    {
+        "question": "Is CT colonography a cost-effective test for colorectal cancer screening?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "CT colonography"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662cf888187cba990d000002":
+    {
+        "question": "is Cryoglobulinemic vasculitis (CV), also known as mixed cryoglobulinemic syndrome (MCS), a systemic vasculitis that affects large blood vessels.",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Cryoglobulinemic vasculitis",
+                "mixed cryoglobulinemic syndrome",
+                "systemic vasculitis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66155e7dfdcbea915f00004c":
+    {
+        "question": "Consequences for the newborn of infection by Zika virus during pregnancy.",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Zika virus infection"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "pregnancy"
+            ],
+            "EffectPhenotype":
+            [
+                "consequences for the newborn"
+            ]
+        }
+    },
+    "66302090187cba990d00002a":
+    {
+        "question": "Which are the key transcription factors known to drive glioma progression and therapy resistance?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "glioma"
+            ],
+            "GeneProtein":
+            [
+                "transcription factors"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "therapy resistance"
+            ]
+        }
+    },
+    "662e29f9187cba990d00000a":
+    {
+        "question": "What are the genotypes of Japanese Encephalitis Virus (JEV)?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Japanese Encephalitis Virus"
+            ],
+            "GeneProtein":
+            [
+                "JEV"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65d373151930410b13000048":
+    {
+        "question": "What medication were tested in the TRICOTEL trial?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "medication"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66214ff0b9f8b89d7e000006":
+    {
+        "question": "What are the most frequent side effects of regorafenib?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "regorafenib"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "side effects"
+            ]
+        }
+    },
+    "662cf8db187cba990d000003":
+    {
+        "question": "Is Periostin a novel biomarker of TH2-driven asthma?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "asthma"
+            ],
+            "GeneProtein":
+            [
+                "Periostin"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "TH2-driven"
+            ]
+        }
+    },
+    "66168a89fdcbea915f000054":
+    {
+        "question": "Burkitt lymphoma and Epstein-Barr virus.",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Burkitt lymphoma"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "Epstein-Barr virus"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "663020de187cba990d00002c":
+    {
+        "question": "What tumor suppressor genes are commonly affected by glioblastoma mutations or deletions?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "glioblastoma"
+            ],
+            "GeneProtein":
+            [
+                "tumor suppressor genes"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6630211d187cba990d00002d":
+    {
+        "question": "Is there an association between specific genotypes and the risk of ASD for Duchenne Muscular Dystrophy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "ASD",
+                "Duchenne Muscular Dystrophy"
+            ],
+            "GeneProtein":
+            [
+                "specific genotypes"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "risk"
+            ]
+        }
+    },
+    "65d144b81930410b13000041":
+    {
+        "question": "Coffee Bean Sign is characteristic to which disease?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "disease_name_placeholder"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "Coffee Bean Sign"
+            ]
+        }
+    },
+    "662fc351187cba990d000014":
+    {
+        "question": "What role does epiregulin and amphiregulin play in the use of EGFR inhibitors for colorectal cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [
+                "epiregulin",
+                "amphiregulin",
+                "EGFR"
+            ],
+            "Drug":
+            [
+                "EGFR inhibitors"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662cfc88187cba990d000008":
+    {
+        "question": "What process does tRNA nucleotidyl transferase 1 (TRNT1)  catalyze?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [
+                "tRNA nucleotidyl transferase 1",
+                "TRNT1"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6614f810fdcbea915f000043":
+    {
+        "question": "What are the causes for heart and lung transplantation in children?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "heart transplantation",
+                "lung transplantation"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662edc6f187cba990d00000c":
+    {
+        "question": "Can enhancer-promoter interactions form independently of genomic distance?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66300d3e187cba990d00001b":
+    {
+        "question": "What is the prevalence of intellectual developmental disorders in Becker Muscular Dystrophy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "intellectual developmental disorders",
+                "Becker Muscular Dystrophy"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cfdf1c1930410b13000028":
+    {
+        "question": "Mutation of which gene was implicated in Disabling pansclerotic morphea?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "pansclerotic morphea"
+            ],
+            "GeneProtein":
+            [
+                "gene"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662fc122187cba990d000012":
+    {
+        "question": "Does physical exercise reduce the risk of recurrence from colorectal cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "physical exercise"
+            ],
+            "EffectPhenotype":
+            [
+                "reduce the risk of recurrence"
+            ]
+        }
+    },
+    "662a4b08b9f8b89d7e00000b":
+    {
+        "question": "Oxysterol is produced by the oxidation of what waxy, fat-like substance made in the liver?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Oxysterol"
+            ],
+            "Exposure":
+            [
+                "waxy, fat-like substance"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65f84c78c4010b4d78000049":
+    {
+        "question": "Is bowel transplantation commonly performed in patients with severe gastrointestinal disease?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "severe gastrointestinal disease"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6630154c187cba990d000021":
+    {
+        "question": "Which chromosome is most commonly affected by loss of heterozygosity in glioblastoma?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "glioblastoma"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "loss of heterozygosity"
+            ]
+        }
+    },
+    "663023f3187cba990d000030":
+    {
+        "question": "What is KineDMD?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65d12a181930410b1300002f":
+    {
+        "question": "Can fluoroquinolones be used for patient with myasthenia gravis?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "myasthenia gravis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "fluoroquinolones"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66099eb9fdcbea915f000026":
+    {
+        "question": "Are BRAF V600E mutation associated to worse prognosis in colorectal cancer patients?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [
+                "BRAF V600E"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "worse prognosis"
+            ]
+        }
+    },
+    "662cfadc187cba990d000006":
+    {
+        "question": "Circular RNAs (circRNAs) are a distinct family of RNAs, how are they derived?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66169f9bfdcbea915f000057":
+    {
+        "question": "Transgender identity and mortality.",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "Transgender identity"
+            ],
+            "EffectPhenotype":
+            [
+                "mortality"
+            ]
+        }
+    },
+    "663016bb187cba990d000023":
+    {
+        "question": "Which genetic alteration is most commonly associated with the classical subtype of glioblastoma?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "glioblastoma"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66302487187cba990d000031":
+    {
+        "question": "What is PUL-2 in Duchenne Muscular Dystrophy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Duchenne Muscular Dystrophy"
+            ],
+            "GeneProtein":
+            [
+                "PUL-2"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cfac201930410b13000013":
+    {
+        "question": "What is the mechanism of action of Mezigdomide?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Mezigdomide"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66099907fdcbea915f000015":
+    {
+        "question": "What is the average median survival for advanced colorectal cancer patients?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "average median survival"
+            ]
+        }
+    },
+    "662cfa24187cba990d000005":
+    {
+        "question": "What is the function of the mTORC1 kinase?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [
+                "mTORC1"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6616a122fdcbea915f000058":
+    {
+        "question": "Has statin use been associated with a higher risk of dementia?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "dementia"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "statin"
+            ]
+        }
+    },
+    "6630254b187cba990d000032":
+    {
+        "question": "Is DNA methylation always associated with gene silencing?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "DNA methylation"
+            ],
+            "EffectPhenotype":
+            [
+                "gene silencing"
+            ]
+        }
+    },
+    "66302174187cba990d00002e":
+    {
+        "question": "Are there any digital biomarkers for Duchenne Muscular Dystrophy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Duchenne Muscular Dystrophy"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cfd2681930410b1300001e":
+    {
+        "question": "How should Insulin icodec be administered?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Insulin icodec"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66099ba9fdcbea915f000022":
+    {
+        "question": "Is FOLFIRI plus Aflibercept a cost-effective treatment in patients with advanced colorectal caner?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "advanced colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "FOLFIRI",
+                "Aflibercept"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662cf96f187cba990d000004":
+    {
+        "question": "Please list some treatment options for bone marrow edema syndrome,",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "bone marrow edema syndrome"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66150639fdcbea915f000047":
+    {
+        "question": "What is the immediate treatment after a sexual assault?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "sexual assault"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6630562c187cba990d000036":
+    {
+        "question": "What is the potential role of the tumor microenvironment and factors like stem cells in contributing to the recurrence of glioblastoma?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "glioblastoma"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "tumor microenvironment",
+                "stem cells"
+            ],
+            "EffectPhenotype":
+            [
+                "recurrence"
+            ]
+        }
+    },
+    "663020d7187cba990d00002b":
+    {
+        "question": "Is there an association between specific genotypes and the risk of ADHD for Duchenne Muscular Dystrophy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "ADHD",
+                "Duchenne Muscular Dystrophy"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65cfd8551930410b13000023":
+    {
+        "question": "Is vemurafenib–cobimetinib promising for craniopharyngioma?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "craniopharyngioma"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "vemurafenib",
+                "cobimetinib"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66214db9b9f8b89d7e000004":
+    {
+        "question": "What is the molecular mechanism by which Bacteroides Fragilis is associated to colorectal cancer development?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [
+                "Bacteroides Fragilis"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662cfbf5187cba990d000007":
+    {
+        "question": "Where in the body would the globus pallidus be found?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66151045fdcbea915f000048":
+    {
+        "question": "What is the approximate prevalence of autoimmune diseases?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "autoimmune diseases"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662ee24a187cba990d00000d":
+    {
+        "question": "What is the role of Isocitrate dehydrogenase (IDH) mutations in glioma?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "glioma"
+            ],
+            "GeneProtein":
+            [
+                "Isocitrate dehydrogenase (IDH)"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66301fcb187cba990d000029":
+    {
+        "question": "Is there an association between specific genotypes and the risk of neurodevelopmental disorders for Becker Muscular Dystrophy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "neurodevelopmental disorders",
+                "Becker Muscular Dystrophy"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "65d375b31930410b1300004b":
+    {
+        "question": "What medication are included in the Juvisync pill?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Juvisync"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66214cc6b9f8b89d7e000003":
+    {
+        "question": "Is fish intake a protective factor against colorectal cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "fish intake"
+            ],
+            "EffectPhenotype":
+            [
+                "protective factor"
+            ]
+        }
+    },
+    "6616b259fdcbea915f00005a":
+    {
+        "question": "What is the exposome?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "exposome"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66156200fdcbea915f00004d":
+    {
+        "question": "What is the gold standard for a diagnosis of narcolepsy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "narcolepsy"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6630390b187cba990d000035":
+    {
+        "question": "Which receptor tyrosine kinase is commonly mutated or amplified in pediatric glioma cases?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "pediatric glioma"
+            ],
+            "GeneProtein":
+            [
+                "receptor tyrosine kinase"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66300c23187cba990d00001a":
+    {
+        "question": "Can procalcitonin be used as a predictor for mortality in paediatric sepsis?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "sepsis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "procalcitonin"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "mortality"
+            ]
+        }
+    },
+    "66214c5db9f8b89d7e000002":
+    {
+        "question": "What is the race with the highest incidence of colorectal cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "race"
+            ],
+            "EffectPhenotype":
+            [
+                "highest incidence"
+            ]
+        }
+    },
+    "662cfd21187cba990d000009":
+    {
+        "question": "LRP6 is a member of what  superfamily of cell-surface receptors?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [
+                "LRP6"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661686e4fdcbea915f000052":
+    {
+        "question": "List of major risks of intrauterine device.",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [
+                "intrauterine device"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66301e04187cba990d000027":
+    {
+        "question": "What are episignatures?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66215690b9f8b89d7e00000a":
+    {
+        "question": "Is chemotherapy an effective treatment for patients with advance colorectal cancer and poor performance status (ECOG/PS >1)",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "chemotherapy"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "poor performance status"
+            ]
+        }
+    },
+    "663027bb187cba990d000033":
+    {
+        "question": "How does Pamrevlumab work?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Pamrevlumab"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662fbec6187cba990d00000f":
+    {
+        "question": "What are the clinical indication for Transarterial Chemoembolization (TACE) in liver metastasis for colorectal cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "liver metastasis",
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Transarterial Chemoembolization (TACE)"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "663014c8187cba990d000020":
+    {
+        "question": "What is Alzheimer's disease?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Alzheimer's disease"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662fbfc4187cba990d000010":
+    {
+        "question": "Is short-course radiation therapy a cost-effective therapy in the neoadjuvant treatment of locally advanced rectal cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "locally advanced rectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "short-course radiation therapy"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66301f5a187cba990d000028":
+    {
+        "question": "Are there any episignatures for Duchenne Muscular Dystrophy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Duchenne Muscular Dystrophy"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6621506cb9f8b89d7e000007":
+    {
+        "question": "What are the minimum molecular determinations necessary for the initial treatment of advanced colorectal cancer in clinical practice?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "advanced colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66301c47187cba990d000025":
+    {
+        "question": "What are the most common issues that need to be addressed in adults with Duchenne Muscular Dystrophy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Duchenne Muscular Dystrophy"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "6621510eb9f8b89d7e000008":
+    {
+        "question": "What histological features are described in colorectal tumors with BRAF mutation?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal tumors"
+            ],
+            "GeneProtein":
+            [
+                "BRAF"
+            ],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "histological features"
+            ]
+        }
+    },
+    "662e44e9187cba990d00000b":
+    {
+        "question": "Is vaccination against all arboviruses indicated for pregnant women?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "arboviruses"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "vaccination"
+            ],
+            "Exposure":
+            [
+                "pregnant women"
+            ],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "662fc4b1187cba990d000016":
+    {
+        "question": "What are the mechanisms of action of regorafenib on tumor cells?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "regorafenib"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "tumor cells"
+            ]
+        }
+    },
+    "661d5fe1eac11fad33000024":
+    {
+        "question": "What are the types of Polycystic Kidney Disease?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "Polycystic Kidney Disease"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66214f52b9f8b89d7e000005":
+    {
+        "question": "Is tumor expression of Topoisomerase I a biomarker of response to irinotecan in colorectal cancer patients therapy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [
+                "Topoisomerase I"
+            ],
+            "Drug":
+            [
+                "irinotecan"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "biomarker of response"
+            ]
+        }
+    },
+    "662f401b187cba990d00000e":
+    {
+        "question": "Is Vitamin D deficiency associated with sepsis mortality?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "sepsis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Vitamin D"
+            ],
+            "Exposure":
+            [
+                "Vitamin D deficiency"
+            ],
+            "EffectPhenotype":
+            [
+                "mortality"
+            ]
+        }
+    },
+    "66214b9cb9f8b89d7e000001":
+    {
+        "question": "Which countries have a higher incidence of colorectal cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66302978187cba990d000034":
+    {
+        "question": "What are the primary and secondary endpoints of Pamrevlumab?",
+        "parsed_question":
+        {
+            "Disease":
+            [],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "Pamrevlumab"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "66099ac8fdcbea915f00001f":
+    {
+        "question": "What are the mechanisms of secondary resistance to anti-EGFR monoclonal antibodies in colorectal cancer treatment?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [
+                "EGFR"
+            ],
+            "Drug":
+            [
+                "anti-EGFR monoclonal antibodies"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "661d19d5eac11fad33000007":
+    {
+        "question": "Can the neonatal Pediatric Sepsis Biomarker Risk Model (nPERSEVERE) accurately predict mortality in neonatal sepsis?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "neonatal sepsis"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "mortality"
+            ]
+        }
+    },
+    "662fc0bc187cba990d000011":
+    {
+        "question": "Can calcium dietary supplementation reduce the risk of colorectal cancer?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal cancer"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "calcium dietary supplementation"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            [
+                "reduce the risk"
+            ]
+        }
+    },
+    "66300ee7187cba990d00001c":
+    {
+        "question": "What is the prevalence of intellectual developmental disorders in Duchenne Muscular Dystrophy?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "intellectual developmental disorders",
+                "Duchenne Muscular Dystrophy"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    },
+    "660999bffdcbea915f00001b":
+    {
+        "question": "Is treatment with acetyl salicylic acid indicated to prevent colorectal adenomas?",
+        "parsed_question":
+        {
+            "Disease":
+            [
+                "colorectal adenomas"
+            ],
+            "GeneProtein":
+            [],
+            "Drug":
+            [
+                "acetyl salicylic acid"
+            ],
+            "Exposure":
+            [],
+            "EffectPhenotype":
+            []
+        }
+    }
+}
