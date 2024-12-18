@@ -1,4 +1,5 @@
 # graph_llm_model(such as G-Retriever: https://arxiv.org/abs/2402.07630): learning to use structural and textual knowledge
+import torch
 
 class GraphLLM(torch.nn.Module):
     def __init__(self, args):

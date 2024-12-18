@@ -1,13 +1,13 @@
+import torch
 
-
-class MLP(nn.Module):
+class MLP(torch.nn.Module):
     def __init__(self, args):
-        super(SummerizerMLP, self).__init__()
-        self.layers = nn.Sequential(
-            nn.Linear(args.feature_dim, args.sum_hidden_dim),
-            nn.ReLU(),
-            nn.Linear(args.sum_hidden_dim, args.sum_output_dim),
-            nn.Sigmoid()
+        super(MLP, self).__init__()
+        self.layers = torch.nn.Sequential(
+            torch.nn.Linear(args.feature_dim, args.sum_hidden_dim),
+            torch.nn.ReLU(),
+            torch.nn.Linear(args.sum_hidden_dim, args.sum_output_dim),
+            torch.nn.Sigmoid()
         )
 
     def forward(self, x):

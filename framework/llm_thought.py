@@ -1,6 +1,6 @@
-# graph_of_thought(MindMap: https://aclanthology.org/2024.acl-long.558/)
+# LLM_thought(such as CoT, GoT, MindMap: https://aclanthology.org/2024.acl-long.558/): let llm generate reasoning strategies with evidence
 
-class GraphThought(object):
+class LLMThought(object):
     def __init__(self, args):
         pass
 

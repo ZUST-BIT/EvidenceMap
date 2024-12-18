@@ -183,48 +183,50 @@ Output: ''' % (query)
             docs.append(tmp)
         return docs
 
-    def kg_evidence_retrieval(self, query_dict, subgraph=True, path=True, path_num=5):
-        kg_evidence = {'subgraph': None, 'path': None}
-        concept_evidence = {} # node_name: definition
-        if subgraph:
-            if query_dict:
-                kg_evidence['subgraph'], node_name_id1 = self.get_subgraph(query_dict)
-                for name, idx in node_name_id1.items():
-                    if idx in self.source_env['concept']['term_db']:
-                        concept_evidence[name] = self.source_env['concept']['term_db'][idx]
-                    else:
-                        concept_evidence[name] = name
-            else:
-                kg_evidence['subgraph'] = []
-        if path:
-            if query_dict:
-                kg_evidence['path'], node_name_id2 = self.get_path(query_dict, max_num=path_num)
-                for name, idx in node_name_id2.items():
-                    if idx in self.source_env['concept']['term_db']:
-                        concept_evidence[name] = self.source_env['concept']['term_db'][idx]
-                    else:
-                        concept_evidence[name] = name
-            else:
-                kg_evidence['path'] = []
-        return kg_evidence, concept_evidence
+    def kg_evidence_retrieval(self, query_dicts, subgraph=True, path=True, path_num=5):
+        kg_evidence_batch = [] # list of dicts
+        for item in query_dicts:
+            query = json.loads(item)
+            tmp = {'subgraph': [], 'path': [], 'concept': {}}
+            if subgraph:
+                if query:
+                    tmp['subgraph'], node_name_id1 = self.get_subgraph(query)
+                    for name, idx in node_name_id1.items():
+                        if idx in self.source_env['concept']['term_db']:
+                            tmp['concept'][name] = self.source_env['concept']['term_db'][idx]
+                        else:
+                            tmp['concept'][name] = name                
+            if path:
+                if query:
+                    tmp['path'], node_name_id2 = self.get_path(query, max_num=path_num)
+                    for name, idx in node_name_id2.items():
+                        if idx in self.source_env['concept']['term_db']:
+                            tmp['concept'][name] = self.source_env['concept']['term_db'][idx]
+                        else:
+                            tmp['concept'][name] = name
+            kg_evidence_batch.append(tmp)
+        return kg_evidence_batch
 
-    def paper_evidence_retrieval(self, query, paper_num=5):
-        paper_evidence = self.similarity_retrieval(query, top_k=paper_num)
-        print("Found " + str(len(paper_evidence)) + " papers.")
-        return paper_evidence
+    def paper_evidence_retrieval(self, queries, paper_num=5):
+        paper_evidence_batch = [] # list of lists
+        for query in queries:
+            paper_evidence = self.similarity_retrieval(query, top_k=paper_num)
+            print("Found " + str(len(paper_evidence)) + " papers.")
+            paper_evidence_batch.append(paper_evidence)
+        return paper_evidence_batch
 
-    def evidence_process(self, query_dict, query, args):
-        evidence = {}
+    def evidence_process(self, query_dicts, queries, args):
+        evidence_batch = []
         if 'kg' in self.source_map:
-            kg_evidence, concept_evidence = self.kg_evidence_retrieval(query_dict, subgraph=True, path=True, path_num=args.path_num)
-            evidence['subgraph'] = kg_evidence['subgraph'] # list of triples
-            evidence['path'] = kg_evidence['path'] # list of list of triples
-            evidence['concept'] = concept_evidence # dict of name: definition
+            evidence_batch = self.kg_evidence_retrieval(query_dicts, subgraph=True, path=True, path_num=args.path_num)
+
         if 'paper' in self.source_map:
             if self.source_env['paper']['vec_db'].count() == 0:
                 paper_list = self.get_paper_from_db({})
                 self.index_paper(paper_list)
-            paper_evidence = self.paper_evidence_retrieval(query, paper_num=args.paper_num)
-            evidence['paper'] = paper_evidence
-        return evidence
+            paper_evidence_batch = self.paper_evidence_retrieval(queries, paper_num=args.paper_num)
+            for i in range(len(evidence_batch)):
+                evidence_batch[i]['paper'] = paper_evidence_batch[i]
+
+        return evidence_batch
 
