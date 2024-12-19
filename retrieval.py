@@ -63,7 +63,7 @@ Output: ''' % (query)
         return output
     
     def get_subgraph(self, query_dict, max_num=50):
-        print("EvidenceMap: Retrieving subgraph...")
+        # print("EvidenceMap: Retrieving subgraph...")
         node_name_id = {} # node_name: node_id
         subgraph_all = [] # list of triples
         for ent_type, ents in query_dict.items():
@@ -88,7 +88,7 @@ Output: ''' % (query)
         return subgraph_all, node_name_id
     
     def get_path(self, query_dict, max_depth=10, max_num=1):
-        print("EvidenceMap: Retrieving paths...")
+        # print("EvidenceMap: Retrieving paths...")
         node_name_id = {} # node_name: node_id
         path_all = [] # list of tuples
         # inner paths between any two nodes
@@ -172,7 +172,7 @@ Output: ''' % (query)
             print('Added ' + str(len(doc_b)) + ' document embeddings')
 
     def similarity_retrieval(self, query, top_k=1):
-        print('EvidenceMap: Retrieving paper...')
+        # print('EvidenceMap: Retrieving paper...')
         res = self.source_env['paper']['vec_db'].query(query_texts=[query], n_results=top_k)
         docs = []
         for i in range(top_k):

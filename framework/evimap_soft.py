@@ -48,34 +48,35 @@ class EviMapSoft(torch.nn.Module):
 
     def forward(self, questions, answers, parsed_questions, llm_evidences):
         questions_token = self.tokenizer(questions, add_special_tokens=False)
-
+        answers_token = self.tokenizer(answers, add_special_tokens=False)
+        print("Retrieving knowledge...")
         evidence_text = self.retriever.evidence_process(parsed_questions, questions, self.args)
+        print("Summarizing evidence...")
         evidence_sum_emb = self.module_list[0](questions, evidence_text, llm_evidences)
+        print("Analyzing evidence...")
         global_evi_emb, local_evi_emb = self.module_list[1](evidence_sum_emb) # tensor
-        pdb.set_trace()
 
         eos_tokens = self.tokenizer(EOS, add_special_tokens=False)
         eos_user_tokens = self.tokenizer(EOS_USER, add_special_tokens=False)
         bos_embeds = self.word_embedding(self.tokenizer(BOS, add_special_tokens=False, return_tensors='pt').input_ids[0])
         pad_embeds = self.word_embedding(torch.tensor(self.tokenizer.pad_token_id)).unsqueeze(0)
 
-        batch_size = len(samples['id'])
         batch_inputs_embeds = []
         batch_attention_mask = []
         batch_label_input_ids = []
 
-        for i in range(batch_size):
-            label_input_ids = answers.input_ids[i][:self.max_new_tokens] + eos_tokens.input_ids
+        for i in range(self.args.batch_size):
+            label_input_ids = answers_token.input_ids[i][:self.max_new_tokens] + eos_tokens.input_ids
             input_ids = questions_token.input_ids[i] + eos_user_tokens.input_ids + label_input_ids
-            inputs_embeds = self.word_embedding(torch.tensor(questions_token.input_ids[i]).to(self.model.device))
-            inputs_embeds = torch.cat([bos_embeds, graph_embeds[i].unsqueeze(0), inputs_embeds], dim=0)
+            inputs_embeds = self.word_embedding(torch.tensor(input_ids).to(self.model.device))
+            inputs_embeds = torch.cat([bos_embeds, global_evi_emb[i].unsqueeze(0), inputs_embeds], dim=0)
             batch_inputs_embeds.append(inputs_embeds)
             batch_attention_mask.append([1] * inputs_embeds.shape[0])
             label_input_ids = [IGNORE_INDEX] * (inputs_embeds.shape[0]-len(label_input_ids)) + label_input_ids
             batch_label_input_ids.append(label_input_ids)
 
         max_length = max([x.shape[0] for x in batch_inputs_embeds])
-        for i in range(batch_size):
+        for i in range(self.args.batch_size):
             pad_length = max_length - batch_inputs_embeds[i].shape[0]
             batch_inputs_embeds[i] = torch.cat([pad_embeds.repeat(pad_length, 1), batch_inputs_embeds[i]])
             batch_attention_mask[i] = [0] * pad_length + batch_attention_mask[i]
@@ -85,6 +86,8 @@ class EviMapSoft(torch.nn.Module):
         attention_mask = torch.tensor(batch_attention_mask).to(self.model.device)
         label_input_ids = torch.tensor(batch_label_input_ids).to(self.model.device)
 
+        pdb.set_trace()
+        print("Generating and calculating loss...")
         outputs = self.model(
             inputs_embeds=inputs_embeds,
             attention_mask=attention_mask,
@@ -147,9 +150,9 @@ class EvidenceAnalysis(torch.nn.Module):
         ).to(device)
 
         self.projector = torch.nn.Sequential(
-            torch.nn.Linear(args.gnn_hidden_dim, 2048),
+            torch.nn.Linear(args.gnn_hidden_dim, args.projector_hidden_dim),
             torch.nn.Sigmoid(),
-            torch.nn.Linear(2048, 4096),
+            torch.nn.Linear(args.projector_hidden_dim, args.projector_output_dim),
         ).to(device)
 
         self.global_node = torch.nn.Parameter(torch.randn(args.sum_output_dim)).to(self.device)
@@ -157,8 +160,9 @@ class EvidenceAnalysis(torch.nn.Module):
 
     def build_graphs(self, samples): 
         # wait to build graph
-        node_features_batch = samples # batch_size * evidence_num * input_dim
-        node_ids = list(range(samples.shape[1]))
+        global_node_batch = self.global_node.repeat(samples.shape[0],1,1)
+        node_features_batch = torch.cat([samples, global_node_batch], dim=1)  # batch_size * (evidence_num+1) * input_dim
+        node_ids = list(range(node_features_batch.shape[1]))
         tmp = list(product(node_ids, node_ids))
         full_connect = [item for item in tmp if item[0] != item[1]]
         edge_index = [[item[0] for item in full_connect], [item[1] for item in full_connect]]
@@ -173,18 +177,16 @@ class EvidenceAnalysis(torch.nn.Module):
         for graph in graphs:
             n_embed = self.graph_encoder(graph.x, graph.edge_index)
             n_embeds.append(n_embed)
-        n_embeds = torch.stack(n_embeds)
-        pdb.set_trace()
-        # mean pooling for global evidence embedding
-        g_embeds = scatter(n_embeds, torch.zeros(n_embeds.shape[1], dtype=torch.int64), dim=1, reduce='mean')
-
-        return g_embeds
+        graph_embeds = torch.stack(n_embeds)
+        return graph_embeds
 
     def forward(self, samples):
         graph_inputs = self.build_graphs(samples)
         graph_embeds = self.encode_graphs(graph_inputs)
         graph_embeds = self.projector(graph_embeds)
-        return graph_embeds
+        global_embed = graph_embeds[:, -1, :]
+        local_embeds = graph_embeds[:, :-1, :]
+        return global_embed, local_embeds
 
 
 class EvidenceSummary(torch.nn.Module):

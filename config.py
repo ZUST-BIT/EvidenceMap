@@ -49,5 +49,7 @@ def set_argument():
     parser.add_argument("--gnn_hidden_dim", type=int, default=1024)
     parser.add_argument("--gnn_num_heads", type=int, default=4)
     parser.add_argument("--gnn_dropout", type=float, default=0.0)
+    parser.add_argument("--projector_hidden_dim", type=int, default=1024)
+    parser.add_argument("--projector_output_dim", type=int, default=2048) # depends on LLM's embedding dim
     args = parser.parse_args()
     return args
