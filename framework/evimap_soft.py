@@ -86,7 +86,6 @@ class EviMapSoft(torch.nn.Module):
         attention_mask = torch.tensor(batch_attention_mask).to(self.model.device)
         label_input_ids = torch.tensor(batch_label_input_ids).to(self.model.device)
 
-        pdb.set_trace()
         print("Generating and calculating loss...")
         outputs = self.model(
             inputs_embeds=inputs_embeds,

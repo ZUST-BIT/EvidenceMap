@@ -180,7 +180,7 @@ def main(args):
     progress_bar = tqdm(range(num_training_steps))
 
     for epoch in range(args.epochs):
-        epoch_loss, batch_loss = 0., 0.
+        epoch_loss, train_loss = 0., 0.
         model.train()
         print("epoch:{}".format(epoch))
         for i, batch in enumerate(train_loader):
@@ -195,7 +195,7 @@ def main(args):
             optimizer.zero_grad()
             loss.backward()
             optimizer.step()
-            epoch_loss, batch_loss = epoch_loss + loss.item(), batch_loss + loss.item()
+            epoch_loss, train_loss = epoch_loss + loss.item(), train_loss + loss.item()
 
             if (i + 1) % args.grad_steps == 0:
                 lr = optimizer.param_groups[0]["lr"]
@@ -208,7 +208,8 @@ def main(args):
         print(f"Epoch: {epoch}|{args.epochs}: Train Loss (Epoch Mean): {epoch_loss / len(train_loader)}")
         wandb.log({'Train Loss (Epoch Mean)': epoch_loss / len(train_loader)})
 
-    # Evaluation
+        # Evaluation
+        
 
 
 if __name__ == "__main__":
