@@ -11,6 +11,8 @@ import numpy as np
 from tqdm import tqdm
 from framework import framework_selector
 from config import set_argument
+from utils import adjust_learning_rate
+import pdb
 
 def data_preprocess(dataset_dir, dataset_name):
     if dataset_name == 'bioasq':
@@ -191,9 +193,11 @@ def main(args):
             llm_evidences = batch[3]
             loss = model(questions, answers, parsed_questions, llm_evidences)
             print("current batch training loss:{}".format(loss))
-            clip_grad_norm_(optimizer.param_groups[0]['params'], 0.1)
             optimizer.zero_grad()
             loss.backward()
+            # clip_grad_norm_(optimizer.param_groups[0]['params'], 0.1)
+            if (i + 1) % args.grad_steps == 0:
+                adjust_learning_rate(optimizer.param_groups[0], args.lr, i / len(train_loader) + epoch, args.warmup_epochs, args.epochs)
             optimizer.step()
             epoch_loss, train_loss = epoch_loss + loss.item(), train_loss + loss.item()
 
@@ -209,7 +213,7 @@ def main(args):
         wandb.log({'Train Loss (Epoch Mean)': epoch_loss / len(train_loader)})
 
         # Evaluation
-        
+
 
 
 if __name__ == "__main__":

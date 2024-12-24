@@ -64,7 +64,7 @@ class GCN(torch.nn.Module):
 
 
 class GAT(torch.nn.Module):
-    def __init__(self, in_channels, hidden_channels, out_channels, num_layers, dropout, num_heads=4):
+    def __init__(self, in_channels, hidden_channels, out_channels, num_layers, dropout, num_heads=3):
         super(GAT, self).__init__()
         self.convs = torch.nn.ModuleList()
         self.convs.append(GATConv(in_channels, hidden_channels, heads=num_heads, concat=False))
@@ -82,14 +82,14 @@ class GAT(torch.nn.Module):
         for bn in self.bns:
             bn.reset_parameters()
 
-    def forward(self, x, edge_index, edge_attr):
+    def forward(self, x, edge_index):
         for i, conv in enumerate(self.convs[:-1]):
-            x = conv(x, edge_index=edge_index, edge_attr=edge_attr)
+            x = conv(x, edge_index=edge_index)
             x = self.bns[i](x)
             x = F.relu(x)
             x = F.dropout(x, p=self.dropout, training=self.training)
-        x = self.convs[-1](x,edge_index=edge_index, edge_attr=edge_attr)
-        return x, edge_attr
+        x = self.convs[-1](x,edge_index=edge_index)
+        return x
 
 load_gnn_model = {
     'gcn': GCN,

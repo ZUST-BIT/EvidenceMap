@@ -4,6 +4,7 @@ from transformers import AutoTokenizer, AutoModelForCausalLM
 import torch
 from tqdm import tqdm
 import os
+import math
 from prompt import question_parsing_prompt, llm_sum_prompt
 
 def openai_inference(sys_input, user_input):
@@ -121,6 +122,17 @@ def process_llm_evidence(input_file, output_file):
                     json.dump(llm_self_evidence, f)
     with open(output_file, 'w') as f:
         json.dump(llm_self_evidence, f)
+
+
+def adjust_learning_rate(param_group, LR, epoch, warmup_epochs, num_epochs):
+    """Decay the learning rate with half-cycle cosine after warmup"""
+    min_lr = 5e-6
+    if epoch < warmup_epochs:
+        lr = LR * epoch / warmup_epochs
+    else:
+        lr = min_lr + (LR - min_lr) * 0.5 * (1.0 + math.cos(math.pi * (epoch - warmup_epochs) / (num_epochs - warmup_epochs)))
+    param_group["lr"] = lr
+    return lr
 
 
 if __name__ == '__main__':

@@ -1,13 +1,12 @@
 import torch
 
 class MLP(torch.nn.Module):
-    def __init__(self, args):
+    def __init__(self, input_dim, hidden_dim, output_dim):
         super(MLP, self).__init__()
         self.layers = torch.nn.Sequential(
-            torch.nn.Linear(args.feature_dim, args.sum_hidden_dim),
+            torch.nn.Linear(input_dim, hidden_dim),
             torch.nn.ReLU(),
-            torch.nn.Linear(args.sum_hidden_dim, args.sum_output_dim),
-            torch.nn.Sigmoid()
+            torch.nn.Linear(hidden_dim, output_dim),
         )
 
     def forward(self, x):
