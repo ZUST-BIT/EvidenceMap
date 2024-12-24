@@ -1,7 +1,6 @@
 # EvidenceMap: progressive and implicit knowledge representation with embeddings, follows retrieve-summary-analysis-reasoning paradigm
 import json
 import torch
-from torch_scatter import scatter
 from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
 from itertools import product
@@ -81,9 +80,9 @@ class EviMapSoft(torch.nn.Module):
             batch_attention_mask[i] = [0] * pad_length + batch_attention_mask[i]
             batch_label_input_ids[i] = [IGNORE_INDEX] * pad_length + batch_label_input_ids[i]
 
-        inputs_embeds = torch.stack(batch_inputs_embeds, dim=0)
-        attention_mask = torch.tensor(batch_attention_mask)
-        label_input_ids = torch.tensor(batch_label_input_ids)
+        inputs_embeds = torch.stack(batch_inputs_embeds, dim=0).to(self.model.device)
+        attention_mask = torch.tensor(batch_attention_mask).to(self.model.device)
+        label_input_ids = torch.tensor(batch_label_input_ids).to(self.model.device)
 
         print("Generating and calculating loss...")
         outputs = self.model(
@@ -168,7 +167,7 @@ class EvidenceAnalysis(torch.nn.Module):
     def encode_graphs(self, graphs):
         n_embeds = []
         for graph in graphs:
-            n_embed = self.graph_encoder(graph.x, graph.edge_index)
+            n_embed = self.graph_encoder(graph.x.to(self.device), graph.edge_index.to(self.device))
             n_embeds.append(n_embed)
         graph_embeds = torch.stack(n_embeds)
         return graph_embeds
@@ -196,7 +195,7 @@ class EvidenceAnalysis(torch.nn.Module):
             global_embed = graph_embeds[:, -1, :].unsqueeze(1)
             local_embeds = graph_embeds[:, :-1, :]
         elif agg_mode == 'mean':
-            global_embed = scatter(graph_embeds, torch.zeros(samples.shape[1], dtype=int), dim=1, reduce='mean')
+            global_embed = torch.mean(graph_embeds, 1, keepdim=True) 
             local_embeds = graph_embeds
         return global_embed, local_embeds
 
