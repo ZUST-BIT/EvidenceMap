@@ -94,43 +94,45 @@ class EviMapSoft(torch.nn.Module):
         loss = outputs.loss
         return loss
 
-    def inference(self, samples, graph_embeds):
-        questions = self.tokenizer(samples["question"], add_special_tokens=False)
+    def inference(self, questions, parsed_questions, llm_evidences):
+        questions_token = self.tokenizer(questions, add_special_tokens=False)
+        evidence_text = self.retriever.evidence_process(parsed_questions, questions, self.args)
+        evidence_sum_emb, evidence_sum_leap_emb = self.module_list[0](questions, evidence_text, llm_evidences)
+        global_evi_emb, local_evi_emb = self.module_list[1](evidence_sum_emb)
 
         eos_user_tokens = self.tokenizer(EOS_USER, add_special_tokens=False)
-        bos_embeds = self.word_embedding(self.tokenizer(BOS, add_special_tokens=False, return_tensors='pt').input_ids[0])
-        pad_embeds = self.word_embedding(torch.tensor(self.tokenizer.pad_token_id)).unsqueeze(0)
+        bos_embeds = self.word_embedding(self.tokenizer(BOS, add_special_tokens=False, return_tensors='pt').input_ids[0].to(self.model.device))
+        pad_embeds = self.word_embedding(torch.tensor(self.tokenizer.pad_token_id).to(self.model.device)).unsqueeze(0)
 
-        batch_size = len(samples['id'])
         batch_inputs_embeds = []
         batch_attention_mask = []
 
+        batch_size = len(questions_token.input_ids) # for number of samples less than a batch
         for i in range(batch_size):
-            input_ids = questions.input_ids[i] + eos_user_tokens.input_ids
-            inputs_embeds = self.word_embedding(torch.tensor(input_ids))
-            inputs_embeds = torch.cat([bos_embeds, graph_embeds[i], inputs_embeds], dim=0)
+            input_ids = questions_token.input_ids[i] + eos_user_tokens.input_ids
+            inputs_embeds = self.word_embedding(torch.tensor(input_ids).to(self.model.device))
+            inputs_embeds = torch.cat([bos_embeds, global_evi_emb[i], local_evi_emb[i], evidence_sum_leap_emb[i], inputs_embeds], dim=0)
             batch_inputs_embeds.append(inputs_embeds)
             batch_attention_mask.append([1] * inputs_embeds.shape[0])
 
         max_length = max([x.shape[0] for x in batch_inputs_embeds])
         for i in range(batch_size):
-            pad_length = max_length-batch_inputs_embeds[i].shape[0]
+            pad_length = max_length - batch_inputs_embeds[i].shape[0]
             batch_inputs_embeds[i] = torch.cat([pad_embeds.repeat(pad_length, 1), batch_inputs_embeds[i]])
-            batch_attention_mask[i] = [0]*pad_length+batch_attention_mask[i]
+            batch_attention_mask[i] = [0] * pad_length + batch_attention_mask[i]
 
-        inputs_embeds = torch.stack(batch_inputs_embeds, dim=0)
-        attention_mask = torch.tensor(batch_attention_mask)
+        inputs_embeds = torch.stack(batch_inputs_embeds, dim=0).to(self.model.device)
+        attention_mask = torch.tensor(batch_attention_mask).to(self.model.device)
 
         outputs = self.model.generate(
             inputs_embeds=inputs_embeds,
             max_new_tokens=self.max_new_tokens,
             attention_mask=attention_mask,
-            # do_sample=True,
+            pad_token_id=self.tokenizer.eos_token_id,
             use_cache=True
         )
-
         pred = self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
-        return {'id': samples['id'], 'question': samples['question'], 'pred': pred, 'answer': samples['answer']}
+        return pred
 
     def print_trainable_params(self):
         trainable_params = 0
@@ -289,6 +291,12 @@ class EvidenceSummary(torch.nn.Module):
         return evidence_embs
 
     def forward(self, questions, samples, llm_evis):
+        neighbor_num, path_num, article_num = 0, 0, 0
+        for item in samples:
+            neighbor_num += len(item['subgraph'])
+            path_num += len(item['path'])
+            article_num += len(item['paper'])
+        print("Found {} near entities, {} paths, {} articles for {} questions.".format(neighbor_num, path_num, article_num, self.args.batch_size))
         modality_map = {}
         batch_sample_emb = []
         for question, sample, llm_evi in zip(questions, samples, llm_evis):

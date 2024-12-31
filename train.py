@@ -2,6 +2,8 @@ import os
 import wandb
 import random
 import json
+import openai
+import evaluate
 import torch
 import torch.optim as optim
 from torch.utils.data import Dataset
@@ -14,6 +16,8 @@ from config import set_argument
 from utils import adjust_learning_rate
 import pdb
 
+os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
 def data_preprocess(dataset_dir, dataset_name):
     if dataset_name == 'bioasq':
         train_data_file = dataset_dir + '/BioASQ/training.json'
@@ -22,13 +26,13 @@ def data_preprocess(dataset_dir, dataset_name):
             train_dataset = json.load(f)
             item_list = train_dataset['questions']
             questions_train = [[item['id'], item['body']] for item in item_list]
-            answers_train = [item['ideal_answer'][0] for item in item_list]
+            answers_train = [item['ideal_answer'][0] for item in item_list] # get the first ideal answer
             # qtype_train = [item['type'] for item in item_list]
         with open(test_data_file, 'r', encoding='utf-8') as f:
             test_dataset = json.load(f)
             item_list = test_dataset['questions']
             questions_test = [[item['id'], item['body']] for item in item_list]
-            answers_test = [item['ideal_answer'][0] for item in item_list]
+            answers_test = [item['ideal_answer'][0] for item in item_list] # get the first ideal answer
             # qtype_test = [item['type'] for item in item_list]
         return questions_train, answers_train, questions_test, answers_test
     else:
@@ -87,11 +91,14 @@ def bert_score_fn(candidate, reference):
 
 def llm_score_fn(question, candidate, reference, api_key):
     sys_input = '''You are an AI assistant tasked with evaluating the quality of generated answers in terms of accuracy and fluency.'''
-    user_input = '''The question is <question>. The generated answer is <answer_gen>. The reference answer is <answer_ref>.
-Please score the generated answer based on accuracy and fluency separately. 
-The scores should be between 1 and 10, where 1 indicates the generated answer is completely incorrect or unable to understand, 10 means the generated answer is very precise and fluent
-Your output should be a dictionary such as {"accuracy": 6, "fluency": 9}.
-Output: '''
+    user_input = '''Please score the generated answer based on accuracy and fluency separately, comparing with the reference answer. 
+The scores should be a float number between 0.0 and 1.0, where 0.0 indicates the generated answer is completely incorrect or unable to understand, 1.0 means the generated answer is totally precise and fluent.
+Your output should be a dictionary such as {"accuracy": 0.8, "fluency": 0.9}, without any additional information.
+The question, generated answer, and reference answer are give as below:
+Question: <question>
+Generated answer: <answer_gen>
+Reference answer: <answer_ref>
+Your output: '''
     openai.api_key = api_key
     user_input = user_input.replace('<question>', question).replace('<answer_gen>', candidate).replace('<answer_ref>', reference)
     res = openai.chat.completions.create(
@@ -125,16 +132,20 @@ class QAData(Dataset):
         return self.question[index], self.answer[index], self.query_dict[index], self.llm_evidence[index]
     
 def evaluate_fn(test_loader, model, args):
+    print('Evaluating on test data...')
     response_list = []
     answer_list = []
     llm_acc_list = []
     llm_flu_list = []
+    progress_bar = tqdm(range(len(test_loader)))
     for test_questions, test_answers, test_parsed_q, test_llm_evi in test_loader:
         model.eval()
-        _, response = model(test_questions, test_answers, test_parsed_q, test_llm_evi, mode='test')
-        response_list.append(response)
-        answer_list.append(test_answers[0])
-        llm_score = llm_score_fn(question[0], response, test_answers[0], args.api_key)
+        response = model.inference(test_questions, test_parsed_q, test_llm_evi)
+        response_list.extend(response)
+        answer_list.extend(test_answers)
+        progress_bar.update(1)
+    for question, answer, response in zip(test_questions, answer_list, response_list):
+        llm_score = llm_score_fn(question, response, answer, args.api_key)
         if llm_score:
             llm_acc_list.append(llm_score[0])
             llm_flu_list.append(llm_score[1])
@@ -178,13 +189,11 @@ def main(args):
     optimizer = optim.AdamW(params, lr=args.lr)
     model.to(device)
 
-    num_training_steps = args.epochs * len(train_loader)
-    progress_bar = tqdm(range(num_training_steps))
-
     for epoch in range(args.epochs):
         epoch_loss, train_loss = 0., 0.
         model.train()
         print("epoch:{}".format(epoch))
+        progress_bar = tqdm(range(len(train_loader)))
         for i, batch in enumerate(train_loader):
             print("batch:{}/{}, epoch:{}".format(i, len(train_loader)-1, epoch))
             questions = batch[0]
@@ -209,10 +218,13 @@ def main(args):
 
             progress_bar.update(1)
 
+            evaluate_fn(test_loader, model, args)
+
         print(f"Epoch: {epoch}|{args.epochs}: Train Loss (Epoch Mean): {epoch_loss / len(train_loader)}")
         wandb.log({'Train Loss (Epoch Mean)': epoch_loss / len(train_loader)})
 
         # Evaluation
+        evaluate_fn(test_loader, model, args)
 
 
 

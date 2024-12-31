@@ -57,31 +57,9 @@ Title and Abstract:
 
 Summary: '''}
 
-# evidence support prompt
-evidence_useful_prompt={
-    'sys_input': '''You are an AI assistant that helps a human analyst to discover whether a piece of evidence is helpful to answer a question.''',
-    'user_input': '''Goal: Decide whether an evidence in a dictionary is helpful to the question according to the following requirements:
-1. Label each evidence in the dictionary with 'yes' or 'no', where 'yes' means the evidence is helpful to answer the question, 'no' means the evidence is not helpful.
-2. Output the label of each piece of evidence as a list, including the evidence ID and the label, such as: ["evidence1", "yes"].
-3. Output each list in a separate line, without any additional information, such as: ["evidence1", "yes"]\\n["evidence2", "no"]...
-
-Evidence dictionary: 
-<evidence_dict>
-
-Question: 
-<question>
-
-Output:
-'''}
-
-# evidence logic prompt
-evidence_logic_prompt={
+evidence_analysis_prompt={
     'sys_input': '''You are an AI assistant that helps a human analyst to discover logical relationships between any two pieces of evidence for answering a question.''',
-    'user_input': '''Goal: Provide logical relationships between any two pieces of evidence from an evidence dictionary, according to the following requirements: 
-1. Please determine whether there is a logical relationship between any two pieces of evidence. You can refer to the question related to the evidence.
-2. A logical relationship is in one of: consistency, contradiction, condition, causality, etc.
-3. If there is a logical relationship between two pieces of evidence, output the relationship as a triplet list including evidence IDs and their relationship, such as: ["evidence1", "consistency", "evidence2"].
-4. Output each triplet on a separate line, without any additional information, such as: ["evidence1", "contradiction", "evidence2"]\\n["evidence2", "causality", "evidence4"]...
+    'user_input': '''Goal: Analysis logical relationships between any two pieces of evidence.
 
 Evidence dictionary: 
 <evidence_dict>
@@ -89,34 +67,19 @@ Evidence dictionary:
 Question: 
 <question>
 
-Output: 
-'''}
+Output: '''
+}
 
-# integrated answering prompt with tokens
-integrated_answering_prompt_token={
-    'sys_input': '''You are an AI assistant that helps a human analyst to answer a question using the provided evidence and the relationships among the pieces of evidence''',
-    'user_input': '''Goal: Provide a concise answer to the question according to a dictionary of evidence that supports the question and the logical relationships between any two pieces of evidence. You should reasoning over the logical relationships to obtain the final answer.
-Note: Evidence are given as a dictionary with IDs as keys and content as values. Logical relationships between evidence are given as triplets in a list format per line such as: ['evidence1', "against", "evidence2"]\\n["evidence2", "compliment", "evidence4"]... You are going to answer a <question_type> question.
-
-Evidence dictionary: 
-<evidence_dict>
-
-Evidence relationships:
-<evidence_rel>
-
-Question: <question>
-
-Answer: '''}
 
 # integrated answering prompt
-integrated_answering_prompt_emb={
-    'sys_input': '''You are an AI assistant that helps a human analyst to answer a question''',
+integrated_answering_prompt={
+    'sys_input': '''You are an AI assistant that helps a human analyst to answer a question with the give evidence and the logical analysis among those evidences.''',
     'user_input': '''Question: <question>
     
-Local Evidence:
-<local_evi_emb>
+Evidence dictionary: 
+<evidence_dict>
 
-Global Evidence: 
-<global_evi_emb>
+Evidence analysis: 
+<evidence_analysis>
 
 Answer: '''}

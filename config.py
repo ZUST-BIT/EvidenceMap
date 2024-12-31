@@ -33,8 +33,8 @@ def set_argument():
     parser.add_argument('--api_key', type=str, default='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')
     parser.add_argument('--emb_model', type=str, default='all-MiniLM-L6-v2')
     parser.add_argument('--llm_type', type=str, default='local')
-    parser.add_argument('--llm_model', type=str, default='../models/llama-3.2-3b-instruct') # replace with your own path
-    parser.add_argument('--slm_model', type=str, default='../models/bert-base-uncased') # replace with your own path
+    parser.add_argument('--llm_model', type=str, default='../../models/llama-3.2-1b-instruct') # replace with your own path
+    parser.add_argument('--slm_model', type=str, default='../../models/bert-base-uncased') # replace with your own path
     parser.add_argument("--llm_num_virtual_tokens", type=int, default=10)
     parser.add_argument("--output_dir", type=str, default='output')
     parser.add_argument('--max_txt_len', type=int, default=512)
@@ -50,6 +50,6 @@ def set_argument():
     parser.add_argument("--gnn_num_heads", type=int, default=4)
     parser.add_argument("--gnn_dropout", type=float, default=0.0)
     parser.add_argument("--projector_hidden_dim", type=int, default=1024)
-    parser.add_argument("--projector_output_dim", type=int, default=3072) # depends on LLM's embedding dim
+    parser.add_argument("--projector_output_dim", type=int, default=2048) # depends on LLM's embedding dim
     args = parser.parse_args()
     return args

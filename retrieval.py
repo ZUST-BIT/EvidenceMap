@@ -84,7 +84,7 @@ Output: ''' % (query)
                     subgraph_all.append(triple)
                     node_name_id[name_s] = t['triple'].start_node.get('id')
                     node_name_id[name_e] = t['triple'].end_node.get('id')
-        print("Found " + str(len(subgraph_all)) + " neighbor nodes.")
+        # print("Found " + str(len(subgraph_all)) + " neighbor nodes.")
         return subgraph_all, node_name_id
     
     def get_path(self, query_dict, max_depth=10, max_num=1):
@@ -137,7 +137,7 @@ Output: ''' % (query)
                         node_name_id[name_e] = rel.end_node.get('id')
                     if triples not in path_all:
                         path_all.append(triples)
-        print("Found " + str(len(path_all)) + " paths.")
+        # print("Found " + str(len(path_all)) + " paths.")
         return path_all, node_name_id
 
     def get_paper_from_db(self, condition, db_name="admin", col_name="pubmed_papers"):
@@ -211,7 +211,7 @@ Output: ''' % (query)
         paper_evidence_batch = [] # list of lists
         for query in queries:
             paper_evidence = self.similarity_retrieval(query, top_k=paper_num)
-            print("Found " + str(len(paper_evidence)) + " papers.")
+            # print("Found " + str(len(paper_evidence)) + " papers.")
             paper_evidence_batch.append(paper_evidence)
         return paper_evidence_batch
 
