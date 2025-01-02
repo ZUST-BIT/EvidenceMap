@@ -1,13 +1,14 @@
 # EvidenceMap: progressive and implicit knowledge representation with embeddings, follows retrieve-summary-analysis-reasoning paradigm
 import json
 import torch
+import random
 from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
 from itertools import product
 from retrieval import EvidenceRetrieval
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from network.gnn import load_gnn_model
-from network.mlp import MLP
+from network.mlp import MLP, Classifier
 import pdb
 
 BOS = '<s>[INST]'
@@ -44,13 +45,13 @@ class EviMapSoft(torch.nn.Module):
         analyzer = EvidenceAnalysis(self.args, device)
         self.module_list = torch.nn.ModuleList([summarizer, analyzer])
 
-    def forward(self, questions, answers, parsed_questions, llm_evidences):
+    def forward(self, questions, answers, parsed_questions, llm_evidences, questions_neg):
         questions_token = self.tokenizer(questions, add_special_tokens=False)
         answers_token = self.tokenizer(answers, add_special_tokens=False)
         print("Retrieving knowledge...")
         evidence_text = self.retriever.evidence_process(parsed_questions, questions, self.args)
         print("Summarizing evidence...")
-        evidence_sum_emb, evidence_sum_leap_emb = self.module_list[0](questions, evidence_text, llm_evidences) # batch_num * evidence_num * embedding_dim
+        evidence_sum_emb, evidence_sum_leap_emb, sup_loss = self.module_list[0](questions, evidence_text, llm_evidences, questions_neg) # batch_num * evidence_num * embedding_dim
         print("Analyzing evidence...")
         global_evi_emb, local_evi_emb = self.module_list[1](evidence_sum_emb) # tensor
 
@@ -91,13 +92,15 @@ class EviMapSoft(torch.nn.Module):
             return_dict=True,
             labels=label_input_ids,
         )
-        loss = outputs.loss
+        gen_loss = outputs.loss
+
+        loss = 0.5 * sup_loss + gen_loss
         return loss
 
-    def inference(self, questions, parsed_questions, llm_evidences):
+    def inference(self, questions, parsed_questions, llm_evidences, questions_neg):
         questions_token = self.tokenizer(questions, add_special_tokens=False)
         evidence_text = self.retriever.evidence_process(parsed_questions, questions, self.args)
-        evidence_sum_emb, evidence_sum_leap_emb = self.module_list[0](questions, evidence_text, llm_evidences)
+        evidence_sum_emb, evidence_sum_leap_emb, sup_loss = self.module_list[0](questions, evidence_text, llm_evidences, questions_neg)
         global_evi_emb, local_evi_emb = self.module_list[1](evidence_sum_emb)
 
         eos_user_tokens = self.tokenizer(EOS_USER, add_special_tokens=False)
@@ -219,22 +222,25 @@ class EvidenceSummary(torch.nn.Module):
             return_dict_in_generate=True,
             # device_map="auto"
         ).to(self.device)
-        for name, param in self.model.named_parameters():
-            param.requires_grad = False
+        # for name, param in self.model.named_parameters():
+        #    param.requires_grad = False
         self.word_embedding = self.model.get_input_embeddings()
 
         self.projector_sum = MLP(args.feature_dim, args.sum_hidden_dim, args.sum_output_dim).to(self.device)
         self.projector_ana = MLP(args.sum_output_dim, args.projector_hidden_dim, args.projector_output_dim).to(self.device)
-        # triple_sum = MLP(args)
-        # text_sum = MLP(args)
-        # list_sum = MLP(args)
-        # self.module_list = torch.nn.ModuleList([triple_sum, text_sum, list_sum]) # modality summarizer (triple, text, list)
+        self.supportive_cls = Classifier(args.feature_dim, args.cls_hidden_dim, 2).to(self.device)
 
+    def cross_entropy_loss(self, output, label):
+        predictions = output.view(output.shape[0] * output.shape[1], output.shape[2])
+        label_tensor = torch.as_tensor(label) # batch_size
+        labels = label_tensor.view(label_tensor.shape[0] * label_tensor.shape[1])
+        loss_fn = torch.nn.CrossEntropyLoss()
+        loss = loss_fn(predictions, labels)
+        return loss
 
-    def evidence_to_emb(self, question, evidence, llm_evidence): # evidence: {'subgraph': [], 'path': [], 'paper': [], 'concept': []}
-        evidence_list = [question]
+    def get_evidence(self, evidence, llm_evidence):
+        evidence_list = []
         evidence_list.append(llm_evidence)
-
         if 'subgraph' in evidence:
             if evidence['subgraph']: 
                 triple_list = []
@@ -279,43 +285,55 @@ class EvidenceSummary(torch.nn.Module):
                 tmp = ["No paper." for i in range(self.args.paper_num - len(evidence['paper']))]
                 paper_list.extend(tmp)
             evidence_list.extend(paper_list)
+        return evidence_list
 
-        prompt_template = "{text} This text means in one word:" # https://arxiv.org/pdf/2307.16645
-        evidence_list = [prompt_template.format(text=x) for x in evidence_list]
-
+    def evidence_to_emb(self, question, evidence_list, question_neg): # evidence: {'subgraph': [], 'path': [], 'paper': [], 'concept': []}
+        prompt_template1 = "Text: {text} This text means in one word:" # https://arxiv.org/pdf/2307.16645
+        prompt_template2 = "Question: {question} Evidence: {evidence} Does the evidence support the question: "
+        evidence_list = [prompt_template1.format(text=x) for x in evidence_list]
         evidence_input = self.tokenizer(evidence_list, padding=True, truncation=True, return_tensors="pt").to(self.device)
-        last_hidden_state = self.model(**evidence_input).hidden_states[-1]
-        idx_last_non_padding_token = evidence_input.attention_mask.bool().sum(1)-1
-        evidence_embs = last_hidden_state[torch.arange(last_hidden_state.shape[0]), idx_last_non_padding_token]
+        last_hidden_state1 = self.model(**evidence_input).hidden_states[-1]
+        idx_last_non_padding_token1 = evidence_input.attention_mask.bool().sum(1)-1
+        evidence_embs = last_hidden_state1[torch.arange(last_hidden_state1.shape[0]), idx_last_non_padding_token1]
 
-        return evidence_embs
+        question_evidence_label = [(prompt_template2.format(question=question, evidence=x), 1) for x in evidence_list]
+        question_neg_evidence_label = [(prompt_template2.format(question=question_neg, evidence=x), 0) for x in evidence_list]
+        question_evidence_label.extend(question_neg_evidence_label)
+        random.shuffle(question_evidence_label)
+        question_evidence_list = [item[0] for item in question_evidence_label]
+        label_list = [item[1] for item in question_evidence_label]
+        question_evidence_input = self.tokenizer(question_evidence_list, padding=True, truncation=True, return_tensors="pt").to(self.device)
+        last_hidden_state2 = self.model(**question_evidence_input).hidden_states[-1]
+        idx_last_non_padding_token2 = question_evidence_input.attention_mask.bool().sum(1)-1
+        question_evidence_embs = last_hidden_state2[torch.arange(last_hidden_state2.shape[0]), idx_last_non_padding_token2]
 
-    def forward(self, questions, samples, llm_evis):
+        return evidence_embs, question_evidence_embs, label_list
+
+    def forward(self, questions, raw_evidence_list, llm_evis, questions_neg):
         neighbor_num, path_num, article_num = 0, 0, 0
-        for item in samples:
+        for item in raw_evidence_list:
             neighbor_num += len(item['subgraph'])
             path_num += len(item['path'])
             article_num += len(item['paper'])
         print("Found {} near entities, {} paths, {} articles for {} questions.".format(neighbor_num, path_num, article_num, self.args.batch_size))
         modality_map = {}
         batch_sample_emb = []
-        for question, sample, llm_evi in zip(questions, samples, llm_evis):
+        batch_question_evidence_embs = []
+        batch_labels = []
+        for question, raw_evidence, llm_evi, question_neg in zip(questions, raw_evidence_list, llm_evis, questions_neg):
             tmp = []
-            evidence = self.evidence_to_emb(question, sample, llm_evi)
-            batch_sample_emb.append(evidence)
-            # tmp.append(self.module_list[1](evidence[0].unsqueeze(0))) # question (text)
-            # tmp.append(self.module_list[1](evidence[1].unsqueeze(0))) # llm_evidence (text)
-            # tmp.append(self.module_list[0](evidence[2].unsqueeze(0))) # subgraph (triple)
-            # tmp.append(self.module_list[0](evidence[3].unsqueeze(0))) # path (triple)
-            # tmp.append(self.module_list[2](evidence[4].unsqueeze(0))) # concept (list)
-            # tmp.append(self.module_list[1](evidence[5: ])) # papers (text) paper_num * embedding_dim
-            # evidence_sum = torch.cat(tmp, dim=0)
-            # batch_sample_emb.append(evidence_sum)
+            evidence_list = self.get_evidence(raw_evidence, llm_evi)
+            evidence_embs, question_evidence_embs, label_list = self.evidence_to_emb(question, evidence_list, question_neg)
+            batch_sample_emb.append(evidence_embs)
+            batch_question_evidence_embs.append(question_evidence_embs)
+            batch_labels.append(label_list)
+
+        batch_supportive_embs = torch.stack(batch_question_evidence_embs) # batch_num * (evidence_num * 2) * embedding_dim
+        batch_supportive_logits = self.supportive_cls(batch_supportive_embs) # batch_num * (evidence_num * 2) * 2
+        sup_loss = self.cross_entropy_loss(batch_supportive_logits, batch_labels)
+
         batch_evidence_emb = torch.stack(batch_sample_emb) # batch_num * evidence_num * embedding_dim
         batch_evidence_emb = self.projector_sum(batch_evidence_emb)
-        batch_evidence_leap_emb = self.projector_ana(batch_evidence_emb)
-        return batch_evidence_emb, batch_evidence_leap_emb
-
-
-
+        batch_evidence_leap_emb = self.projector_ana(batch_evidence_emb) # batch_num * evidence_num * embedding_dim
+        return batch_evidence_emb, batch_evidence_leap_emb, sup_loss
 

@@ -43,6 +43,7 @@ def set_argument():
     parser.add_argument('--feature_dim', type=int, default=768) # depends on SLM's embedding dim
     parser.add_argument('--sum_hidden_dim', type=int, default=1024)
     parser.add_argument('--sum_output_dim', type=int, default=1024)
+    parser.add_argument('--cls_hidden_dim', type=int, default=256)
     parser.add_argument("--gnn_name", type=str, default='gt')
     parser.add_argument("--gnn_num_layers", type=int, default=2)
     parser.add_argument("--gnn_in_dim", type=int, default=1024)

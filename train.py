@@ -11,6 +11,7 @@ from torch.utils.data import DataLoader
 from torch.nn.utils import clip_grad_norm_
 import numpy as np
 from tqdm import tqdm
+from torchviz import make_dot
 from framework import framework_selector
 from config import set_argument
 from utils import adjust_learning_rate
@@ -27,14 +28,16 @@ def data_preprocess(dataset_dir, dataset_name):
             item_list = train_dataset['questions']
             questions_train = [[item['id'], item['body']] for item in item_list]
             answers_train = [item['ideal_answer'][0] for item in item_list] # get the first ideal answer
-            # qtype_train = [item['type'] for item in item_list]
+            questions_neg_train = [item[1] for item in questions_train]
+            random.shuffle(questions_neg_train)
         with open(test_data_file, 'r', encoding='utf-8') as f:
             test_dataset = json.load(f)
             item_list = test_dataset['questions']
             questions_test = [[item['id'], item['body']] for item in item_list]
             answers_test = [item['ideal_answer'][0] for item in item_list] # get the first ideal answer
-            # qtype_test = [item['type'] for item in item_list]
-        return questions_train, answers_train, questions_test, answers_test
+            questions_neg_test = [item[1] for item in questions_test]
+            random.shuffle(questions_neg_test)
+        return questions_train, answers_train, questions_neg_train, questions_test, answers_test, questions_neg_test
     else:
         raise Exception("Unsupported dataset.")
 
@@ -119,17 +122,18 @@ Your output: '''
         return None
 
 class QAData(Dataset):
-    def __init__(self, question, answer, query_dict, llm_evidence):
+    def __init__(self, question, answer, query_dict, llm_evidence, question_neg):
         self.question = question
         self.answer = answer
         self.query_dict = query_dict
         self.llm_evidence = llm_evidence
+        self.question_neg = question_neg
   
     def __len__(self):
         return len(self.question)
   
     def __getitem__(self, index):
-        return self.question[index], self.answer[index], self.query_dict[index], self.llm_evidence[index]
+        return self.question[index], self.answer[index], self.query_dict[index], self.llm_evidence[index], self.question_neg[index]
     
 def evaluate_fn(test_loader, model, args):
     print('Evaluating on test data...')
@@ -138,9 +142,9 @@ def evaluate_fn(test_loader, model, args):
     llm_acc_list = []
     llm_flu_list = []
     progress_bar = tqdm(range(len(test_loader)))
-    for test_questions, test_answers, test_parsed_q, test_llm_evi in test_loader:
+    for test_questions, test_answers, test_parsed_q, test_llm_evi, test_questions_neg in test_loader:
         model.eval()
-        response = model.inference(test_questions, test_parsed_q, test_llm_evi)
+        response = model.inference(test_questions, test_parsed_q, test_llm_evi, test_questions_neg)
         response_list.extend(response)
         answer_list.extend(test_answers)
         progress_bar.update(1)
@@ -171,21 +175,23 @@ def main(args):
 
     device = torch.device("cuda" if args.use_cuda and torch.cuda.is_available() else "cpu")
 
-    questions_train, answers_train, questions_test, answers_test = data_preprocess(args.dataset_dir, args.dataset_name)
+    questions_train, answers_train, questions_neg_train, questions_test, answers_test, questions_neg_test = data_preprocess(args.dataset_dir, args.dataset_name)
     query_dict_train, query_dict_test = get_parsed_question(args.dataset_dir, args.dataset_name, questions_train, questions_test)
     llm_evidence_train, llm_evidence_test = get_llm_evidence(args.dataset_dir, args.dataset_name, questions_train, questions_test)
 
     questions_train = [item[1] for item in questions_train] # get only question text
     questions_test = [item[1] for item in questions_test] # get only question text
 
-    train_dataset = QAData(questions_train, answers_train, query_dict_train, llm_evidence_train)
-    test_dataset = QAData(questions_test, answers_test, query_dict_test, llm_evidence_test)
+    train_dataset = QAData(questions_train, answers_train, query_dict_train, llm_evidence_train, questions_neg_train)
+    test_dataset = QAData(questions_test, answers_test, query_dict_test, llm_evidence_test, questions_neg_test)
 
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, drop_last=True, pin_memory=True, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size, drop_last=False, pin_memory=True, shuffle=False)
 
     model = framework_selector[args.framework](args, device)
     params = [p for _, p in model.named_parameters() if p.requires_grad]
+    trainable_params, all_param = model.print_trainable_params()
+    print("Trainable parameters: "+str(trainable_params)+" All parameters: "+str(all_param))
     optimizer = optim.AdamW(params, lr=args.lr)
     model.to(device)
 
@@ -200,7 +206,8 @@ def main(args):
             answers = batch[1]
             parsed_questions = batch[2]
             llm_evidences = batch[3]
-            loss = model(questions, answers, parsed_questions, llm_evidences)
+            questions_neg = batch[4]
+            loss = model(questions, answers, parsed_questions, llm_evidences, questions_neg)
             print("current batch training loss:{}".format(loss))
             optimizer.zero_grad()
             loss.backward()
