@@ -6,14 +6,15 @@ from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
 from itertools import product
 from retrieval import EvidenceRetrieval
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForMaskedLM
 from network.gnn import load_gnn_model
 from network.mlp import MLP, Classifier
 import pdb
 
-BOS = '<s>[INST]'
-EOS_USER = '[/INST]'
-EOS = '</s>'
+# llama 3 prompt template
+BOS = '<|begin_of_text|>'
+EOS_USER = '<|eot_id|>'
+EOS = '<|end_of_text|>'
 
 IGNORE_INDEX = -100
 
@@ -165,8 +166,8 @@ class EvidenceAnalysis(torch.nn.Module):
             num_heads=args.gnn_num_heads,
         ).to(self.device)
 
-        self.projector = MLP(args.gnn_hidden_dim, args.projector_hidden_dim, args.projector_output_dim).to(self.device)
-
+        # self.projector = MLP(args.gnn_hidden_dim, args.projector_hidden_dim, args.projector_output_dim).to(self.device)
+        self.projector = torch.nn.Linear(args.gnn_hidden_dim, args.projector_output_dim).to(self.device)
         self.global_node = torch.nn.Parameter(torch.randn(args.sum_output_dim)).to(self.device)
 
     def encode_graphs(self, graphs):
@@ -214,7 +215,7 @@ class EvidenceSummary(torch.nn.Module):
         self.tokenizer = AutoTokenizer.from_pretrained(args.slm_model)
         self.tokenizer.pad_token_id = 0
 
-        self.model = AutoModelForCausalLM.from_pretrained(
+        self.model = AutoModelForMaskedLM.from_pretrained(
             args.slm_model,
             # torch_dtype=torch.float16,
             low_cpu_mem_usage=True,
@@ -226,13 +227,14 @@ class EvidenceSummary(torch.nn.Module):
         #    param.requires_grad = False
         self.word_embedding = self.model.get_input_embeddings()
 
-        self.projector_sum = MLP(args.feature_dim, args.sum_hidden_dim, args.sum_output_dim).to(self.device)
-        self.projector_ana = MLP(args.sum_output_dim, args.projector_hidden_dim, args.projector_output_dim).to(self.device)
+        # self.projector_sum = MLP(args.feature_dim, args.sum_hidden_dim, args.sum_output_dim).to(self.device)
+        self.projector_sum = torch.nn.Linear(args.feature_dim, args.sum_output_dim).to(self.device)
+        self.projector_leap = torch.nn.Linear(args.feature_dim, args.projector_output_dim).to(self.device)
         self.supportive_cls = Classifier(args.feature_dim, args.cls_hidden_dim, 2).to(self.device)
 
     def cross_entropy_loss(self, output, label):
         predictions = output.view(output.shape[0] * output.shape[1], output.shape[2])
-        label_tensor = torch.as_tensor(label) # batch_size
+        label_tensor = torch.as_tensor(label).to(self.device) # batch_size
         labels = label_tensor.view(label_tensor.shape[0] * label_tensor.shape[1])
         loss_fn = torch.nn.CrossEntropyLoss()
         loss = loss_fn(predictions, labels)
@@ -316,7 +318,6 @@ class EvidenceSummary(torch.nn.Module):
             path_num += len(item['path'])
             article_num += len(item['paper'])
         print("Found {} near entities, {} paths, {} articles for {} questions.".format(neighbor_num, path_num, article_num, self.args.batch_size))
-        modality_map = {}
         batch_sample_emb = []
         batch_question_evidence_embs = []
         batch_labels = []
@@ -333,7 +334,7 @@ class EvidenceSummary(torch.nn.Module):
         sup_loss = self.cross_entropy_loss(batch_supportive_logits, batch_labels)
 
         batch_evidence_emb = torch.stack(batch_sample_emb) # batch_num * evidence_num * embedding_dim
+        batch_evidence_leap_emb = self.projector_leap(batch_evidence_emb) # batch_num * evidence_num * embedding_dim
         batch_evidence_emb = self.projector_sum(batch_evidence_emb)
-        batch_evidence_leap_emb = self.projector_ana(batch_evidence_emb) # batch_num * evidence_num * embedding_dim
         return batch_evidence_emb, batch_evidence_leap_emb, sup_loss
 

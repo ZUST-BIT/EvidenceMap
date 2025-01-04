@@ -11,7 +11,6 @@ from torch.utils.data import DataLoader
 from torch.nn.utils import clip_grad_norm_
 import numpy as np
 from tqdm import tqdm
-from torchviz import make_dot
 from framework import framework_selector
 from config import set_argument
 from utils import adjust_learning_rate
@@ -141,14 +140,16 @@ def evaluate_fn(test_loader, model, args):
     answer_list = []
     llm_acc_list = []
     llm_flu_list = []
+    question_list = []
     progress_bar = tqdm(range(len(test_loader)))
     for test_questions, test_answers, test_parsed_q, test_llm_evi, test_questions_neg in test_loader:
         model.eval()
         response = model.inference(test_questions, test_parsed_q, test_llm_evi, test_questions_neg)
         response_list.extend(response)
         answer_list.extend(test_answers)
+        question_list.extend(test_questions)
         progress_bar.update(1)
-    for question, answer, response in zip(test_questions, answer_list, response_list):
+    for question, answer, response in zip(question_list, answer_list, response_list):
         llm_score = llm_score_fn(question, response, answer, args.api_key)
         if llm_score:
             llm_acc_list.append(llm_score[0])
@@ -222,11 +223,8 @@ def main(args):
                 wandb.log({'Lr': lr})
                 wandb.log({'Accum Loss': train_loss / args.grad_steps})
                 train_loss = 0.
-
+            # evaluate_fn(test_loader, model, args)
             progress_bar.update(1)
-
-            evaluate_fn(test_loader, model, args)
-
         print(f"Epoch: {epoch}|{args.epochs}: Train Loss (Epoch Mean): {epoch_loss / len(train_loader)}")
         wandb.log({'Train Loss (Epoch Mean)': epoch_loss / len(train_loader)})
 
