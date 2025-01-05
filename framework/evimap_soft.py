@@ -113,7 +113,8 @@ class EviMapSoft(torch.nn.Module):
 
         batch_size = len(questions_token.input_ids) # for number of samples less than a batch
         for i in range(batch_size):
-            input_ids = questions_token.input_ids[i] + eos_user_tokens.input_ids
+            # input_ids = questions_token.input_ids[i] + eos_user_tokens.input_ids
+            input_ids = questions_token.input_ids[i]
             inputs_embeds = self.word_embedding(torch.tensor(input_ids).to(self.model.device))
             inputs_embeds = torch.cat([bos_embeds, global_evi_emb[i], local_evi_emb[i], evidence_sum_leap_emb[i], inputs_embeds], dim=0)
             batch_inputs_embeds.append(inputs_embeds)
@@ -136,6 +137,7 @@ class EviMapSoft(torch.nn.Module):
             use_cache=True
         )
         pred = self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
+        print(pred)
         return pred
 
     def print_trainable_params(self):
@@ -322,7 +324,6 @@ class EvidenceSummary(torch.nn.Module):
         batch_question_evidence_embs = []
         batch_labels = []
         for question, raw_evidence, llm_evi, question_neg in zip(questions, raw_evidence_list, llm_evis, questions_neg):
-            tmp = []
             evidence_list = self.get_evidence(raw_evidence, llm_evi)
             evidence_embs, question_evidence_embs, label_list = self.evidence_to_emb(question, evidence_list, question_neg)
             batch_sample_emb.append(evidence_embs)

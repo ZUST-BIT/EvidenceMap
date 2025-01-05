@@ -59,7 +59,7 @@ Summary: '''}
 
 evidence_analysis_prompt={
     'sys_input': '''You are an AI assistant that helps a human analyst to discover logical relationships between any two pieces of evidence for answering a question.''',
-    'user_input': '''Goal: Analysis logical relationships between any two pieces of evidence.
+    'user_input': '''Goal: Analysis logical relationships between any two pieces of evidence. Evidence is given as a dictionary where keys are types and values are evidence items.
 
 Evidence dictionary: 
 <evidence_dict>
@@ -73,13 +73,25 @@ Output: '''
 
 # integrated answering prompt
 integrated_answering_prompt={
-    'sys_input': '''You are an AI assistant that helps a human analyst to answer a question with the give evidence and the logical analysis among those evidences.''',
-    'user_input': '''Question: <question>
+    'sys_input': '''You are an AI assistant that helps a human analyst to answer a question with the give evidence and the logical relationships between any two pieces of evidence.''',
+    'user_input': '''Goal: Answer the question with the given evidence and the relationships betwen any two pieces of evidence. Evidence is given as a dictionary where keys are types and values are evidence items.
     
 Evidence dictionary: 
 <evidence_dict>
 
-Evidence analysis: 
+Evidence relationship analysis: 
 <evidence_analysis>
+
+Question: <question>
+
+Answer: '''}
+
+# RAG answering prompt
+integrated_answering_prompt={
+    'sys_input': '''You are an AI assistant that helps a human analyst to answer a question with the give evidence and the logical analysis among those evidences.''',
+    'user_input': '''Question: <question>
+    
+Evidence: 
+<evidence>
 
 Answer: '''}

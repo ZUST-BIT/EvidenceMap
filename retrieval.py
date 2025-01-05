@@ -11,24 +11,17 @@ import pdb
 
 # Step 1: Evidence Retrieval
 class EvidenceRetrieval(object):
-    def __init__(self, args, source_map=['kg', 'paper', 'concept']):
+    def __init__(self, args):
         print("EvidenceMap: Initializing... \n")
         self.api_key = args.api_key
-        self.source_map = source_map
-        self.source_env = {item: {} for item in source_map}
-        if 'kg' in source_map:
-            self.source_env['kg']['graph_db'] = Graph(args.neo4j_url, auth=(args.neo4j_usr, args.neo4j_pwd))
-        if 'paper' in source_map:
-            self.source_env['paper']['doc_db'] = pymongo.MongoClient(args.mongodb_url)
-            emb_fn = embedding_functions.SentenceTransformerEmbeddingFunction(model_name=args.emb_model)
-            client = chromadb.PersistentClient(path='./embedding/paper_emb')
-            self.source_env['paper']['vec_db'] = client.get_or_create_collection(name='paper_emb', embedding_function=emb_fn)
-        if 'concept' in source_map:
-            with open(args.concept_path, 'r') as f:
-                self.source_env['concept']['term_db'] = json.load(f)
-        # if 'table' in source_map:
-        #     conn = sqlite3.connect('omics.db')
-        #     self.source_env['table']['num_db'] = conn.cursor()
+        self.source_env = {'kg':{}, 'paper': {}, 'concept':{}}
+        self.source_env['kg']['graph_db'] = Graph(args.neo4j_url, auth=(args.neo4j_usr, args.neo4j_pwd))
+        self.source_env['paper']['doc_db'] = pymongo.MongoClient(args.mongodb_url)
+        emb_fn = embedding_functions.SentenceTransformerEmbeddingFunction(model_name=args.emb_model)
+        client = chromadb.PersistentClient(path='./embedding/paper_emb')
+        self.source_env['paper']['vec_db'] = client.get_or_create_collection(name='paper_emb', embedding_function=emb_fn)
+        with open(args.concept_path, 'r') as f:
+            self.source_env['concept']['term_db'] = json.load(f)
 
     def openai_inference(self, sys_input, user_input):
         openai.api_key = self.api_key
@@ -217,16 +210,28 @@ Output: ''' % (query)
 
     def evidence_process(self, query_dicts, queries, args):
         evidence_batch = []
-        if 'kg' in self.source_map:
-            evidence_batch = self.kg_evidence_retrieval(query_dicts, subgraph=True, path=True, path_num=args.path_num)
+        evidence_batch = self.kg_evidence_retrieval(query_dicts, subgraph=True, path=True, path_num=args.path_num)
+        
+        if self.source_env['paper']['vec_db'].count() == 0:
+            paper_list = self.get_paper_from_db({})
+            self.index_paper(paper_list)
+        paper_evidence_batch = self.paper_evidence_retrieval(queries, paper_num=args.paper_num)
+        
+        for i in range(len(evidence_batch)):
+            evidence_batch[i]['paper'] = paper_evidence_batch[i]
 
-        if 'paper' in self.source_map:
-            if self.source_env['paper']['vec_db'].count() == 0:
-                paper_list = self.get_paper_from_db({})
-                self.index_paper(paper_list)
-            paper_evidence_batch = self.paper_evidence_retrieval(queries, paper_num=args.paper_num)
-            for i in range(len(evidence_batch)):
-                evidence_batch[i]['paper'] = paper_evidence_batch[i]
+        evidence_raw_batch = []
+        for evidence_source in evidence_batch:
+            tmp = {}
+            for source in args.source:
+                if source == 'kg':
+                    tmp['subgraph'] = evidence_source['subgraph']
+                    tmp['path'] = evidence_source['path']
+                elif source in evidence_source:
+                    tmp[source] = evidence_source[source]
+                else:
+                    print("Unsupported knowledge source: " + str(source))
+            evidence_raw_batch.append(tmp)
 
-        return evidence_batch
+        return evidence_raw_batch
 

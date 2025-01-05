@@ -143,7 +143,6 @@ def evaluate_fn(test_loader, model, args):
     question_list = []
     progress_bar = tqdm(range(len(test_loader)))
     for test_questions, test_answers, test_parsed_q, test_llm_evi, test_questions_neg in test_loader:
-        model.eval()
         response = model.inference(test_questions, test_parsed_q, test_llm_evi, test_questions_neg)
         response_list.extend(response)
         answer_list.extend(test_answers)
@@ -190,46 +189,52 @@ def main(args):
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size, drop_last=False, pin_memory=True, shuffle=False)
 
     model = framework_selector[args.framework](args, device)
-    params = [p for _, p in model.named_parameters() if p.requires_grad]
-    trainable_params, all_param = model.print_trainable_params()
-    print("Trainable parameters: "+str(trainable_params)+" All parameters: "+str(all_param))
-    optimizer = optim.AdamW(params, lr=args.lr)
-    model.to(device)
 
-    for epoch in range(args.epochs):
-        epoch_loss, train_loss = 0., 0.
-        model.train()
-        print("epoch:{}".format(epoch))
-        progress_bar = tqdm(range(len(train_loader)))
-        for i, batch in enumerate(train_loader):
-            print("batch:{}/{}, epoch:{}".format(i, len(train_loader)-1, epoch))
-            questions = batch[0]
-            answers = batch[1]
-            parsed_questions = batch[2]
-            llm_evidences = batch[3]
-            questions_neg = batch[4]
-            loss = model(questions, answers, parsed_questions, llm_evidences, questions_neg)
-            print("current batch training loss:{}".format(loss))
-            optimizer.zero_grad()
-            loss.backward()
-            # clip_grad_norm_(optimizer.param_groups[0]['params'], 0.1)
-            if (i + 1) % args.grad_steps == 0:
-                adjust_learning_rate(optimizer.param_groups[0], args.lr, i / len(train_loader) + epoch, args.warmup_epochs, args.epochs)
-            optimizer.step()
-            epoch_loss, train_loss = epoch_loss + loss.item(), train_loss + loss.item()
-
-            if (i + 1) % args.grad_steps == 0:
-                lr = optimizer.param_groups[0]["lr"]
-                wandb.log({'Lr': lr})
-                wandb.log({'Accum Loss': train_loss / args.grad_steps})
-                train_loss = 0.
-            # evaluate_fn(test_loader, model, args)
-            progress_bar.update(1)
-        print(f"Epoch: {epoch}|{args.epochs}: Train Loss (Epoch Mean): {epoch_loss / len(train_loader)}")
-        wandb.log({'Train Loss (Epoch Mean)': epoch_loss / len(train_loader)})
-
+    if args.framework in ['rag', 'evimap_hard', 'llm_thought']:
         # Evaluation
         evaluate_fn(test_loader, model, args)
+    else:
+        params = [p for _, p in model.named_parameters() if p.requires_grad]
+        trainable_params, all_param = model.print_trainable_params()
+        print("Trainable parameters: "+str(trainable_params)+" All parameters: "+str(all_param))
+        optimizer = optim.AdamW(params, lr=args.lr)
+        model.to(device)
+
+        for epoch in range(args.epochs):
+            epoch_loss, train_loss = 0., 0.
+            model.train()
+            print("epoch:{}".format(epoch))
+            progress_bar = tqdm(range(len(train_loader)))
+            for i, batch in enumerate(train_loader):
+                print("batch:{}/{}, epoch:{}".format(i, len(train_loader)-1, epoch))
+                questions = batch[0]
+                answers = batch[1]
+                parsed_questions = batch[2]
+                llm_evidences = batch[3]
+                questions_neg = batch[4]
+                loss = model(questions, answers, parsed_questions, llm_evidences, questions_neg)
+                print("current batch training loss:{}".format(loss))
+                optimizer.zero_grad()
+                loss.backward()
+                # clip_grad_norm_(optimizer.param_groups[0]['params'], 0.1)
+                if (i + 1) % args.grad_steps == 0:
+                    adjust_learning_rate(optimizer.param_groups[0], args.lr, i / len(train_loader) + epoch, args.warmup_epochs, args.epochs)
+                optimizer.step()
+                epoch_loss, train_loss = epoch_loss + loss.item(), train_loss + loss.item()
+
+                if (i + 1) % args.grad_steps == 0:
+                    lr = optimizer.param_groups[0]["lr"]
+                    wandb.log({'Lr': lr})
+                    wandb.log({'Accum Loss': train_loss / args.grad_steps})
+                    train_loss = 0.
+                # evaluate_fn(test_loader, model, args)
+                progress_bar.update(1)
+            print(f"Epoch: {epoch}|{args.epochs}: Train Loss (Epoch Mean): {epoch_loss / len(train_loader)}")
+            wandb.log({'Train Loss (Epoch Mean)': epoch_loss / len(train_loader)})
+
+            # Evaluation
+            model.eval()
+            evaluate_fn(test_loader, model, args)
 
 
 

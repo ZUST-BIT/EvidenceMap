@@ -126,7 +126,7 @@ def process_llm_evidence(input_file, output_file):
 
 def adjust_learning_rate(param_group, LR, epoch, warmup_epochs, num_epochs):
     """Decay the learning rate with half-cycle cosine after warmup"""
-    min_lr = 5e-6
+    min_lr = 5e-5
     if epoch < warmup_epochs:
         lr = LR * epoch / warmup_epochs
     else:
