@@ -220,11 +220,8 @@ class EviMapBuilder(torch.nn.Module):
         for question, paper_evi, llm_evi, question_neg in zip(questions, paper_evis, llm_evis, questions_neg):
             evidence_set = paper_evi + [llm_evi]
             evidence_embs, support_embs, relation_embs = self.build_map(question, evidence_set, question_neg)
-            batch_evi_emb.append(evidence_embs)
-            batch_sup_emb.append(support_embs)
-            batch_rel_emb.append(relation_embs)
+            batch_evi_emb.append(self.projector(evidence_embs))
+            batch_sup_emb.append(self.projector(support_embs))
+            batch_rel_emb.append(self.projector(relation_embs))
 
-        batch_evi_emb = self.projector(torch.stack(batch_evi_emb)) # batch_num * evidence_num * embedding_dim
-        batch_sup_emb = self.projector(torch.stack(batch_sup_emb))
-        batch_rel_emb = self.projector(torch.stack(batch_rel_emb))
         return batch_evi_emb, batch_sup_emb, batch_rel_emb
