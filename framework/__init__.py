@@ -1,3 +1,4 @@
+from framework.evimap_emb import EviMapEmb, EviMapBuilder
 from framework.evimap_soft import EviMapSoft, EvidenceAnalysis, EvidenceSummary
 from framework.evimap_hard import EviMapHard
 from framework.graph_llm import GraphLLM
@@ -7,6 +8,7 @@ from framework.rag import RAG
 
 
 framework_selector = {
+    "evimap_emb": EviMapEmb,
     "evimap_soft": EviMapSoft,
     "evimap_hard": EviMapHard,
     "graph_llm": GraphLLM,

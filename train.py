@@ -14,67 +14,10 @@ from tqdm import tqdm
 from framework import framework_selector
 from config import set_argument
 from utils import adjust_learning_rate
+from data_process import data_preprocess
 import pdb
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-
-def data_preprocess(dataset_dir, dataset_name):
-    if dataset_name == 'bioasq':
-        train_data_file = dataset_dir + '/BioASQ/training.json'
-        test_data_file = dataset_dir + '/BioASQ/test/12B1_golden.json'
-        with open(train_data_file, 'r', encoding='utf-8') as f:
-            train_dataset = json.load(f)
-            item_list = train_dataset['questions']
-            questions_train = [[item['id'], item['body']] for item in item_list]
-            answers_train = [item['ideal_answer'][0] for item in item_list] # get the first ideal answer
-            questions_neg_train = [item[1] for item in questions_train]
-            random.shuffle(questions_neg_train)
-        with open(test_data_file, 'r', encoding='utf-8') as f:
-            test_dataset = json.load(f)
-            item_list = test_dataset['questions']
-            questions_test = [[item['id'], item['body']] for item in item_list]
-            answers_test = [item['ideal_answer'][0] for item in item_list] # get the first ideal answer
-            questions_neg_test = [item[1] for item in questions_test]
-            random.shuffle(questions_neg_test)
-        return questions_train, answers_train, questions_neg_train, questions_test, answers_test, questions_neg_test
-    else:
-        raise Exception("Unsupported dataset.")
-
-def get_parsed_question(dataset_dir, dataset_name, questions_train, questions_test):
-    if dataset_name == 'bioasq':
-        questions_parsed_train = []
-        questions_parsed_test = []
-        parsed_question_train_file = dataset_dir + '/BioASQ/parsed_question_train.json'
-        parsed_question_test_file = dataset_dir + '/BioASQ/test/parsed_question_test_1.json'
-        with open(parsed_question_train_file, 'r', encoding='utf-8') as f:
-            parsed_dict = json.load(f)
-            for item in questions_train:
-                questions_parsed_train.append(json.dumps(parsed_dict[item[0]]["parsed_question"]))
-        with open(parsed_question_test_file, 'r', encoding='utf-8') as f:
-            parsed_dict = json.load(f)
-            for item in questions_test:
-                questions_parsed_test.append(json.dumps(parsed_dict[item[0]]["parsed_question"]))
-        return questions_parsed_train, questions_parsed_test
-    else:
-        raise Exception("Unsupported dataset.")
-
-def get_llm_evidence(dataset_dir, dataset_name, questions_train, questions_test):
-    if dataset_name == 'bioasq':
-        llm_evidence_train = []
-        llm_evidence_test = []
-        llm_evidence_train_file = dataset_dir + '/BioASQ/llm_evidence_train.json'
-        llm_evidence_test_file = dataset_dir + '/BioASQ/test/llm_evidence_test_1.json'
-        with open(llm_evidence_train_file, 'r', encoding='utf-8') as f:
-            evidence_dict = json.load(f)
-            for item in questions_train:
-                llm_evidence_train.append(evidence_dict[item[0]]["llm_evidence"])
-        with open(llm_evidence_test_file, 'r', encoding='utf-8') as f:
-            evidence_dict = json.load(f)
-            for item in questions_test:
-                llm_evidence_test.append(evidence_dict[item[0]]["llm_evidence"])
-        return llm_evidence_train, llm_evidence_test
-    else:
-        raise Exception("Unsupported dataset.")
 
 def rouge_score_fn(candidate, reference):
     rouge_metric = evaluate.load("rouge")
@@ -121,18 +64,17 @@ Your output: '''
         return None
 
 class QAData(Dataset):
-    def __init__(self, question, answer, query_dict, llm_evidence, question_neg):
+    def __init__(self, question, answer, question_neg, sample_id):
         self.question = question
         self.answer = answer
-        self.query_dict = query_dict
-        self.llm_evidence = llm_evidence
         self.question_neg = question_neg
+        self.sample_id = sample_id
   
     def __len__(self):
         return len(self.question)
   
     def __getitem__(self, index):
-        return self.question[index], self.answer[index], self.query_dict[index], self.llm_evidence[index], self.question_neg[index]
+        return self.question[index], self.answer[index], self.question_neg[index], self.sample_id[index]
     
 def evaluate_fn(test_loader, model, args):
     print('Evaluating on test data...')
@@ -142,8 +84,8 @@ def evaluate_fn(test_loader, model, args):
     llm_flu_list = []
     question_list = []
     progress_bar = tqdm(range(len(test_loader)))
-    for test_questions, test_answers, test_parsed_q, test_llm_evi, test_questions_neg in test_loader:
-        response = model.inference(test_questions, test_parsed_q, test_llm_evi, test_questions_neg)
+    for test_questions, test_answers, test_questions_neg, test_sample_ids in test_loader:
+        response = model.inference(test_questions, test_questions_neg, test_sample_ids)
         response_list.extend(response)
         answer_list.extend(test_answers)
         question_list.extend(test_questions)
@@ -176,14 +118,14 @@ def main(args):
     device = torch.device("cuda" if args.use_cuda and torch.cuda.is_available() else "cpu")
 
     questions_train, answers_train, questions_neg_train, questions_test, answers_test, questions_neg_test = data_preprocess(args.dataset_dir, args.dataset_name)
-    query_dict_train, query_dict_test = get_parsed_question(args.dataset_dir, args.dataset_name, questions_train, questions_test)
-    llm_evidence_train, llm_evidence_test = get_llm_evidence(args.dataset_dir, args.dataset_name, questions_train, questions_test)
 
-    questions_train = [item[1] for item in questions_train] # get only question text
-    questions_test = [item[1] for item in questions_test] # get only question text
+    question_text_train = [item[1] for item in questions_train] # get question text
+    question_text_test = [item[1] for item in questions_test] # get question text
+    sample_ids_train = [item[0] for item in questions_train] # get sample id
+    sample_ids_test = [item[0] for item in questions_test] # get sample id
 
-    train_dataset = QAData(questions_train, answers_train, query_dict_train, llm_evidence_train, questions_neg_train)
-    test_dataset = QAData(questions_test, answers_test, query_dict_test, llm_evidence_test, questions_neg_test)
+    train_dataset = QAData(question_text_train, answers_train, questions_neg_train, sample_ids_train)
+    test_dataset = QAData(question_text_test, answers_test, questions_neg_test, sample_ids_test)
 
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, drop_last=True, pin_memory=True, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size, drop_last=False, pin_memory=True, shuffle=False)
@@ -209,10 +151,9 @@ def main(args):
                 print("batch:{}/{}, epoch:{}".format(i, len(train_loader)-1, epoch))
                 questions = batch[0]
                 answers = batch[1]
-                parsed_questions = batch[2]
-                llm_evidences = batch[3]
-                questions_neg = batch[4]
-                loss = model(questions, answers, parsed_questions, llm_evidences, questions_neg)
+                questions_neg = batch[2]
+                sample_ids = batch[3]
+                loss = model(questions, answers, questions_neg, sample_ids)
                 print("current batch training loss:{}".format(loss))
                 optimizer.zero_grad()
                 loss.backward()

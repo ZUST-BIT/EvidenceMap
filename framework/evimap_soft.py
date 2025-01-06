@@ -218,7 +218,7 @@ class EvidenceSummary(torch.nn.Module):
         self.tokenizer.pad_token_id = 0
 
         self.model = AutoModelForMaskedLM.from_pretrained(
-            args.slm_model,
+            args.plm_model,
             # torch_dtype=torch.float16,
             low_cpu_mem_usage=True,
             output_hidden_states=True,

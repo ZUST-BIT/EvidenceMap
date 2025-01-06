@@ -123,6 +123,18 @@ def process_llm_evidence(input_file, output_file):
     with open(output_file, 'w') as f:
         json.dump(llm_self_evidence, f)
 
+def process_paper_evidence(input_file, data_file, output_file):
+    with open(data_file, 'r') as f:
+        raw_data = json.load(f)
+    with open(input_file, 'r') as f:
+        tmp = json.load(f)
+    item_list = raw_data["questions"]
+    for item in item_list:
+        paper_list = [x["text"] for x in item["snippets"]]
+        tmp[item["id"]]["paper_evidence"] = paper_list
+    with open(output_file, 'w') as f:
+        json.dump(tmp, f)
+
 
 def adjust_learning_rate(param_group, LR, epoch, warmup_epochs, num_epochs):
     """Decay the learning rate with half-cycle cosine after warmup"""
@@ -136,8 +148,12 @@ def adjust_learning_rate(param_group, LR, epoch, warmup_epochs, num_epochs):
 
 
 if __name__ == '__main__':
-    input_file = "/Users/zongchang/Desktop/科研/DT-MLM/QA dataset/BioASQ/test/12B4_golden.json"
-    parsed_question_file = "/Users/zongchang/Desktop/科研/DT-MLM/QA dataset/BioASQ/parsed_question_train.json"
-    llm_evidence_file = "/Users/zongchang/Desktop/科研/DT-MLM/QA dataset/BioASQ/llm_evidence_test_4.json"
+    input_file = "/Users/zongchang/Desktop/code/EvidenceMap/dataset/BioASQ/test/llm_evidence_test_4.json"
+    data_file = "/Users/zongchang/Desktop/code/EvidenceMap/dataset/BioASQ/test/12B4_golden.json"
+    output_file = "/Users/zongchang/Desktop/code/EvidenceMap/dataset/BioASQ/test/evidence_test_4.json"
+    process_paper_evidence(input_file, data_file, output_file)
+    # parsed_question_file = "/Users/zongchang/Desktop/科研/DT-MLM/QA dataset/BioASQ/parsed_question_train.json"
+    # llm_evidence_file = "/Users/zongchang/Desktop/科研/DT-MLM/QA dataset/BioASQ/llm_evidence_test_4.json"
     # process_question(input_file, parsed_question_file)
-    process_llm_evidence(input_file, llm_evidence_file)
+    # process_llm_evidence(input_file, llm_evidence_file)
+
