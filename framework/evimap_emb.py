@@ -33,7 +33,7 @@ class EviMapEmb(torch.nn.Module):
             args.llm_model,
             # torch_dtype=torch.float16,
             low_cpu_mem_usage=True,
-            device_map="auto"
+            device_map="cuda:3"
         )
         # Freeze LLM parameters
         for name, param in self.model.named_parameters():
@@ -50,7 +50,7 @@ class EviMapEmb(torch.nn.Module):
         questions_token = self.tokenizer(questions, add_special_tokens=False)
         answers_token = self.tokenizer(answers, add_special_tokens=False)
         print("Building evidence map...")
-        batch_evi_emb, batch_sup_emb, batch_rel_emb = self.evi_map_builder(questions, paper_evidences, llm_evidences, questions_neg) # batch_num * evidence_num * embedding_dim
+        batch_evi_emb, batch_sup_emb, batch_rel_emb = self.evi_map_builder(questions, paper_evidences, llm_evidences, questions_neg, self.args.paper_num) # batch_num * evidence_num * embedding_dim
 
         eos_tokens = self.tokenizer(EOS, add_special_tokens=False)
         eos_user_tokens = self.tokenizer(EOS_USER, add_special_tokens=False)
@@ -209,7 +209,7 @@ class EviMapBuilder(torch.nn.Module):
 
         return evidence_embs, support_embs, relation_embs
 
-    def forward(self, questions, paper_evis, llm_evis, questions_neg):
+    def forward(self, questions, paper_evis, llm_evis, questions_neg, max_paper_num):
         article_num = 0
         for item in paper_evis:
             article_num += len(item)
@@ -218,7 +218,7 @@ class EviMapBuilder(torch.nn.Module):
         batch_sup_emb = []
         batch_rel_emb = []
         for question, paper_evi, llm_evi, question_neg in zip(questions, paper_evis, llm_evis, questions_neg):
-            evidence_set = paper_evi + [llm_evi]
+            evidence_set = paper_evi[:max_paper_num] + [llm_evi]
             evidence_embs, support_embs, relation_embs = self.build_map(question, evidence_set, question_neg)
             batch_evi_emb.append(self.projector(evidence_embs))
             batch_sup_emb.append(self.projector(support_embs))
