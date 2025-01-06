@@ -98,7 +98,7 @@ class EviMapEmb(torch.nn.Module):
 
         questions_token = self.tokenizer(questions, add_special_tokens=False)
         print("Building evidence map...")
-        batch_evi_emb, batch_sup_emb, batch_rel_emb = self.evi_map_builder(questions, paper_evidences, llm_evidences, questions_neg)
+        batch_evi_emb, batch_sup_emb, batch_rel_emb = self.evi_map_builder(questions, paper_evidences, llm_evidences, questions_neg, self.args.paper_num)
 
         eos_user_tokens = self.tokenizer(EOS_USER, add_special_tokens=False)
         bos_embeds = self.word_embedding(self.tokenizer(BOS, add_special_tokens=False, return_tensors='pt').input_ids[0].to(self.model.device))
@@ -109,8 +109,8 @@ class EviMapEmb(torch.nn.Module):
 
         batch_size = len(questions_token.input_ids) # for number of samples less than a batch
         for i in range(batch_size):
-            # input_ids = questions_token.input_ids[i] + eos_user_tokens.input_ids
-            input_ids = questions_token.input_ids[i]
+            input_ids = questions_token.input_ids[i] + eos_user_tokens.input_ids
+            # input_ids = questions_token.input_ids[i]
             inputs_embeds = self.word_embedding(torch.tensor(input_ids).to(self.model.device))
             inputs_embeds = torch.cat([bos_embeds, batch_evi_emb[i], batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
             batch_inputs_embeds.append(inputs_embeds)

@@ -2,7 +2,7 @@ import json
 import random
 
 def data_preprocess(dataset_dir, dataset_name):
-    if dataset_name == 'bioasq':
+    if dataset_name == 'BioASQ':
         train_data_file = dataset_dir + '/BioASQ/training.json'
         test_data_file = dataset_dir + '/BioASQ/test/12B1_golden.json'
         with open(train_data_file, 'r', encoding='utf-8') as f:
@@ -24,7 +24,7 @@ def data_preprocess(dataset_dir, dataset_name):
         raise Exception("Unsupported dataset.")
 
 def get_parsed_question(dataset_dir, dataset_name, sample_ids, mode='train'):
-    if dataset_name == 'bioasq':
+    if dataset_name == 'BioASQ':
         questions_parsed = []
         if mode == 'train':
             parsed_question_file = dataset_dir + '/BioASQ/parsed_question_train.json'
@@ -39,7 +39,7 @@ def get_parsed_question(dataset_dir, dataset_name, sample_ids, mode='train'):
         raise Exception("Unsupported dataset.")
 
 def get_evidence(dataset_dir, dataset_name, sample_ids, mode='train'):
-    if dataset_name == 'bioasq':
+    if dataset_name == 'BioASQ':
         llm_evidence = []
         paper_evidence = []
         if mode == 'train':

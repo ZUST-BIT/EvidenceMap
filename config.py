@@ -9,7 +9,7 @@ def set_argument():
     parser.add_argument('--framework', type=str, default='evimap_emb')
     parser.add_argument('--source', type=csv_list, default=['kg', 'paper'])
 
-    parser.add_argument('--dataset_name', type=str, default='bioasq')
+    parser.add_argument('--dataset_name', type=str, default='BioASQ')
     parser.add_argument('--dataset_dir', type=str, default='./dataset')
     parser.add_argument('--neo4j_usr', type=str, default='neo4j')
     parser.add_argument('--neo4j_pwd', type=str, default='zongc0725')
@@ -23,7 +23,7 @@ def set_argument():
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument('--epochs', type=int, default=4)
     parser.add_argument("--warmup_epochs", type=float, default=1)
-    parser.add_argument('--batch_size', type=int, default=2)
+    parser.add_argument('--batch_size', type=int, default=8)
     parser.add_argument("--grad_steps", type=int, default=2)
     parser.add_argument('--lr', type=float, default=1e-3)
     parser.add_argument("--wd", type=float, default=0.01)
@@ -33,8 +33,8 @@ def set_argument():
     parser.add_argument('--api_key', type=str, default='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')
     parser.add_argument('--emb_model', type=str, default='all-MiniLM-L6-v2')
     parser.add_argument('--llm_type', type=str, default='local')
-    parser.add_argument('--llm_model', type=str, default='../../models/llama-3.2-1b-instruct') # replace with your own path
-    parser.add_argument('--plm_model', type=str, default='../../models/bert-base-uncased') # replace with your own path
+    parser.add_argument('--llm_model', type=str, default='/data/users/bitlab/models/llama-3.2-1b-instruct') # replace with your own path
+    parser.add_argument('--plm_model', type=str, default='/data/users/bitlab/models/distilbert-base') # replace with your own path
     parser.add_argument("--llm_num_virtual_tokens", type=int, default=10)
     parser.add_argument("--output_dir", type=str, default='output')
     parser.add_argument('--max_txt_len', type=int, default=512)

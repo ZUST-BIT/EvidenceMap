@@ -76,7 +76,7 @@ class QAData(Dataset):
     def __getitem__(self, index):
         return self.question[index], self.answer[index], self.question_neg[index], self.sample_id[index]
     
-def evaluate_fn(test_loader, model, args):
+def evaluate_fn(test_loader, model, args, question_path, answer_path, response_path, mode='server'):
     print('Evaluating on test data...')
     response_list = []
     answer_list = []
@@ -90,17 +90,26 @@ def evaluate_fn(test_loader, model, args):
         answer_list.extend(test_answers)
         question_list.extend(test_questions)
         progress_bar.update(1)
-    for question, answer, response in zip(question_list, answer_list, response_list):
-        llm_score = llm_score_fn(question, response, answer, args.api_key)
-        if llm_score:
-            llm_acc_list.append(llm_score[0])
-            llm_flu_list.append(llm_score[1])
-    rouge_score = rouge_score_fn(response_list, answer_list)
-    bleu_score = bleu_score_fn(response_list, answer_list)
-    bert_score = bert_score_fn(response_list, answer_list)
-    llm_acc_score = sum(llm_acc_list) / len(llm_acc_list)
-    llm_flu_score = sum(llm_flu_list) / len(llm_flu_list)
-    print("Rouge-L: {}, BLEU-Score: {}, BERT-Score: {}, LLM-ACC-Score: {}, LLM-FLU-Score: {}".format(str(rouge_score), str(bleu_score), str(bert_score), str(llm_acc_score), str(llm_flu_score)))
+    with open(question_path, 'w') as f:
+        json.dump(question_list, f)
+    with open(answer_path, 'w') as f:
+        json.dump(answer_list, f)
+    with open(response_path, 'w') as f:
+        json.dump(response_list, f)
+    if mode == 'local':
+        for question, answer, response in zip(question_list, answer_list, response_list):
+            llm_score = llm_score_fn(question, response, answer, args.api_key)
+            if llm_score:
+                llm_acc_list.append(llm_score[0])
+                llm_flu_list.append(llm_score[1])
+        rouge_score = rouge_score_fn(response_list, answer_list)
+        bleu_score = bleu_score_fn(response_list, answer_list)
+        bert_score = bert_score_fn(response_list, answer_list)
+        llm_acc_score = sum(llm_acc_list) / len(llm_acc_list)
+        llm_flu_score = sum(llm_flu_list) / len(llm_flu_list)
+        print("Rouge-L: {}, BLEU-Score: {}, BERT-Score: {}, LLM-ACC-Score: {}, LLM-FLU-Score: {}".format(str(rouge_score), str(bleu_score), str(bert_score), str(llm_acc_score), str(llm_flu_score)))
+    else:
+        return
 
 def set_seed(seed):
     random.seed(seed)
@@ -115,7 +124,7 @@ def main(args):
     wandb.init(project=f"{args.project}", name=f"{args.dataset_name}_{args.framework}_seed{args.seed}", config=args)
     set_seed(args.seed)
 
-    device = torch.device("cuda:2" if args.use_cuda and torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:3" if args.use_cuda and torch.cuda.is_available() else "cpu")
 
     questions_train, answers_train, questions_neg_train, questions_test, answers_test, questions_neg_test = data_preprocess(args.dataset_dir, args.dataset_name)
 
@@ -129,6 +138,10 @@ def main(args):
 
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, drop_last=True, pin_memory=True, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size, drop_last=False, pin_memory=True, shuffle=False)
+    
+    test_q_path = './dataset/' + args.dataset_name + '/test/output/question.json'
+    test_a_path = './dataset/' + args.dataset_name + '/test/output/answer.json'
+    test_r_path = './dataset/' + args.dataset_name + '/test/output/response.json'
 
     model = framework_selector[args.framework](args, device)
 
@@ -168,14 +181,14 @@ def main(args):
                     wandb.log({'Lr': lr})
                     wandb.log({'Accum Loss': train_loss / args.grad_steps})
                     train_loss = 0.
-                # evaluate_fn(test_loader, model, args)
+                # evaluate_fn(test_loader, model, args, test_q_path, test_a_path, test_r_path, mode='server')
                 progress_bar.update(1)
             print(f"Epoch: {epoch}|{args.epochs}: Train Loss (Epoch Mean): {epoch_loss / len(train_loader)}")
             wandb.log({'Train Loss (Epoch Mean)': epoch_loss / len(train_loader)})
 
             # Evaluation
             model.eval()
-            evaluate_fn(test_loader, model, args)
+            evaluate_fn(test_loader, model, args, test_q_path, test_a_path, test_r_path, mode='server')
 
 
 
