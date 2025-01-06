@@ -5,7 +5,6 @@ import random
 from torch_geometric.data import Data
 from torch_geometric.loader import DataLoader
 import itertools
-from retrieval import EvidenceRetrieval
 from transformers import AutoTokenizer, AutoModelForCausalLM, AutoModelForMaskedLM
 from network.gnn import load_gnn_model
 from network.mlp import MLP, Classifier
