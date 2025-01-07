@@ -154,15 +154,15 @@ def main(args):
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, drop_last=True, pin_memory=True, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size, drop_last=False, pin_memory=True, shuffle=False)
     
-    test_q_path = './dataset/' + args.dataset_name + '/test/output/question.json'
-    test_a_path = './dataset/' + args.dataset_name + '/test/output/answer.json'
-    test_r_path = './dataset/' + args.dataset_name + '/test/output/response.json'
+    test_q_path = './dataset/' + args.dataset_name + '/test/output/question_' + args.framework + '.json'
+    test_a_path = './dataset/' + args.dataset_name + '/test/output/answer_' + args.framework + '.json'
+    test_r_path = './dataset/' + args.dataset_name + '/test/output/response_' + args.framework + '.json'
 
     model = framework_selector[args.framework](args, device)
 
     if args.framework in ['rag', 'evimap_hard', 'llm_thought']:
         # Evaluation
-        evaluate_fn(test_loader, model, args)
+        evaluate_fn(test_loader, model, args, test_q_path, test_a_path, test_r_path, mode='local')
     else:
         params = [p for _, p in model.named_parameters() if p.requires_grad]
         trainable_params, all_param = model.print_trainable_params()
@@ -209,4 +209,11 @@ def main(args):
 
 if __name__ == "__main__":
     args = set_argument()
-    main(args)
+    # main(args)
+    with open('./dataset/' + args.dataset_name + '/test/output/question.json', 'r') as f:
+        question_list = json.load(f)
+    with open('./dataset/' + args.dataset_name + '/test/output/answer.json', 'r') as f:
+        answer_list = json.load(f)
+    with open('./dataset/' + args.dataset_name + '/test/output/response.json', 'r') as f:
+        response_list = json.load(f)
+    evaluate_fn2(question_list, answer_list, response_list)

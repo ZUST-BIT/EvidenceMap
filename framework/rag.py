@@ -2,7 +2,7 @@
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from prompt import *
-from retrieval import EvidenceRetrieval
+from data_process import get_parsed_question, get_evidence
 import pdb
 
 # llama 3 prompt template
@@ -28,7 +28,6 @@ class RAG(object):
         self.word_embedding = self.model.model.get_input_embeddings().to(self.model.device)
         self.model.eval()
 
-        self.retriever = EvidenceRetrieval(self.args)
         self.summary = EvidenceProcess(self.args)
 
     def llama_inference_batch(self, input_text_list):
@@ -61,9 +60,11 @@ class RAG(object):
         output_text = self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
         return output_text
 
-    def inference(self, questions, parsed_questions, llm_evidences, questions_neg):
-        evidence_raw_list = self.retriever.evidence_process(parsed_questions, questions, self.args)
-        evidence_list = self.summary.evidence_process(evidence_raw_list, llm_evidences)
+    def inference(self, questions, questions_neg, sample_ids):
+        parsed_questions = get_parsed_question(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='test')
+        llm_evidences, paper_evidences = get_evidence(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='test')
+
+        evidence_list = self.summary.evidence_process(paper_evidences, llm_evidences, self.args.paper_num)
 
         prompt_list = []
         for question, evidence in zip(questions, evidence_list):
@@ -82,53 +83,19 @@ class EvidenceProcess(object):
     def __init__(self, args):
         self.args = args
 
-    def subgraph_process(self, evidence_raw):
-        print('EvidenceMap: Summarizing subgraph evdience...\n')
-        if evidence_raw['subgraph']:
-            triple_text = ', '.join([str(triple) for triple in evidence_raw['subgraph']])
-            output = triple_text
-        else:
-            output = 'No subgraph.'
-        return output
-
-    def path_process(self, evidence_raw):
-        print('EvidenceMap: Summarizing path evdience...', end=' ', flush=True)
-        if evidence_raw['path']:
-            output = '\n'.join([str(path) for path in evidence_raw['path']])
-        else:
-            output = 'No path.'
-        return output
-
-    def paper_process(self, evidence_raw):
+    def paper_process(self, paper_evis):
         print('EvidenceMap: Summarizing paper evdience...', end=' ', flush=True)
-        if evidence_raw['paper']:
-            output = '\n'.join([str(paper) for paper in evidence_raw['paper']])
+        if paper_evis:
+            output = '\n'.join([str(paper) for paper in paper_evis])
         else:
             output = 'No paper.'
         return output
 
-    def concept_process(self, evidence_raw):
-        print('EvidenceMap: Summarizing concept evidence...\n')
-        concept_str_list = []
-        if evidence_raw['concept']:
-            for name, definition in evidence_raw['concept'].items():
-                concept_str_list.append(name + ': ' + definition)
-            output = '\n'.join(concept_str_list)
-        else:
-            output = "No concept."
-        return output
-
-    def evidence_process(self, evidence_raw_list, llm_evidences):
+    def evidence_process(self, paper_evidences, llm_evidences, max_paper_num):
         evidence_list = []
-        for evidence_raw, llm_evi in zip(evidence_raw_list, llm_evidences):
+        for paper_evis, llm_evi in zip(paper_evidences, llm_evidences):
             evidence = []
-            if 'subgraph' in evidence_raw:
-                evidence.append(self.subgraph_process(evidence_raw)) # str
-            if 'path' in evidence_raw:
-                evidence.append(self.path_process(evidence_raw)) # str
-            if 'paper' in evidence_raw:
-                evidence.append(self.paper_process(evidence_raw)) # str
-            evidence.append(self.concept_process(evidence_raw)) # str
+            evidence.append(self.paper_process(paper_evis[:max_paper_num])) # str
             evidence.append(llm_evi) # str
             evidence_list.append('\n'.join(evidence))
         return evidence_list

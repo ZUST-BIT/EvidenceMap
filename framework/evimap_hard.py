@@ -3,7 +3,7 @@ import json
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
 from prompt import *
-from retrieval import EvidenceRetrieval
+from data_process import get_parsed_question, get_evidence
 import pdb
 
 # llama 3 prompt template
@@ -29,7 +29,6 @@ class EviMapHard(object):
         self.word_embedding = self.model.model.get_input_embeddings().to(self.model.device)
         self.model.eval()
 
-        self.retriever = EvidenceRetrieval(self.args)
         self.summary = EvidenceSummary(self.args)
         self.analysis = EvidenceAnalysis(self.args)
 
@@ -63,9 +62,11 @@ class EviMapHard(object):
         output_text = self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
         return output_text
 
-    def inference(self, questions, parsed_questions, llm_evidences, questions_neg):
-        evidence_text_list = self.retriever.evidence_process(parsed_questions, questions, self.args)
-        evidence_sum_list = self.summary.evidence_process(questions, evidence_text_list, llm_evidences)
+    def inference(self, questions, questions_neg, sample_ids):
+        parsed_questions = get_parsed_question(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='test')
+        llm_evidences, paper_evidences = get_evidence(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='test')
+
+        evidence_sum_list = self.summary.evidence_process(questions, paper_evidences, llm_evidences, self.args.paper_num)
         evidence_analysis_list = self.analysis.evidence_process(questions, evidence_sum_list)
 
         prompt_list = []
@@ -176,44 +177,14 @@ class EvidenceSummary(object):
         output_text = self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
         return output_text
 
-    def subgraph_summary(self, question, evidence_raw):
-        print('EvidenceMap: Summarizing subgraph evdience...\n')
-        sys_input = subgraph_sum_prompt['sys_input']
-        user_input = subgraph_sum_prompt['user_input']
-        if evidence_raw['subgraph']:
-            triple_text = ', '.join([str(triple) for triple in evidence_raw['subgraph']])
-            user_input = user_input.replace('<triples>', triple_text)
-            user_input = user_input.replace('<question>', question)
-            output = self.llama_inference(sys_input + '\n' + user_input)[0]
-        else:
-            output = 'No subgraph.'
-        return output
-
-    def path_summary(self, question, evidence_raw):
-        print('EvidenceMap: Summarizing path evdience...', end=' ', flush=True)
-        sys_input = path_sum_prompt['sys_input']
-        user_input_tmp = path_sum_prompt['user_input']
-        user_input_tmp = user_input_tmp.replace('<question>', question)
-        sum_list = []
-        for path in evidence_raw['path']:
-            user_input = user_input_tmp.replace('<path>', str(path))
-            output = self.llama_inference(sys_input + '\n' + user_input)[0]
-            sum_list.append(output)
-            print('.', end=' ', flush=True)
-        print('\n')
-        if sum_list:
-            return sum_list
-        else:
-            return ['No path.']
-
-    def paper_summary(self, question, evidence_raw):
+    def paper_summary(self, question, paper_evidences):
         print('EvidenceMap: Summarizing paper evdience...', end=' ', flush=True)
         sys_input = paper_sum_prompt['sys_input']
         user_input_tmp = paper_sum_prompt['user_input']
         user_input_tmp = user_input_tmp.replace('<question>', question)
         sum_list = []
-        for paper in evidence_raw['paper']:
-            user_input = user_input_tmp.replace('<paper>', paper['text'])
+        for paper in paper_evidences:
+            user_input = user_input_tmp.replace('<paper>', paper)
             output = self.llama_inference(sys_input + '\n' + user_input)[0]
             sum_list.append(output)
             print('.', end=' ', flush=True)
@@ -223,28 +194,11 @@ class EvidenceSummary(object):
         else:
             return ['No paper.']
 
-    def concept_summary(self, evidence_raw):
-        print('EvidenceMap: Summarizing concept evidence...\n')
-        concept_str_list = []
-        if evidence_raw['concept']:
-            for name, definition in evidence_raw['concept'].items():
-                concept_str_list.append(name + ': ' + definition)
-            output = '\n'.join(concept_str_list)
-        else:
-            output = "No concept."
-        return output
-
-    def evidence_process(self, questions, evidence_raw_list, llm_evidences):
+    def evidence_process(self, questions, paper_evidences, llm_evidences, max_paper_num):
         evidence_list = []
-        for question, evidence_raw, llm_evi in zip(questions, evidence_raw_list, llm_evidences):
+        for question, paper_evi, llm_evi in zip(questions, paper_evidences, llm_evidences):
             evidence = {}
-            if 'subgraph' in evidence_raw:
-                evidence['subgraph'] = self.subgraph_summary(question, evidence_raw) # str
-            if 'path' in evidence_raw:
-                evidence['path'] = self.path_summary(question, evidence_raw) # list of str
-            if 'paper' in evidence_raw:
-                evidence['paper'] = self.paper_summary(question, evidence_raw) # list of str
-            evidence['concept'] = self.concept_summary(evidence_raw) # str
+            evidence['paper'] = self.paper_summary(question, paper_evi[:max_paper_num]) # list of str
             evidence['llm'] = llm_evi # str
             evidence_list.append(evidence)
         return evidence_list
