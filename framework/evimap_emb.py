@@ -115,10 +115,16 @@ class EviMapEmb(torch.nn.Module):
 
         batch_size = len(questions_token.input_ids) # for number of samples less than a batch
         for i in range(batch_size):
+            if self.args.evi_rep == 'text':
+                evidence_text = ' '.join(batch_evi_text[i])
+                evidence_text_token = self.tokenizer(evidence_text, add_special_tokens=False)
+                evience_embeds = self.word_embedding(torch.tensor(evidence_text_token.input_ids).to(self.model.device)) # evi_num * tok_len
+            else:
+                evience_embeds = batch_evi_emb[i]
             input_ids = questions_token.input_ids[i] + eos_user_tokens.input_ids
             # input_ids = questions_token.input_ids[i]
             inputs_embeds = self.word_embedding(torch.tensor(input_ids).to(self.model.device))
-            inputs_embeds = torch.cat([bos_embeds, batch_evi_emb[i], batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
+            inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
             batch_inputs_embeds.append(inputs_embeds)
             batch_attention_mask.append([1] * inputs_embeds.shape[0])
 
@@ -188,22 +194,24 @@ class EviMapBuilder(torch.nn.Module):
         loss = loss_fn(predictions, labels)
         return loss
 
-    def build_map(self, question, evidence_set, question_neg):
+    def emb_evidence(self, evidence_set):
         prompt_evidence = "Evidence: {evidence} \n This evidence means in one word:" # https://arxiv.org/pdf/2307.16645
-        prompt_support = "Evidence: {evidence} \n Question: {question} \n How much the evidence supports the question:"
-        prompt_relation = "Evidence1: {evidence1} \n Evidence2: {evidence2} \n The logical relationship between these two pieces of evidence:"
-
         evidence_prompt_list = [prompt_evidence.format(evidence=x) for x in evidence_set] # n
-        support_prompt_list = [prompt_support.format(evidence=x, question=question) for x in evidence_set] # n
-        relation_prompt_list = [prompt_relation.format(evidence1=pair[0], evidence2=pair[1]) for pair in itertools.combinations(evidence_set, 2)] # n*(n-1)/2
-
         evidence_input = self.tokenizer(evidence_prompt_list, padding=True, truncation=True, return_tensors="pt").to(self.device)
-        support_input = self.tokenizer(support_prompt_list, padding=True, truncation=True, return_tensors="pt").to(self.device)
-        relation_input = self.tokenizer(relation_prompt_list, padding=True, truncation=True, return_tensors="pt").to(self.device)
-
         evidence_last_hidden = self.model(**evidence_input).hidden_states[-1]
         evidence_idx_last_non_padding = evidence_input.attention_mask.bool().sum(1)-1
         evidence_embs = evidence_last_hidden[torch.arange(evidence_last_hidden.shape[0]), evidence_idx_last_non_padding]
+        return evidence_embs
+
+    def build_map(self, question, evidence_set, question_neg):
+        prompt_support = "Evidence: {evidence} \n Question: {question} \n How much the evidence supports the question:"
+        prompt_relation = "Evidence1: {evidence1} \n Evidence2: {evidence2} \n The logical relationship between these two pieces of evidence:"
+
+        support_prompt_list = [prompt_support.format(evidence=x, question=question) for x in evidence_set] # n
+        relation_prompt_list = [prompt_relation.format(evidence1=pair[0], evidence2=pair[1]) for pair in itertools.combinations(evidence_set, 2)] # n*(n-1)/2
+
+        support_input = self.tokenizer(support_prompt_list, padding=True, truncation=True, return_tensors="pt").to(self.device)
+        relation_input = self.tokenizer(relation_prompt_list, padding=True, truncation=True, return_tensors="pt").to(self.device)
 
         support_last_hidden = self.model(**support_input).hidden_states[-1]
         support_idx_last_non_padding = support_input.attention_mask.bool().sum(1)-1
@@ -213,7 +221,7 @@ class EviMapBuilder(torch.nn.Module):
         relation_idx_last_non_padding = relation_input.attention_mask.bool().sum(1)-1
         relation_embs = relation_last_hidden[torch.arange(relation_last_hidden.shape[0]), relation_idx_last_non_padding]
 
-        return evidence_embs, support_embs, relation_embs
+        return support_embs, relation_embs
 
     def forward(self, questions, paper_evis, llm_evis, questions_neg, max_paper_num):
         article_num = 0
@@ -226,8 +234,10 @@ class EviMapBuilder(torch.nn.Module):
         batch_evi_text = []
         for question, paper_evi, llm_evi, question_neg in zip(questions, paper_evis, llm_evis, questions_neg):
             evidence_set = paper_evi[:max_paper_num] + [llm_evi]
-            evidence_embs, support_embs, relation_embs = self.build_map(question, evidence_set, question_neg)
-            batch_evi_emb.append(self.projector(evidence_embs))
+            if self.args.evi_rep == 'emb':
+                evidence_embs = self.emb_evidence(evidence_set)
+                batch_evi_emb.append(self.projector(evidence_embs))
+            support_embs, relation_embs = self.build_map(question, evidence_set, question_neg)
             batch_sup_emb.append(self.projector(support_embs))
             batch_rel_emb.append(self.projector(relation_embs))
             batch_evi_text.append(evidence_set)
