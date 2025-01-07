@@ -18,6 +18,7 @@ def set_argument():
     parser.add_argument('--concept_path', type=str, default='./dataset/umls_concept.json', help='File path of concept')
     parser.add_argument('--path_num', type=int, default=5)
     parser.add_argument('--paper_num', type=int, default=5)
+    parser.add_argument('--evi_rep', type=str, default='text')
 
     parser.add_argument('--use_cuda', action='store_true', default=True)
     parser.add_argument("--seed", type=int, default=0)
@@ -33,7 +34,7 @@ def set_argument():
     parser.add_argument('--api_key', type=str, default='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')
     parser.add_argument('--emb_model', type=str, default='all-MiniLM-L6-v2')
     parser.add_argument('--llm_type', type=str, default='local')
-    parser.add_argument('--llm_model', type=str, default='/data/users/bitlab/models/llama-3.2-3b-instruct') # replace with your own path
+    parser.add_argument('--llm_model', type=str, default='/data/users/bitlab/models/llama-3.2-1b-instruct') # replace with your own path
     parser.add_argument('--plm_model', type=str, default='/data/users/bitlab/models/distilbert-base') # replace with your own path
     parser.add_argument("--llm_num_virtual_tokens", type=int, default=10)
     parser.add_argument("--output_dir", type=str, default='output')
@@ -51,6 +52,6 @@ def set_argument():
     parser.add_argument("--gnn_num_heads", type=int, default=4)
     parser.add_argument("--gnn_dropout", type=float, default=0.0)
     parser.add_argument("--projector_hidden_dim", type=int, default=1024)
-    parser.add_argument("--projector_output_dim", type=int, default=3072) # depends on LLM's embedding dim
+    parser.add_argument("--projector_output_dim", type=int, default=2048) # depends on LLM's embedding dim
     args = parser.parse_args()
     return args

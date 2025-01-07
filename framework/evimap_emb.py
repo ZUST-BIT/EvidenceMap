@@ -50,7 +50,7 @@ class EviMapEmb(torch.nn.Module):
         questions_token = self.tokenizer(questions, add_special_tokens=False)
         answers_token = self.tokenizer(answers, add_special_tokens=False)
         print("Building evidence map...")
-        batch_evi_emb, batch_sup_emb, batch_rel_emb = self.evi_map_builder(questions, paper_evidences, llm_evidences, questions_neg, self.args.paper_num) # batch_num * evidence_num * embedding_dim
+        batch_evi_emb, batch_sup_emb, batch_rel_emb, batch_evi_text = self.evi_map_builder(questions, paper_evidences, llm_evidences, questions_neg, self.args.paper_num) # batch_num * evidence_num * embedding_dim
 
         eos_tokens = self.tokenizer(EOS, add_special_tokens=False)
         eos_user_tokens = self.tokenizer(EOS_USER, add_special_tokens=False)
@@ -63,9 +63,15 @@ class EviMapEmb(torch.nn.Module):
 
         for i in range(self.args.batch_size):
             label_input_ids = answers_token.input_ids[i][:self.max_new_tokens] + eos_tokens.input_ids
+            if self.args.evi_rep == 'text':
+                evidence_text = ' '.join(batch_evi_text[i])
+                evidence_text_token = self.tokenizer(evidence_text, add_special_tokens=False)
+                evience_embeds = self.word_embedding(torch.tensor(evidence_text_token.input_ids).to(self.model.device)) # evi_num * tok_len
+            else:
+                evience_embeds = batch_evi_emb[i]
             input_ids = questions_token.input_ids[i] + eos_user_tokens.input_ids + label_input_ids
             inputs_embeds = self.word_embedding(torch.tensor(input_ids).to(self.model.device))
-            inputs_embeds = torch.cat([bos_embeds, batch_evi_emb[i], batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
+            inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
             batch_inputs_embeds.append(inputs_embeds)
             batch_attention_mask.append([1] * inputs_embeds.shape[0])
             label_input_ids = [IGNORE_INDEX] * (inputs_embeds.shape[0]-len(label_input_ids)) + label_input_ids
@@ -98,7 +104,7 @@ class EviMapEmb(torch.nn.Module):
 
         questions_token = self.tokenizer(questions, add_special_tokens=False)
         print("Building evidence map...")
-        batch_evi_emb, batch_sup_emb, batch_rel_emb = self.evi_map_builder(questions, paper_evidences, llm_evidences, questions_neg, self.args.paper_num)
+        batch_evi_emb, batch_sup_emb, batch_rel_emb, batch_evi_text = self.evi_map_builder(questions, paper_evidences, llm_evidences, questions_neg, self.args.paper_num)
 
         eos_user_tokens = self.tokenizer(EOS_USER, add_special_tokens=False)
         bos_embeds = self.word_embedding(self.tokenizer(BOS, add_special_tokens=False, return_tensors='pt').input_ids[0].to(self.model.device))
@@ -217,11 +223,12 @@ class EviMapBuilder(torch.nn.Module):
         batch_evi_emb = []
         batch_sup_emb = []
         batch_rel_emb = []
+        batch_evi_text = []
         for question, paper_evi, llm_evi, question_neg in zip(questions, paper_evis, llm_evis, questions_neg):
             evidence_set = paper_evi[:max_paper_num] + [llm_evi]
             evidence_embs, support_embs, relation_embs = self.build_map(question, evidence_set, question_neg)
             batch_evi_emb.append(self.projector(evidence_embs))
             batch_sup_emb.append(self.projector(support_embs))
             batch_rel_emb.append(self.projector(relation_embs))
-
-        return batch_evi_emb, batch_sup_emb, batch_rel_emb
+            batch_evi_text.append(evidence_set)
+        return batch_evi_emb, batch_sup_emb, batch_rel_emb, batch_evi_text
