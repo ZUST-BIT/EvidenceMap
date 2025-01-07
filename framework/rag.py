@@ -20,7 +20,7 @@ class RAG(object):
         self.tokenizer = AutoTokenizer.from_pretrained(args.llm_model)
         self.tokenizer.pad_token_id = 0
         self.tokenizer.padding_side = 'left'
-        self.model = AutoModelForCausalLM.from_pretrained(args.llm_model, torch_dtype=torch.bfloat16, device_map="auto")
+        self.model = AutoModelForCausalLM.from_pretrained(args.llm_model, torch_dtype=torch.bfloat16, device_map="cuda:3")
         # Freeze LLM parameters
         for name, param in self.model.named_parameters():
             param.requires_grad = False
