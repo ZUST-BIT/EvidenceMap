@@ -75,6 +75,21 @@ class QAData(Dataset):
   
     def __getitem__(self, index):
         return self.question[index], self.answer[index], self.question_neg[index], self.sample_id[index]
+
+def evaluate_fn2(question_list, answer_list, response_list):
+    llm_acc_list = []
+    llm_flu_list = []
+    for question, answer, response in zip(question_list, answer_list, response_list):
+        llm_score = llm_score_fn(question, response, answer, args.api_key)
+        if llm_score:
+            llm_acc_list.append(llm_score[0])
+            llm_flu_list.append(llm_score[1])
+    rouge_score = rouge_score_fn(response_list, answer_list)
+    bleu_score = bleu_score_fn(response_list, answer_list)
+    bert_score = bert_score_fn(response_list, answer_list)
+    llm_acc_score = sum(llm_acc_list) / len(llm_acc_list)
+    llm_flu_score = sum(llm_flu_list) / len(llm_flu_list)
+    print("Rouge-L: {}, BLEU-Score: {}, BERT-Score: {}, LLM-ACC-Score: {}, LLM-FLU-Score: {}".format(str(rouge_score), str(bleu_score), str(bert_score), str(llm_acc_score), str(llm_flu_score)))
     
 def evaluate_fn(test_loader, model, args, question_path, answer_path, response_path, mode='server'):
     print('Evaluating on test data...')
