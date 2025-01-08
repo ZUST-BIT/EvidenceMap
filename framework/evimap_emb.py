@@ -124,7 +124,11 @@ class EviMapEmb(torch.nn.Module):
             input_ids = questions_token.input_ids[i] + eos_user_tokens.input_ids
             # input_ids = questions_token.input_ids[i]
             inputs_embeds = self.word_embedding(torch.tensor(input_ids).to(self.model.device))
-            inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
+            if 'sum' in self.args.analysis:
+                glo_emb = torch.mean(batch_evi_emb[i], 0).unsqueeze(0)
+                inputs_embeds = torch.cat([bos_embeds, evience_embeds, glo_emb, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
+            else:
+                inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
             batch_inputs_embeds.append(inputs_embeds)
             batch_attention_mask.append([1] * inputs_embeds.shape[0])
 
@@ -234,7 +238,7 @@ class EviMapBuilder(torch.nn.Module):
         batch_evi_text = []
         for question, paper_evi, llm_evi, question_neg in zip(questions, paper_evis, llm_evis, questions_neg):
             evidence_set = paper_evi[:max_paper_num] + [llm_evi]
-            if self.args.evi_rep == 'emb':
+            if self.args.evi_rep == 'emb' or 'sum' in self.args.analysis:
                 evidence_embs = self.emb_evidence(evidence_set)
                 batch_evi_emb.append(self.projector(evidence_embs))
             support_embs, relation_embs = self.build_map(question, evidence_set, question_neg)

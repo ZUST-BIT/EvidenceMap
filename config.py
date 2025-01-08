@@ -6,8 +6,9 @@ def csv_list(string):
 def set_argument():
     parser = argparse.ArgumentParser(prog='EvidenceMap')
     parser.add_argument('--project', type=str, default='EvidenceMap')
-    parser.add_argument('--framework', type=str, default='rag')
+    parser.add_argument('--framework', type=str, default='evimap_emb')
     parser.add_argument('--source', type=csv_list, default=['kg', 'paper'])
+    parser.add_argument('--analysis', type=csv_list, default=['sup', 'rel'])
 
     parser.add_argument('--dataset_name', type=str, default='BioASQ')
     parser.add_argument('--dataset_dir', type=str, default='./dataset')
@@ -24,7 +25,7 @@ def set_argument():
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument('--epochs', type=int, default=4)
     parser.add_argument("--warmup_epochs", type=float, default=1)
-    parser.add_argument('--batch_size', type=int, default=4)
+    parser.add_argument('--batch_size', type=int, default=2)
     parser.add_argument("--grad_steps", type=int, default=2)
     parser.add_argument('--lr', type=float, default=5e-4)
     parser.add_argument("--wd", type=float, default=0.01)
@@ -52,6 +53,6 @@ def set_argument():
     parser.add_argument("--gnn_num_heads", type=int, default=4)
     parser.add_argument("--gnn_dropout", type=float, default=0.0)
     parser.add_argument("--projector_hidden_dim", type=int, default=1024)
-    parser.add_argument("--projector_output_dim", type=int, default=2048) # depends on LLM's embedding dim
+    parser.add_argument("--projector_output_dim", type=int, default=3072) # depends on LLM's embedding dim
     args = parser.parse_args()
     return args
