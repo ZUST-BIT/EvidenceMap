@@ -8,7 +8,7 @@ def set_argument():
     parser.add_argument('--project', type=str, default='EvidenceMap')
     parser.add_argument('--framework', type=str, default='evimap_emb')
     parser.add_argument('--source', type=csv_list, default=['kg', 'paper'])
-    parser.add_argument('--analysis', type=csv_list, default=['sup', 'rel'])
+    parser.add_argument('--analysis', type=csv_list, default=['sup', 'rel', 'sum'])
 
     parser.add_argument('--dataset_name', type=str, default='BioASQ')
     parser.add_argument('--dataset_dir', type=str, default='./dataset')
@@ -23,7 +23,7 @@ def set_argument():
 
     parser.add_argument('--use_cuda', action='store_true', default=True)
     parser.add_argument("--seed", type=int, default=0)
-    parser.add_argument('--epochs', type=int, default=4)
+    parser.add_argument('--epochs', type=int, default=8)
     parser.add_argument("--warmup_epochs", type=float, default=1)
     parser.add_argument('--batch_size', type=int, default=2)
     parser.add_argument("--grad_steps", type=int, default=2)
@@ -35,8 +35,8 @@ def set_argument():
     parser.add_argument('--api_key', type=str, default='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')
     parser.add_argument('--emb_model', type=str, default='all-MiniLM-L6-v2')
     parser.add_argument('--llm_type', type=str, default='local')
-    parser.add_argument('--llm_model', type=str, default='/data/users/bitlab/models/llama-3.2-3b-instruct') # replace with your own path
-    parser.add_argument('--plm_model', type=str, default='/data/users/bitlab/models/distilbert-base') # replace with your own path
+    parser.add_argument('--llm_model', type=str, default='/data/users/bitlab/models/llama-3.2-1b-instruct') # replace with your own path
+    parser.add_argument('--plm_model', type=str, default='/data/users/bitlab/models/bert-base-uncased') # replace with your own path
     parser.add_argument("--llm_num_virtual_tokens", type=int, default=10)
     parser.add_argument("--output_dir", type=str, default='output')
     parser.add_argument('--max_txt_len', type=int, default=512)
@@ -53,6 +53,6 @@ def set_argument():
     parser.add_argument("--gnn_num_heads", type=int, default=4)
     parser.add_argument("--gnn_dropout", type=float, default=0.0)
     parser.add_argument("--projector_hidden_dim", type=int, default=1024)
-    parser.add_argument("--projector_output_dim", type=int, default=3072) # depends on LLM's embedding dim
+    parser.add_argument("--projector_output_dim", type=int, default=2048) # depends on LLM's embedding dim
     args = parser.parse_args()
     return args

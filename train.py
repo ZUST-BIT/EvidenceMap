@@ -139,7 +139,7 @@ def main(args):
     wandb.init(project=f"{args.project}", name=f"{args.dataset_name}_{args.framework}_seed{args.seed}", config=args)
     set_seed(args.seed)
 
-    device = torch.device("cuda:3" if args.use_cuda and torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:2" if args.use_cuda and torch.cuda.is_available() else "cpu")
 
     questions_train, answers_train, questions_neg_train, questions_test, answers_test, questions_neg_test = data_preprocess(args.dataset_dir, args.dataset_name)
 
@@ -154,9 +154,11 @@ def main(args):
     train_loader = DataLoader(train_dataset, batch_size=args.batch_size, drop_last=True, pin_memory=True, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=args.batch_size, drop_last=False, pin_memory=True, shuffle=False)
     
-    test_q_path = './dataset/' + args.dataset_name + '/test/output/question_' + args.framework + '.json'
-    test_a_path = './dataset/' + args.dataset_name + '/test/output/answer_' + args.framework + '.json'
-    test_r_path = './dataset/' + args.dataset_name + '/test/output/response_' + args.framework + '.json'
+    plm_name = args.plm_model.split('/')[-1]
+    llm_name = args.llm_model.split('/')[-1]
+    test_q_path = './dataset/' + args.dataset_name + '/test/output/question_' + args.framework + '_' + plm_name + '_' + llm_name + '.json'
+    test_a_path = './dataset/' + args.dataset_name + '/test/output/answer_' + args.framework + '_' + plm_name + '_' + llm_name + '.json'
+    test_r_path = './dataset/' + args.dataset_name + '/test/output/response_' + args.framework + '_' + plm_name + '_' + llm_name + '.json'
 
     model = framework_selector[args.framework](args, device)
 

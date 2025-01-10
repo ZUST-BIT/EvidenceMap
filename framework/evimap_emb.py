@@ -33,7 +33,7 @@ class EviMapEmb(torch.nn.Module):
             args.llm_model,
             # torch_dtype=torch.float16,
             low_cpu_mem_usage=True,
-            device_map="cuda:3"
+            device_map="cuda:2"
         )
         # Freeze LLM parameters
         for name, param in self.model.named_parameters():
