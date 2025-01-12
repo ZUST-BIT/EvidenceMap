@@ -11,10 +11,17 @@ from network.mlp import MLP, Classifier
 from data_process import get_parsed_question, get_evidence
 import pdb
 
+
 # llama 3 prompt template
 BOS = '<|begin_of_text|>'
 EOS_USER = '<|eot_id|>'
 EOS = '<|end_of_text|>'
+
+# Use transformers==4.41.0 for Phi-3.5
+# phi 3.5 prompt template
+# BOS = '<s>'
+# EOS_USER = '<|end|>'
+# EOS = '<|endoftext|>'
 
 IGNORE_INDEX = -100
 
@@ -32,8 +39,9 @@ class EviMapEmb(torch.nn.Module):
         self.model = AutoModelForCausalLM.from_pretrained(
             args.llm_model,
             # torch_dtype=torch.float16,
-            low_cpu_mem_usage=True,
+            low_cpu_mem_usage=True, # comment this for Phi3.5
             device_map="cuda:2"
+            # trust_remote_code=True,  # add this for Phi3.5
         )
         # Freeze LLM parameters
         for name, param in self.model.named_parameters():
@@ -71,7 +79,13 @@ class EviMapEmb(torch.nn.Module):
                 evience_embeds = batch_evi_emb[i]
             input_ids = questions_token.input_ids[i] + eos_user_tokens.input_ids + label_input_ids
             inputs_embeds = self.word_embedding(torch.tensor(input_ids).to(self.model.device))
-            inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
+            if 'sum' in self.args.analysis and 'rel' in self.args.analysis and 'sup' in self.args.analysis: 
+                glo_emb = torch.mean(batch_evi_emb[i], 0).unsqueeze(0)
+                inputs_embeds = torch.cat([bos_embeds, evience_embeds, glo_emb, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
+            elif 'sum' not in self.args.analysis:
+                inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
+            elif 'sum' not in self.args.analysis and 'rel' not in self.args.analysis:
+                inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], inputs_embeds], dim=0)
             batch_inputs_embeds.append(inputs_embeds)
             batch_attention_mask.append([1] * inputs_embeds.shape[0])
             label_input_ids = [IGNORE_INDEX] * (inputs_embeds.shape[0]-len(label_input_ids)) + label_input_ids
@@ -124,11 +138,13 @@ class EviMapEmb(torch.nn.Module):
             input_ids = questions_token.input_ids[i] + eos_user_tokens.input_ids
             # input_ids = questions_token.input_ids[i]
             inputs_embeds = self.word_embedding(torch.tensor(input_ids).to(self.model.device))
-            if 'sum' in self.args.analysis:
+            if 'sum' in self.args.analysis and 'rel' in self.args.analysis and 'sup' in self.args.analysis:
                 glo_emb = torch.mean(batch_evi_emb[i], 0).unsqueeze(0)
                 inputs_embeds = torch.cat([bos_embeds, evience_embeds, glo_emb, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
-            else:
+            elif 'sum' not in self.args.analysis:
                 inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
+            elif 'sum' not in self.args.analysis and 'rel' not in self.args.analysis:
+                inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], inputs_embeds], dim=0)
             batch_inputs_embeds.append(inputs_embeds)
             batch_attention_mask.append([1] * inputs_embeds.shape[0])
 
@@ -146,7 +162,7 @@ class EviMapEmb(torch.nn.Module):
             max_new_tokens=self.max_new_tokens,
             attention_mask=attention_mask,
             pad_token_id=self.tokenizer.eos_token_id,
-            use_cache=True
+            use_cache=True,
         )
         pred = self.tokenizer.batch_decode(outputs, skip_special_tokens=True)
         print(pred)

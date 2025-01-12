@@ -8,7 +8,7 @@ def set_argument():
     parser.add_argument('--project', type=str, default='EvidenceMap')
     parser.add_argument('--framework', type=str, default='evimap_emb')
     parser.add_argument('--source', type=csv_list, default=['kg', 'paper'])
-    parser.add_argument('--analysis', type=csv_list, default=['sup', 'rel', 'sum'])
+    parser.add_argument('--analysis', type=csv_list, default=['sup'])
 
     parser.add_argument('--dataset_name', type=str, default='BioASQ')
     parser.add_argument('--dataset_dir', type=str, default='./dataset')
@@ -18,7 +18,7 @@ def set_argument():
     parser.add_argument('--mongodb_url', type=str, default='mongodb://localhost:27017/')
     parser.add_argument('--concept_path', type=str, default='./dataset/umls_concept.json', help='File path of concept')
     parser.add_argument('--path_num', type=int, default=5)
-    parser.add_argument('--paper_num', type=int, default=5)
+    parser.add_argument('--paper_num', type=int, default=4)
     parser.add_argument('--evi_rep', type=str, default='text')
 
     parser.add_argument('--use_cuda', action='store_true', default=True)
@@ -36,7 +36,7 @@ def set_argument():
     parser.add_argument('--emb_model', type=str, default='all-MiniLM-L6-v2')
     parser.add_argument('--llm_type', type=str, default='local')
     parser.add_argument('--llm_model', type=str, default='/data/users/bitlab/models/llama-3.2-1b-instruct') # replace with your own path
-    parser.add_argument('--plm_model', type=str, default='/data/users/bitlab/models/bert-base-uncased') # replace with your own path
+    parser.add_argument('--plm_model', type=str, default='/data/users/bitlab/models/distilbert-base') # replace with your own path
     parser.add_argument("--llm_num_virtual_tokens", type=int, default=10)
     parser.add_argument("--output_dir", type=str, default='output')
     parser.add_argument('--max_txt_len', type=int, default=512)
