@@ -139,7 +139,7 @@ def main(args):
     wandb.init(project=f"{args.project}", name=f"{args.dataset_name}_{args.framework}_seed{args.seed}", config=args)
     set_seed(args.seed)
 
-    device = torch.device("cuda:2" if args.use_cuda and torch.cuda.is_available() else "cpu")
+    device = torch.device("cuda:3" if args.use_cuda and torch.cuda.is_available() else "cpu")
 
     questions_train, answers_train, questions_neg_train, questions_test, answers_test, questions_neg_test = data_preprocess(args.dataset_dir, args.dataset_name)
 

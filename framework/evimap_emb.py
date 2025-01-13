@@ -40,7 +40,7 @@ class EviMapEmb(torch.nn.Module):
             args.llm_model,
             # torch_dtype=torch.float16,
             low_cpu_mem_usage=True, # comment this for Phi3.5
-            device_map="cuda:2"
+            device_map="cuda:3"
             # trust_remote_code=True,  # add this for Phi3.5
         )
         # Freeze LLM parameters
@@ -82,9 +82,9 @@ class EviMapEmb(torch.nn.Module):
             if 'sum' in self.args.analysis and 'rel' in self.args.analysis and 'sup' in self.args.analysis: 
                 glo_emb = torch.mean(batch_evi_emb[i], 0).unsqueeze(0)
                 inputs_embeds = torch.cat([bos_embeds, evience_embeds, glo_emb, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
-            elif 'sum' not in self.args.analysis:
+            elif 'rel' in self.args.analysis and 'sup' in self.args.analysis:
                 inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
-            elif 'sum' not in self.args.analysis and 'rel' not in self.args.analysis:
+            else:
                 inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], inputs_embeds], dim=0)
             batch_inputs_embeds.append(inputs_embeds)
             batch_attention_mask.append([1] * inputs_embeds.shape[0])
@@ -141,9 +141,9 @@ class EviMapEmb(torch.nn.Module):
             if 'sum' in self.args.analysis and 'rel' in self.args.analysis and 'sup' in self.args.analysis:
                 glo_emb = torch.mean(batch_evi_emb[i], 0).unsqueeze(0)
                 inputs_embeds = torch.cat([bos_embeds, evience_embeds, glo_emb, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
-            elif 'sum' not in self.args.analysis:
+            elif 'rel' in self.args.analysis and 'sup' in self.args.analysis:
                 inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
-            elif 'sum' not in self.args.analysis and 'rel' not in self.args.analysis:
+            else:
                 inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], inputs_embeds], dim=0)
             batch_inputs_embeds.append(inputs_embeds)
             batch_attention_mask.append([1] * inputs_embeds.shape[0])
