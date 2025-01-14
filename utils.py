@@ -135,6 +135,37 @@ def process_paper_evidence(input_file, data_file, output_file):
     with open(output_file, 'w') as f:
         json.dump(tmp, f)
 
+def process_pubmed_evidence(data_path, test_path, evidence_train_path, evidence_test_path):
+    with open(test_path, 'r') as f:
+        test_json = json.load(f)
+        test_id_list_full = list(test_json.keys())
+    test_id_list = random.sample(test_id_list_full, 100)
+
+    test_data = {}
+    train_data = {}
+    with open(data_path, 'r') as f:
+        origin_data = json.load(f)
+        progress_bar = tqdm(range(len(list(origin_data.keys()))))
+        for idx, item in origin_data.items():
+            if "QUESTION" in item and "CONTEXTS" in item:
+                if idx in test_id_list:
+                    test_data[idx] = {}
+                    test_data[idx]["question"] = item["QUESTION"]
+                    test_data[idx]["llm_evidence"] = llm_evdence_gen(item["QUESTION"])
+                    test_data[idx]["paper_evidence"] = item["CONTEXTS"]
+                else:
+                    train_data[idx] = {}
+                    train_data[idx]["question"] = item["QUESTION"]
+                    train_data[idx]["llm_evidence"] = llm_evdence_gen(item["QUESTION"])
+                    train_data[idx]["paper_evidence"] = item["CONTEXTS"]
+            progress_bar.update(1)
+
+    with open(evidence_train_path, 'w') as f:
+        json.dump(train_data, f)
+
+    with open(evidence_test_path, 'w') as f:
+        json.dump(test_data, f)
+
 
 def adjust_learning_rate(param_group, LR, epoch, warmup_epochs, num_epochs):
     """Decay the learning rate with half-cycle cosine after warmup"""
@@ -151,9 +182,13 @@ if __name__ == '__main__':
     input_file = "/Users/zongchang/Desktop/code/EvidenceMap/dataset/BioASQ/test/llm_evidence_test_4.json"
     data_file = "/Users/zongchang/Desktop/code/EvidenceMap/dataset/BioASQ/test/12B4_golden.json"
     output_file = "/Users/zongchang/Desktop/code/EvidenceMap/dataset/BioASQ/test/evidence_test_4.json"
+    pm_data_path = "./dataset/PubMedQA/ori_pqal.json"
+    pm_test_path = "./dataset/PubMedQA/test_ground_truth.json"
+    pm_evidence_train_path = "./dataset/PubMedQA/evidence_train.json"
+    pm_evidence_test_path = "./dataset/PubMedQA/test/evidence_test.json"
     process_paper_evidence(input_file, data_file, output_file)
     # parsed_question_file = "/Users/zongchang/Desktop/科研/DT-MLM/QA dataset/BioASQ/parsed_question_train.json"
     # llm_evidence_file = "/Users/zongchang/Desktop/科研/DT-MLM/QA dataset/BioASQ/llm_evidence_test_4.json"
     # process_question(input_file, parsed_question_file)
     # process_llm_evidence(input_file, llm_evidence_file)
-
+    # process_pubmed_evidence(pm_data_path, pm_test_path, pm_evidence_train_path, pm_evidence_test_path)

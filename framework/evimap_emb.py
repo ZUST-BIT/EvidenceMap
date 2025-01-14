@@ -52,7 +52,7 @@ class EviMapEmb(torch.nn.Module):
         self.evi_map_builder = EviMapBuilder(self.args, device)
 
     def forward(self, questions, answers, questions_neg, sample_ids):
-        parsed_questions = get_parsed_question(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='train')
+        # parsed_questions = get_parsed_question(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='train')
         llm_evidences, paper_evidences = get_evidence(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='train')
 
         questions_token = self.tokenizer(questions, add_special_tokens=False)
@@ -113,7 +113,7 @@ class EviMapEmb(torch.nn.Module):
         return loss
 
     def inference(self, questions, questions_neg, sample_ids):
-        parsed_questions = get_parsed_question(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='test')
+        # parsed_questions = get_parsed_question(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='test')
         llm_evidences, paper_evidences = get_evidence(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='test')
 
         questions_token = self.tokenizer(questions, add_special_tokens=False)

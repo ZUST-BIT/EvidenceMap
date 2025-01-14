@@ -1,0 +1,1810 @@
+{
+    "10201555":
+    {
+        "QUESTION": "Is low serum chloride level a risk factor for cardiovascular mortality?",
+        "CONTEXTS":
+        [
+            "Serum chloride level is routinely assayed in clinical laboratories in the management of patients with kidney disorders and with metabolic diseases. It is a biological parameter that is easily, precisely and relatively cheaply measured. The epidemiological features of serum chloride levels have not been studied before.",
+            "For the random sample of men and women from the Belgian Interuniversity Research on Nutrition and Health aged 25-74 years, free of symptomatic coronary heart disease at baseline, serum chloride concentrations were measured, among those of other electrolytes. The cohort was followed up for 10 years with respect to subsequent cause-specific mortality.",
+            "The results are based on observations of 4793 men and 4313 women. According to Cox regression analysis serum chloride level was one of the strongest predictors of total, cardiovascular disease (CVD) and non-CVD mortalities independently of age, body mass index, sex, smoking, systolic blood pressure, levels of total and high-density lipoprotein cholesterol, uric acid, serum creatinine and serum total proteins and intake of diuretics. This relation was proved to be independent of levels of other serum electrolytes and similar for men and women. The estimated adjusted risk ratio for CVD death for subjects with a serum chloride level<or =100 mmol/l compared with those with levels above that limit was 1.65 (95% confidence interval 1.06-2.57) for men and 2.16 (95% confidence interval 1.11-4.22) for women. The study of adjusted risk ratios for four groups of subjects defined on the basis of their baseline serum chloride levels revealed a decreasing log-linear 'dose-response' relation to total and cardiovascular mortalities."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Aged",
+            "Cardiovascular Diseases",
+            "Chlorides",
+            "Cohort Studies",
+            "Female",
+            "Humans",
+            "Male",
+            "Middle Aged",
+            "Regression Analysis",
+            "Risk Factors"
+        ],
+        "YEAR": "1998",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "This s the first report from a population-based study to indicate that there is an association between serum chloride level and the incidence of total, CVD and non-CVD mortalities. The risk ratio for CVD mortality associated with a low serum chloride level was comparable to or higher than those observed for well-established CVD risk factors."
+    },
+    "17565137":
+    {
+        "QUESTION": "Out of the smokescreen II: will an advertisement targeting the tobacco industry affect young people's perception of smoking in movies and their intention to smoke?",
+        "CONTEXTS":
+        [
+            "To evaluate the effect of an antismoking advertisement on young people's perceptions of smoking in movies and their intention to smoke.SUBJECTS/",
+            "3091 cinema patrons aged 12-24 years in three Australian states; 18.6% of the sample (n = 575) were current smokers.DESIGN/",
+            "Quasi-experimental study of patrons, surveyed after having viewed a movie. The control group was surveyed in week 1, and the intervention group in weeks 2 and 3. Before seeing the movie in weeks 2 and 3, a 30 s antismoking advertisement was shown, shot in the style of a movie trailer that warned patrons not to be sucked in by the smoking in the movie they were about to see.",
+            "Attitude of current smokers and non-smokers to smoking in the movies; intention of current smokers and non-smokers to smoke in 12 months.",
+            "Among non-smokers, 47.8% of the intervention subjects thought that the smoking in the viewed movie was not OK compared with 43.8% of the control subjects (p = 0.04). However, there was no significant difference among smokers in the intervention (16.5%) and control (14.5%) groups (p = 0.4). A higher percentage of smokers in the intervention group indicated that they were likely to be smoking in 12 months time (38.6%) than smokers in the control group (25.6%; p<0.001). For non-smokers, there was no significant difference in smoking intentions between groups, with 1.2% of intervention subjects and 1.6% of controls saying that they would probably be smoking in 12 months time (p = 0.54)."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVE",
+            "SETTING",
+            "INTERVENTION",
+            "OUTCOMES",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adolescent",
+            "Advertising as Topic",
+            "Attitude to Health",
+            "Female",
+            "Humans",
+            "Male",
+            "Motion Pictures",
+            "Smoking",
+            "Smoking Prevention"
+        ],
+        "YEAR": "2007",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "This real-world study suggests that placing an antismoking advertisement before movies containing smoking scenes can help to immunise non-smokers against the influences of film stars' smoking. Caution must be exercised in the type of advertisement screened as some types of advertising may reinforce smokers' intentions to smoke."
+    },
+    "18041059":
+    {
+        "QUESTION": "Do adjuvant aromatase inhibitors increase the cardiovascular risk in postmenopausal women with early breast cancer?",
+        "CONTEXTS":
+        [
+            "Despite the advantages from using aromatase inhibitors (AIs) compared with tamoxifen for early breast cancer, an unexpectedly greater number of grade 3 and 4 cardiovascular events (CVAE) (as defined by National Cancer Institute of Canada-Common Toxicity Criteria [version 2.0] was demonstrated.",
+            "Phase 3 randomized clinical trials (RCTs) comparing AI with tamoxifen in early breast cancer were considered eligible for this review. The event-based risk ratios (RRs) with 95% confidence intervals (95% CIs) were derived, and a test of heterogeneity was applied. Finally, absolute differences (ADs) in event rates and the number of patients needed to harm 1 patient (NNH) were determined.",
+            "Seven eligible RCTs (19,818 patients) reported CVAE results. When considering all RCTs, the AD of the primary endpoint (CVAE) between the 2 arms (0.52%), tamoxifen versus AI, was statistically significant (RR, 1.31; 95% CI, 1.07-1.60; P= .007). This translated into an NNH value of 189 patients; when only third-generation AIs were considered, the difference (0.57%) remained significant (RR, 1.34; 95% CI, 1.09-1.63; P= .0038). Thromboembolic events were significantly more frequent in the tamoxifen arm, regardless of the strategy adopted (RR, 0.53; 95% CI, 0.42-0.65; P<.0001), without significant heterogeneity (P= .21). An AD of 1.17% and an NNH value of 85 patients were observed."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Aromatase Inhibitors",
+            "Breast Neoplasms",
+            "Cardiovascular Diseases",
+            "Female",
+            "Humans",
+            "Middle Aged",
+            "Postmenopause",
+            "Randomized Controlled Trials as Topic",
+            "Tamoxifen"
+        ],
+        "YEAR": "2008",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "According to the results from this meta-analysis, the risk of grade 3 and 4 CVAEs in patients who were receiving AIs was higher compared with the risk in patients who were receiving tamoxifen, and the difference reached statistical significance. However, the AD was relatively low, and from 160 to 180 patients had to be treated to produce 1 event."
+    },
+    "22154448":
+    {
+        "QUESTION": "Epidural analgesia for surgical treatment of peritoneal carcinomatosis: a risky technique?",
+        "CONTEXTS":
+        [
+            "To study the risks of haemodynamic instability, and the possible occurrence of spinal haematoma, meningitis and epidural abscess when epidural analgesia is performed for cytoreductive surgery and hyperthermic intraperitoneal chemotherapy (HIPEC).",
+            "We retrospectively analyzed the data of 35 patients treated by HIPEC with oxaliplatin or cisplatin. An epidural catheter was inserted before induction of general anaesthesia. Postoperatively, a continuous epidural infusion of ropivacain, then a patient-controlled epidural analgesia were started.",
+            "The epidural catheter was used peroperatively before HIPEC in 12 subjects (34%), and after HIPEC in 23 subjects (66%). The median dose of ropivacain given peroperatively in the epidural catheter was 40 mg (30-75). Norepinephrin was used in two subjects (6%) peroperatively (median infusion rate 0.325 μg/kg per minute [0.32-0.33]), and in four subjects (11%) in the postoperative 24 hours. No spinal haematoma, meningitis or epidural abscess were noted. Five subjects (14%) had a thrombopenia or a prothrombin time less than 60% before catheter removal. Two subjects (6%) had a leukopenia before catheter removal. No thrombopenia or blood coagulation disorders were recorded the day of catheter removal."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Aged",
+            "Analgesia, Epidural",
+            "Analgesia, Patient-Controlled",
+            "Anesthesia, General",
+            "Antineoplastic Agents",
+            "Carcinoma",
+            "Cisplatin",
+            "Combined Modality Therapy",
+            "Epidural Abscess",
+            "Female",
+            "Hematoma, Epidural, Spinal",
+            "Hemodynamics",
+            "Humans",
+            "Hyperthermia, Induced",
+            "Male",
+            "Meningitis",
+            "Middle Aged",
+            "Norepinephrine",
+            "Organoplatinum Compounds",
+            "Peritoneal Neoplasms",
+            "Retrospective Studies",
+            "Risk",
+            "Safety",
+            "Thrombocytopenia",
+            "Vasoconstrictor Agents"
+        ],
+        "YEAR": "2012",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "In this series of 35 patients, the use of epidural analgesia for HIPEC does not seem to be associated with a worse risk of haemodynamic instability, spinal haematoma, meningitis or epidural abscess. HIPEC with platinum salt is not incompatible with the safety of epidural analgesia, with an optimized fluid management peroperatively and the following of perimedullary anesthesia practice guidelines."
+    },
+    "25280365":
+    {
+        "QUESTION": "Reporting and interpreting red blood cell morphology: is there discordance between clinical pathologists and clinicians?",
+        "CONTEXTS":
+        [
+            "Clinical pathologists (CPs) report RBC morphologic (RBC-M) changes to assist clinicians in prioritizing differential diagnoses. However, reporting is subjective, semiquantitative, and potentially biased. Reporting decisions vary among CPs, and reports may not be interpreted by clinicians as intended.",
+            "The aims of this study were to survey clinicians and CPs about RBC-M terms and their clinical value, and identify areas of agreement and discordance.",
+            "Online surveys were distributed to small animal clinicians via the Veterinary Information Network and to CPs via the ASVCP listserv. A quiz assessed understanding of RBC-M terms among respondent groups. Descriptive statistics were used to analyze responses to survey questions, and quiz scores were compared among groups.",
+            "Analyzable responses were obtained from 1662 clinicians and 82 CPs. Both clinicians and CPs considered some terms, e.g., agglutination, useful, whereas only CPs considered other terms, e.g., ghost cells, useful. All groups interpreted certain terms, e.g., Heinz bodies, correctly, whereas some clinicians misinterpreted others, e.g., eccentrocytes. Responses revealed that CPs often do not report RBC-M they consider insignificant, when present in low numbers. Twenty-eight percent of clinicians think CPs review all blood smears while only 19% of CPs report reviewing all smears."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "OBJECTIVES",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Animal Diseases",
+            "Animals",
+            "Diagnosis, Differential",
+            "Erythrocytes",
+            "Pathology, Veterinary",
+            "Surveys and Questionnaires",
+            "Veterinarians"
+        ],
+        "YEAR": "2014",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "Important differences about the clinical relevance of certain RBC-M terms exist between clinicians and CPs. Inclusion of interpretive comments on CBC reports is the clearest way to ensure that RBC-M changes are interpreted as intended by the CP. Reporting practices should be examined critically to improve communication, transparency, and ultimately medical decisions."
+    },
+    "23571528":
+    {
+        "QUESTION": "Sternal skin conductance: a reasonable surrogate for hot flash measurement?",
+        "CONTEXTS":
+        [
+            "This study aims to examine the accuracy of a new sternal skin conductance (SSC) device in measuring hot flashes and to assess the acceptability of the device by women.",
+            "Three small descriptive pilot studies were performed using two sequential prototypes of the SSC device developed by an engineering device company in the Midwest. The devices were worn either in a monitored setting for 24 hours or in an ambulatory setting for 5 weeks. During the study period, women recorded hot flashes in a prospective hot flash diary and answered questions about the acceptability of wearing the SSC device.",
+            "The first prototype was not able to collect any analyzable skin conductance data owing to various malfunction issues, including poor conductance and battery failure. However, 16 women wore the device for 5 weeks and reported that wearing the device was acceptable, although 31% stated that it interfered with daily activities. Hot flash data from the second prototype revealed a 24% concordance rate between self-reported and device-recorded hot flashes."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVE",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Female",
+            "Galvanic Skin Response",
+            "History, Ancient",
+            "Hot Flashes",
+            "Humans",
+            "Menopause",
+            "Middle Aged",
+            "Monitoring, Ambulatory",
+            "Monitoring, Physiologic",
+            "Pilot Projects",
+            "Prospective Studies",
+            "Self Report",
+            "Skin",
+            "Skin Temperature",
+            "Sternum",
+            "Women's Health"
+        ],
+        "YEAR": "2013",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "Findings from these studies support discordance between device-recorded and self-reported hot flashes. In addition, the studies reveal further limitations of SSC monitoring, including difficulties with data collection and lack of consistency in interpretation. Based on these results and other recent trials identifying issues with SSC methodology, it is time to find a better physiologic surrogate measure for hot flashes."
+    },
+    "21394762":
+    {
+        "QUESTION": "Is pelvic pain associated with defecatory symptoms in women with pelvic organ prolapse?",
+        "CONTEXTS":
+        [
+            "To investigate the significance of pelvic pain and its association with defecatory symptoms in women with pelvic organ prolapse (POP).",
+            "This is a cross sectional study of 248 women with stage II POP or greater. Women were stratified into \"pain\" and \"no-pain\" groups based on their response to a question on the Pelvic Floor Distress Inventory short form. Associations between patient demographics, exam findings and responses to validated questionnaires were evaluated.",
+            "In women with POP, defecatory symptoms are significantly more common in women with pelvic pain including straining with bowel movement (OR 2.4, 95% CI 1.3, 4.6), sense of incomplete emptying (OR 4.4, 95% CI 2.3, 8.2), pain with bowel movement (OR 5.3, 95% CI 1.2, 23.0) and splinting with bowel movement (OR 3.8, 95% CI 2.0, 7.5)."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVE",
+            "STUDY DESIGN",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Aged",
+            "Cross-Sectional Studies",
+            "Defecation",
+            "Female",
+            "Humans",
+            "Logistic Models",
+            "Middle Aged",
+            "Odds Ratio",
+            "Pain Measurement",
+            "Pelvic Organ Prolapse",
+            "Pelvic Pain",
+            "Philadelphia",
+            "Risk Assessment",
+            "Risk Factors",
+            "Severity of Illness Index",
+            "Surveys and Questionnaires"
+        ],
+        "YEAR": "2011",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "In women with POP, the symptom of pelvic pain is associated with the presence of defecatory symptoms."
+    },
+    "25571931":
+    {
+        "QUESTION": "Do elderly patients call 911 when presented with clinical scenarios suggestive of acute stroke?",
+        "CONTEXTS":
+        [
+            "Among patients with acute stroke symptoms, delay in hospital admission is the main obstacle for the use of thrombolytic therapy and other interventions associated with decreased mortality and disability. The primary aim of this study was to assess whether an elderly clinical population correctly endorsed the response to call for emergency services when presented with signs and symptoms of stroke using a standardized questionnaire.",
+            "We performed a cross-sectional study among elderly out-patients (≥60 years) in Buenos Aires, Argentina randomly recruited from a government funded health clinic. The correct endorsement of intention to call 911 was assessed with the Stroke Action Test and the cut-off point was set at ≥75%. Knowledge of stroke and clinical and socio-demographic indicators were also collected and evaluated as predictors of correct endorsement using logistic regression.",
+            "Among 367 elderly adults, 14% correctly endorsed intention to call 911. Presented with the most typical signs and symptoms, only 65% reported that they would call an ambulance. Amaurosis Fugax was the symptom for which was called the least (15%). On average, the correct response was chosen only 37% of the time. Compared to lower levels of education, higher levels were associated to correctly endorsed intention to call 911 (secondary School adjusted OR 3.53, 95% CI 1.59-7.86 and Tertiary/University adjusted OR 3.04, 95% CI 1.12-8.21)."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND AND PURPOSE",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Aged",
+            "Aged, 80 and over",
+            "Amaurosis Fugax",
+            "Ambulances",
+            "Argentina",
+            "Cross-Sectional Studies",
+            "Educational Status",
+            "Emergency Medical Service Communication Systems",
+            "Emergency Medical Services",
+            "Female",
+            "Health Education",
+            "Health Knowledge, Attitudes, Practice",
+            "Humans",
+            "Intention",
+            "Male",
+            "Middle Aged",
+            "Stroke"
+        ],
+        "YEAR": "2015",
+        "reasoning_required_pred": "maybe",
+        "reasoning_free_pred": "no",
+        "final_decision": "maybe",
+        "LONG_ANSWER": "These results suggest the need to provide interventions that are specifically designed to increase awareness of potential stroke signs and symptoms and appropriate subsequent clinical actions."
+    },
+    "23621776":
+    {
+        "QUESTION": "Does a history of unintended pregnancy lessen the likelihood of desire for sterilization reversal?",
+        "CONTEXTS":
+        [
+            "Unintended pregnancy has been significantly associated with subsequent female sterilization. Whether women who are sterilized after experiencing an unintended pregnancy are less likely to express desire for sterilization reversal is unknown.",
+            "This study used national, cross-sectional data collected by the 2006-2010 National Survey of Family Growth. The study sample included women ages 15-44 who were surgically sterile from a tubal sterilization at the time of interview. Multivariable logistic regression was used to examine the relationship between a history of unintended pregnancy and desire for sterilization reversal while controlling for potential confounders.",
+            "In this nationally representative sample of 1,418 women who were sterile from a tubal sterilization, 78% had a history of at least one unintended pregnancy and 28% expressed a desire to have their sterilization reversed. In unadjusted analysis, having a prior unintended pregnancy was associated with higher odds of expressing desire for sterilization reversal (odds ratio [OR]: 1.80; 95% confidence interval [CI]: 1.15-2.79). In adjusted analysis controlling for sociodemographic factors, unintended pregnancy was no longer significantly associated with desire for reversal (OR: 1.46; 95% CI: 0.91-2.34)."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adolescent",
+            "Adult",
+            "Cross-Sectional Studies",
+            "Female",
+            "Humans",
+            "Motivation",
+            "Pregnancy",
+            "Pregnancy, Unplanned",
+            "Sterilization Reversal",
+            "Sterilization, Tubal",
+            "United States",
+            "Young Adult"
+        ],
+        "YEAR": "2013",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "Among women who had undergone tubal sterilization, a prior history of unintended pregnancy did not decrease desire for sterilization reversal."
+    },
+    "12970636":
+    {
+        "QUESTION": "Does early discharge with nurse home visits affect adequacy of newborn metabolic screening?",
+        "CONTEXTS":
+        [
+            "To examine the impact of early discharge on newborn metabolic screening.",
+            "Metabolic screening results were obtained from the Alabama State Lab for all infants born at our hospital between 8/1/97, and 1/31/99, and were matched with an existing database of early discharge infants. An early newborn discharge was defined as a discharge between 24 and 47 hours of age. Metabolic screening tests included phenylketonuria (PKU), hypothyroidism, and congenital adrenal hyperplasia (CAH). Early discharge and traditional stay infants were compared to determine the percentage of newborns screened and the timing of the first adequate specimen.",
+            "The state laboratory received specimens from 3860 infants; 1324 were on early discharge newborns and 2536 infants in the traditional stay group. At least one filter paper test (PKU, hypothyroidism, and CAH) was collected on 99.2% of early discharge infants and 96.0% of traditional stay infants (P<.0001). Early discharge infants had a higher rate of initial filter paper specimens being inadequate (22.9%) compared with traditional stay infants (14.3%, P<.0001) but had a higher rate of repeat specimens when the initial specimen was inadequate (85.0% early discharge vs 75.3% traditional stay, P=.002). The early discharge group was more likely to have an adequate specimen within the first 9 days of life (1001, 98.8% early discharge vs 2016, 96.7% traditional stay, P=.0005)."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVE",
+            "STUDY DESIGN",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Alabama",
+            "Female",
+            "Humans",
+            "Infant, Newborn",
+            "Male",
+            "Medical Indigency",
+            "Metabolic Diseases",
+            "Metabolism, Inborn Errors",
+            "Neonatal Screening",
+            "Nursing Homes",
+            "Patient Discharge",
+            "Prospective Studies"
+        ],
+        "YEAR": "2003",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "In this well established early discharge program with nurse home visits, newborn metabolic screening is not compromised by early discharge."
+    },
+    "19546588":
+    {
+        "QUESTION": "Does increasing blood pH stimulate protein synthesis in dialysis patients?",
+        "CONTEXTS":
+        [
+            "Although the mechanism of muscle wasting in end-stage renal disease is not fully understood, there is increasing evidence that acidosis induces muscle protein degradation and could therefore contribute to the loss of muscle protein stores of patients on hemodialysis, a prototypical state of chronic metabolic acidosis (CMA). Because body protein mass is controlled by the balance between synthesis and degradation, protein loss can occur as result of either increased breakdown, impaired synthesis, or both. Correction of acidosis may therefore help to maintain muscle mass and improve the health of patients with CMA. We evaluated whether alkalizing patients on hemodialysis might have a positive effect on protein synthesis and on nutritional parameters.",
+            "Eight chronic hemodialysis patients were treated daily with oral sodium bicarbonate (NaHCO(3)) supplementation for 10-14 days, yielding a pre-dialytic plasma bicarbonate concentration of 28.6 +/-1.6 mmol/l. The fractional synthesis rates (FSR) of muscle protein and albumin were obtained by the L-[(2)H(5)ring]phenylalanine flooding technique.",
+            "Oral NaHCO(3 )supplementation induced a significant increase in serum bicarbonate (21.5 +/- 3.4 vs. 28.6 +/- 1.6 mmol/l; p = 0.018) and blood pH (7.41 vs. 7.46; p = 0.041). The FSR of muscle protein and the FSR of albumin did not change significantly (muscle protein: 2.1 +/- 0.2 vs. 2.0 +/- 0.5% per day, p = 0.39; albumin: 8.3 +/- 2.2 vs. 8.6 +/- 2.5% per day, p = 0.31). Plasma concentrations of insulin-like growth factor 1 decreased significantly (33.4 +/- 21.3 vs. 25.4 +/- 12.3 nmol/l; p = 0.028), whereas thyroid-stimulating hormone, free thyroxin and free triiodothyronine did not change significantly and nutritional parameters showed no improvement."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Administration, Oral",
+            "Adult",
+            "Aged",
+            "Blood Chemical Analysis",
+            "Blood Proteins",
+            "Female",
+            "Humans",
+            "Hydrogen-Ion Concentration",
+            "Kidney Failure, Chronic",
+            "Male",
+            "Middle Aged",
+            "Protein Biosynthesis",
+            "Renal Dialysis",
+            "Sodium Bicarbonate"
+        ],
+        "YEAR": "2009",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "In contrast to other findings, raising the blood pH of dialysis patients was not associated with a positive effect on albumin and muscle protein synthesis, or nutritional and endocrinal parameters."
+    },
+    "18616781":
+    {
+        "QUESTION": "Is there a relationship between homocysteine and vitiligo?",
+        "CONTEXTS":
+        [
+            "Pigmentary dilution is observed in patients with homocystinuria. Therefore, it is possible that an increase of local homocysteine (Hcy) interferes with normal melanogenesis and plays a role in the pathogenesis of vitiligo. Vitamin B12 and folic acid, levels of which are decreased in vitiligo, are important cofactors in the metabolism of Hcy. Consequently, a nutritional deficiency in either of these two vitamins will result in an increase in homocysteine in the circulation, a finding that we expect to find in vitiligo.",
+            "To determine the level of Hcy in the blood of patients with vitiligo as a first step in revealing if it has any relationship with the pathogenesis of vitiligo and consequently if this will have an impact on the treatment of vitiligo.",
+            "Twenty-six patients of both sexes with vitiligo (age range 20-50 years, mean 31.4 +/- 8.09) and 26 age-matched healthy controls were included in the study. After excluding factors that may affect serum Hcy levels, blood samples from patients and controls were obtained for homocysteine determination by enzyme immunoassay.",
+            "The mean serum level of Hcy was significantly higher in patients with vitiligo than in controls (21.61 +/- 13.28 vs. 13.1 +/- 4.88 micromol L(-1); P<0.001). The Hcy level was significantly higher in male patients than in female patients (28.67 +/- 15.95 vs. 15.56 +/- 6.2 micromol L(-1); P<0.001) and in male controls compared with female controls (15.07 +/- 4.61 vs. 12.05 +/- 4.82 micromol L(-1); P<0.001). The homocysteine level was related to the activity of vitiligo and was significantly higher in patients with progressive disease than in controls (25.4 +/- 14.99 vs. 13.1 +/- 4.88 micromol L(-1); P<0.001). No significant difference in Hcy levels was found between either untreated vitiligo patients (22.77 +/- 13.36 micromol L(-1)) or patients receiving ultraviolet therapy (20.45 +/- 13.73 micromol L(-1)) and the total patient group (21.62 +/- 13.28 micromol L(-1))."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "OBJECTIVE",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Age Factors",
+            "Case-Control Studies",
+            "Female",
+            "Homocysteine",
+            "Humans",
+            "Male",
+            "Middle Aged",
+            "Sex Factors",
+            "Skin",
+            "Vitiligo"
+        ],
+        "YEAR": "2008",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "An elevated homocysteine level may be a precipitating factor for vitiligo in predisposed individuals. In view of the biological role of vitamin B(12) and folic acid in Hcy metabolism, we present our recommendations regarding the investigation and treatment of this common disease."
+    },
+    "16971978":
+    {
+        "QUESTION": "Are complex coronary lesions more frequent in patients with diabetes mellitus?",
+        "CONTEXTS":
+        [
+            "Coronary atherosclerotic burden is excessive in diabetic patients. Diabetes mellitus (DM) is an independent predictor for both death and myocardial infarction. It is not known whether the prevalence of complex coronary lesions, such as bifurcation and ostial lesions, is different in diabetics from nondiabetics.",
+            "The aim of present study was to investigate the prevalence of these lesions in patients with DM.",
+            "One thousand fourteen consecutive patients (mean age 61.3+/-10.7 years) were investigated. Coronary angiograms were examined for bifurcation and ostial lesions using a digital quantitative system. Patients were classified as diabetic (n=281) or nondiabetic (n=733).",
+            "Patient mean age, and rates of hypertension and hyperlipidemia were significantly higher in the diabetic group than in the nondiabetic group (P<0.0001), although smoking was significantly lower (P=0.001). Reasons for coronary angiography and treatment were comparable between the two groups. The prevalence of bifurcation lesions and ostial lesions was significantly greater in the diabetic group than in the nondiabetic group (9.8% versus 4.3% [P=0.001] and 38.4% versus 29.2% [P=0.003]in the diabetic group versus the nondiabetic group). The presence of DM and greater age were found to be independent predictors for bifurcation lesions (OR=2.27 [P=0.004] and OR=1.03 [P=0.01], for DM and age, respectively) and ostial lesions (OR=1.40 [P=0.027] and OR=1.02 [P=0.001], for DM and age, respectively) in multivariate analysis."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "OBJECTIVE",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Coronary Angiography",
+            "Coronary Artery Disease",
+            "Diabetes Mellitus",
+            "Female",
+            "Humans",
+            "Hyperlipidemias",
+            "Hypertension",
+            "Male",
+            "Middle Aged",
+            "Prevalence",
+            "Turkey"
+        ],
+        "YEAR": "2006",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "Complex coronary lesions such as bifurcation and ostial lesions were significantly more common in diabetic patients than in nondiabetic patients. Greater age and the presence of DM were independent predictors for these complex lesions. These results may help to explain the poor prognosis of coronary artery disease among diabetic patients."
+    },
+    "20736887":
+    {
+        "QUESTION": "Is decompressive surgery effective for spinal cord sarcoidosis accompanied with compressive cervical myelopathy?",
+        "CONTEXTS":
+        [
+            "A retrospective multicenter study of series of 12 patients with spinal cord sarcoidosis who underwent surgery.",
+            "To evaluate the postoperative outcomes of patients with cervical spinal cord sarcoidosis accompanied with compressive myelopathy and effect of decompressive surgery on the prognosis of sarcoidosis.",
+            "Sarcoidosis is a chronic, multisystem noncaseating granulomatous disease. It is difficult to differentiate spinal cord sarcoidosis from cervical compressive myelopathy. There are no studies regarding the coexistence of compressive cervical myelopathy with cervical spinal cord sarcoidosis and the effect of decompressive surgery.",
+            "Nagoya Spine Group database included 1560 cases with cervical myelopathy treated with cervical laminectomy or laminoplasty from 2001 to 2005. A total of 12 patients (0.08% of cervical myelopathy) were identified spinal cord sarcoidosis treated with decompressive surgery. As a control subject, 8 patients with spinal cord sarcoidosis without compressive lesion who underwent high-dose steroid therapy without surgery were recruited.",
+            "In the surgery group, enhancing lesions on magnetic resonance imaging (MRI) were mostly seen at C5-C6, coincident with the maximum compression level in all cases. Postoperative recovery rates in the surgery group at 1 week and 4 weeks were -7.4% and -1.1%, respectively. Only 5 cases had showed clinical improvement, and the condition of these 5 patients had worsened again at averaged 7.4 weeks after surgery. Postoperative oral steroid therapy was initiated at an average of 6.4 weeks and the average initial dose was 54.0 mg in the surgery group, while 51.3 mg in the nonsurgery group. The recovery rate of the Japanese Orthopedic Association score, which increased after steroid therapy, was better in the nonsurgery group (62.5%) than in the surgery group (18.6%) with significant difference (P<0.01)."
+        ],
+        "LABELS":
+        [
+            "STUDY DESIGN",
+            "OBJECTIVE",
+            "SUMMARY OF BACKGROUND DATA",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adrenal Cortex Hormones",
+            "Aged",
+            "Cervical Vertebrae",
+            "Databases, Factual",
+            "Decompression, Surgical",
+            "Female",
+            "Humans",
+            "Magnetic Resonance Imaging",
+            "Male",
+            "Middle Aged",
+            "Sarcoidosis",
+            "Spinal Cord Compression",
+            "Spinal Cord Diseases",
+            "Treatment Outcome"
+        ],
+        "YEAR": "2010",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "The effect of decompression for spinal cord sarcoidosis with compressive myelopathy was not evident. Early diagnosis for sarcoidosis from other organ and steroid therapy should be needed."
+    },
+    "21164063":
+    {
+        "QUESTION": "Is there a role for fondaparinux in perioperative bridging?",
+        "CONTEXTS":
+        [
+            "A possible role for fondaparinux as a bridging agent in the perioperative setting is explored.",
+            "Anticoagulation guidelines provide minimal direction on the perioperative use of fondaparinux. Fondaparinux's extended half-life of 17-21 hours complicates its use as a perioperative bridging therapy. The ideal time for discontinuation before surgery is an issue, particularly in surgeries with a high bleeding risk or in which neuraxial anesthesia is used. Guidance for perioperative bridging with fondaparinux must be derived from pharmacokinetic data, surgical prophylaxis trials, case reports, and anesthesia guidelines. Published trials used fondaparinux sodium 2.5 mg daily for venous thromboembolism prophylaxis in surgical patients, and the majority avoided its use before surgery in patients receiving neuraxial anesthesia. Three case reports cited the use of fondaparinux sodium as perioperative bridge therapy; one used a 2.5-mg dose, and the other two used a full treatment dose of 7.5 mg. Furthermore, professional anesthesia guidelines conflict in their recommendations regarding the timing of drug administration with neuraxial catheter use. For these reasons, it may be optimal to avoid fondaparinux use before surgery. In some instances, the use of low-molecular-weight heparin or inpatient use of i.v. unfractionated heparin is not possible, is contraindicated, or has limited efficacy, such as a patient with history of heparin-induced thrombocytopenia or antithrombin III deficiency. Fondaparinux may have a role in bridge therapy for these patients."
+        ],
+        "LABELS":
+        [
+            "PURPOSE",
+            "SUMMARY"
+        ],
+        "MESHES":
+        [
+            "Anticoagulants",
+            "Humans",
+            "Perioperative Care",
+            "Polysaccharides",
+            "Practice Guidelines as Topic",
+            "Surgical Procedures, Operative"
+        ],
+        "YEAR": "2011",
+        "reasoning_required_pred": "maybe",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "The role of fondaparinux in perioperative bridge therapy has not been established, and there are some important limitations to its use as a routine bridging agent."
+    },
+    "15488260":
+    {
+        "QUESTION": "Is the type of remission after a major depressive episode an important risk factor to relapses in a 4-year follow up?",
+        "CONTEXTS":
+        [
+            "Rates of relapse and predictive relapse factors were studied over more than 4 years in a sample of Spanish outpatients with DSM-III-R criteria for unipolar major depressive episode.",
+            "A final sample of 139 outpatient was followed monthly in a naturalistic study. The Structured Clinical Interview for DSM-III-R was used. Phases of evolution were recorded using the Hamilton Depression Rating Scale, applying the Frank criteria. Survival analysis, Kaplan-Meier product limit and proportional hazards models were used.",
+            "A higher rate of relapses was observed in the partial remission group (91.4%) compared to the complete remission one (51.3%). The four factors with predictive relapse value were: \"partial remission versus complete remission\", \"the intensity of clinical symptoms\", \"the age\" and \"the number of previous depressive episodes\". The existence of partial remission was the most powerful predictive factor.",
+            "The decreasing sample size during the follow-up and the difficulty in warranting the treatment compliance."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS",
+            "LIMITATIONS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Aged",
+            "Antidepressive Agents",
+            "Depressive Disorder, Major",
+            "Diagnostic and Statistical Manual of Mental Disorders",
+            "Drug Therapy, Combination",
+            "Female",
+            "Follow-Up Studies",
+            "Humans",
+            "Male",
+            "Middle Aged",
+            "Personality Inventory",
+            "Prospective Studies",
+            "Recurrence",
+            "Risk Factors",
+            "Serotonin Uptake Inhibitors",
+            "Spain",
+            "Survival Analysis"
+        ],
+        "YEAR": "2004",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "At medium term, relapse rates for a major depressive episode are high. Partial remission after a depressive episode seems to be an important predictive factor for relapses in a 4-year follow-up."
+    },
+    "19481382":
+    {
+        "QUESTION": "Is the Androgen Deficiency of Aging Men (ADAM) questionnaire useful for the screening of partial androgenic deficiency of aging men?",
+        "CONTEXTS":
+        [
+            "Androgen serum levels significantly decrease in older men, causing quality of life impairment and increasing the risk of chronic disease. This disorder is defined as PADAM (Partial Androgen Deficiency of Aging Men).",
+            "To evaluate a PADAM screening tool and determine the prevalence of this disorder in healthy adult men.",
+            "This was a cross-sectional study in which 96 men aged 40 or more of the South Metropolitan Region of Santiago de Chile were surveyed with the Androgen Deficiency of Aging Men (ADAM) questionnaire of the Saint Louis University and sampled for the serum determination of total testosterone, sexual hormone binding globulin (SHBG) and albumin. Also free and bioavailable testosterone were calculated. PADAM was considered present if items 1 or 7 or any 3 other questions of the ADAM questionnaire were positive. An available testosterone of<198.4 ng/dL was used as a gold standard for the diagnosis of PADAM.",
+            "A total of 78 men (81.3%) were identified as possible PADAM according to the ADAM questionnaire. Total testosterone levels fell from 503.6+/-180.1 ng/dL in men aged 40 to 54 years to 382.1+/-247.3 in those>70 years; however this was not statistically significant (ANOVA, p=0.06). In the same age groups, SHBG significantly increased (31.0+/-15.0 to 47.5+/-15.0 nmol/L, p<0.001) whereas free and available testosterone significantly decreased (10.6+/-3.2 to 6.4+/-3.6 ng/dL and 266.6+/-81.2 to 152.2+/-97.6 ng/dL, respectively, p<0.0001). Overall (n=96), available testosterone confirmed PADAM diagnosis in 27 cases (28.1%). The ADAM tool rendered a 83.3% sensitivity and 19.7% specificity in the detection of PADAM. Item 1 (decreased sexual desire) was a better predictor of hypogonadism than the complete questionnaire (63.3% sensitivity and 66.7% specificity)."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "OBJECTIVE",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Age Factors",
+            "Aged",
+            "Aged, 80 and over",
+            "Androgens",
+            "Andropause",
+            "Cross-Sectional Studies",
+            "Humans",
+            "Male",
+            "Middle Aged",
+            "Serum Albumin",
+            "Sex Hormone-Binding Globulin",
+            "Statistics, Nonparametric",
+            "Surveys and Questionnaires",
+            "Testosterone"
+        ],
+        "YEAR": "2009",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "In this series, in accordance to available testosterone, the prevalence of PADAM was determined to be high, in which the ADAM questionnaire rendered a low diagnostic efficiency. PADAM diagnosis could be clinically suspected when symptoms of sexual dysfunction are present."
+    },
+    "25699562":
+    {
+        "QUESTION": "Does the Transmissible Liability Index (TLI) assessed in late childhood predict suicidal symptoms at young adulthood?",
+        "CONTEXTS":
+        [
+            "Our previous work demonstrated that the Transmissible Liability Index (TLI), an instrument designed as an index of liability for substance use disorder (SUD), is associated with risk of substance use disorder. This longitudinal study assessed whether TLI measured in 10-12-year-olds (late childhood) predicts suicidal behavior from age 12-14 (preadolescence) to age 25 (young adulthood). We hypothesized that TLI would predict number and severity of suicide attempts.",
+            "Subjects were sons of men who had lifetime history of SUD (n = 250), called the High Average Risk (HAR) group, and sons of men with no lifetime history of a SUD (n = 250), called the Low Average Risk (LAR) group. The TLI was delineated at baseline (age 10-12), and age-specific versions were administered at 12-14, 16, 19, 22, and 25 years of age.",
+            "TLI was significantly associated with number and severity of lifetime suicide attempts."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVE",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adolescent",
+            "Adult",
+            "Child",
+            "Humans",
+            "Longitudinal Studies",
+            "Male",
+            "Risk Factors",
+            "Suicidal Ideation",
+            "Suicide, Attempted",
+            "Young Adult"
+        ],
+        "YEAR": "2015",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "These findings confirm the hypothesis that TLI assessed at late childhood is a predictor of frequency and severity of suicidal behavior from preadolescence to young adulthood."
+    },
+    "20971618":
+    {
+        "QUESTION": "Are lifetime prevalence of impetigo, molluscum and herpes infection really increased in children having atopic dermatitis?",
+        "CONTEXTS":
+        [
+            "Cutaneous infections such as impetigo contagiosum (IC), molluscum contagiosum (MC) and herpes virus infection (HI) appear to be associated with atopic dermatitis (AD), but there are no reports of concrete epidemiological evidence.",
+            "We evaluated the association of childhood AD with these infections by conducting a population-based cross-sectional study.",
+            "Enrolled in this study were 1117 children aged 0-6 years old attending nursery schools in Ishigaki City, Okinawa Prefecture, Japan. Physical examination was performed by dermatologists, and a questionnaire was completed on each child's history of allergic diseases including AD, asthma, allergic rhinitis and egg allergy, and that of skin infections including IC, MC and HI, as well as familial history of AD.",
+            "In 913 children (AD; 132), a history of IC, MC or HI was observed in 45.1%, 19.7%, and 2.5%, respectively. Multiple logistic regression analysis revealed that the odds of having a history of IC were 1.8 times higher in AD children than in non-AD children. Meanwhile, a history of MC was significantly correlated to the male gender, but not to a personal history of AD. As for HI, we found no correlated factors in this study."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "OBJECTIVE",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Child",
+            "Child, Preschool",
+            "Cross-Sectional Studies",
+            "Dermatitis, Atopic",
+            "Female",
+            "Herpesviridae Infections",
+            "Humans",
+            "Impetigo",
+            "Infant",
+            "Japan",
+            "Male",
+            "Molluscum Contagiosum",
+            "Prevalence",
+            "Risk Factors"
+        ],
+        "YEAR": "2010",
+        "reasoning_required_pred": "maybe",
+        "reasoning_free_pred": "maybe",
+        "final_decision": "maybe",
+        "LONG_ANSWER": "The lifetime prevalence of IC was indeed higher in young children with a history of AD."
+    },
+    "21849531":
+    {
+        "QUESTION": "Does growth hormone replacement therapy reduce mortality in adults with growth hormone deficiency?",
+        "CONTEXTS":
+        [
+            "Adults with GH deficiency (GHD) have a decreased life expectancy. The effect of GH treatment on mortality remains to be established.",
+            "This nationwide cohort study investigates the effect of GH treatment on all-cause and cause-specific mortality and analyzes patient characteristics influencing mortality in GHD adults.",
+            "Patients in the Dutch National Registry of Growth Hormone Treatment in Adults were retrospectively monitored (1985-2009) and subdivided into treatment (n = 2229), primary (untreated, n = 109), and secondary control (partly treated, n = 356) groups.",
+            "Standardized mortality ratios (SMR) were calculated for all-cause, malignancy, and cardiovascular disease (CVD) mortality. Expected mortality was obtained from cause, sex, calendar year, and age-specific death rates from national death and population counts.",
+            "In the treatment group, 95 patients died compared to 74.6 expected [SMR 1.27 (95% confidence interval, 1.04-1.56)]. Mortality was higher in women than in men. After exclusion of high-risk patients, the SMR for CVD mortality remained increased in women. Mortality due to malignancies was not elevated. In the control groups mortality was not different from the background population. Univariate analyses demonstrated sex, GHD onset, age, and underlying diagnosis as influencing factors."
+        ],
+        "LABELS":
+        [
+            "CONTEXT",
+            "OBJECTIVE",
+            "DESIGN, SETTING, AND PATIENTS",
+            "MAIN OUTCOME MEASURES",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Cardiovascular Diseases",
+            "Cause of Death",
+            "Cerebrovascular Disorders",
+            "Female",
+            "Growth Hormone",
+            "Hormone Replacement Therapy",
+            "Humans",
+            "Life Expectancy",
+            "Male",
+            "Middle Aged",
+            "Mortality",
+            "Neoplasms",
+            "Netherlands",
+            "Recombinant Proteins",
+            "Registries",
+            "Risk Factors"
+        ],
+        "YEAR": "2011",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "GHD men receiving GH treatment have a mortality rate not different from the background population. In women, after exclusion of high-risk patients, mortality was not different from the background population except for CVD. Mortality due to malignancies was not elevated in adults receiving GH treatment. Next to gender, the heterogeneous etiology is of influence on mortality in GHD adults with GH treatment."
+    },
+    "10173769":
+    {
+        "QUESTION": "Longer term quality of life and outcome in stroke patients: is the Barthel index alone an adequate measure of outcome?",
+        "CONTEXTS":
+        [
+            "To consider whether the Barthel Index alone provides sufficient information about the long term outcome of stroke.",
+            "Cross sectional follow up study with a structured interview questionnaire and measures of impairment, disability, handicap, and general health. The scales used were the hospital anxiety and depression scale, mini mental state examination, Barthel index, modified Rankin scale, London handicap scale, Frenchay activities index, SF36, Nottingham health profile, life satisfaction index, and the caregiver strain index.",
+            "South east London.",
+            "People, and their identified carers, resident in south east London in 1989-90 when they had their first in a life-time stroke aged under 75 years.",
+            "Observational study.",
+            "Comparison and correlation of the individual Barthel index scores with the scores on other outcome measures.",
+            "One hundred and twenty three (42%) people were known to be alive, of whom 106 (86%) were interviewed. The median age was 71 years (range 34-79). The mean interval between the stroke and follow up was 4.9 years. The rank correlation coefficients between the Barthel and the different dimensions of the SF36 ranged from r = 0.217 (with the role emotional dimension) to r = 0.810 (with the physical functioning dimension); with the Nottingham health profile the range was r = -0.189 (with the sleep dimension, NS) to r = -0.840 (with the physical mobility dimension); with the hospital and anxiety scale depression component the coefficient was r = -0.563, with the life satisfaction index r = 0.361, with the London handicap scale r = 0.726 and with the Frenchay activities index r = 0.826."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVES",
+            "DESIGN",
+            "SETTING",
+            "SUBJECTS",
+            "INTERVENTIONS",
+            "MAIN OUTCOME MEASURES",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Activities of Daily Living",
+            "Adult",
+            "Aged",
+            "Caregivers",
+            "Cerebrovascular Disorders",
+            "Cognition Disorders",
+            "Cohort Studies",
+            "Cross-Sectional Studies",
+            "Disabled Persons",
+            "Humans",
+            "London",
+            "Middle Aged",
+            "Outcome Assessment (Health Care)",
+            "Patient Satisfaction",
+            "Quality of Life",
+            "Registries",
+            "State Medicine"
+        ],
+        "YEAR": "1997",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "The place of the Barthel index as the standard outcome measure for populations of stroke patients is still justified for long term follow up, and may be a proxy for different outcome measures intended for the assessment of other domains."
+    },
+    "14968373":
+    {
+        "QUESTION": "Can CT predict the level of CSF block in tuberculous hydrocephalus?",
+        "CONTEXTS":
+        [
+            "Treatment of obstructive hydrocephalus in children with tuberculous meningitis (TBM) depends on the level of the cerebrospinal fluid (CSF) block. Air-encephalography is regarded as the gold standard for differentiating communicating and non-communicating hydrocephalus. Since air-encephalography involves a lumbar puncture, it carries the risk of cerebral herniation. AIM. The aim of this study was to determine whether communicating and non-communicating hydrocephalus in TBM can be differentiated by means of cranial computerised tomography (CT).",
+            "A number of CT indices were measured in 50 children with communicating and 34 children with non-communicating hydrocephalus according to air-encephalographic findings.",
+            "The only CT finding that correlated with the type of hydrocephalus was the shape of the third ventricle. Significantly more children with non-communicating hydrocephalus had a rounded third ventricle than those with communicating hydrocephalus."
+        ],
+        "LABELS":
+        [
+            "INTRODUCTION",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Cerebrospinal Fluid",
+            "Child, Preschool",
+            "Diagnosis, Differential",
+            "Female",
+            "Humans",
+            "Hydrocephalus",
+            "Infant",
+            "Male",
+            "Pneumoencephalography",
+            "Radiographic Image Interpretation, Computer-Assisted",
+            "Retrospective Studies",
+            "Sensitivity and Specificity",
+            "Third Ventricle",
+            "Tomography, X-Ray Computed",
+            "Tuberculosis, Meningeal"
+        ],
+        "YEAR": "2004",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "no",
+        "final_decision": "yes",
+        "LONG_ANSWER": "CT is therefore not useful in determining the level of CSF block in TBM. Air-encephalography remains the most reliable way of determining the level of CSF obstruction."
+    },
+    "24591144":
+    {
+        "QUESTION": "Are the elderly with oropharyngeal carcinoma undertreated?",
+        "CONTEXTS":
+        [
+            "To determine if elderly patients with oropharyngeal squamous cell carcinoma (OPSCC) are receiving less treatment and to evaluate the benefit of aggressive therapy in this population.",
+            "Retrospective analysis of a large population database.",
+            "Patients in the Surveillance, Epidemiology, and End Results database with OPSCC diagnosed from 2004 to 2009 were included. The patients were categorized into age groups 45 to 54, 55 to 64, 65 to 74, 75 to 84, and 85 years and older, then further categorized by treatment status. Kaplan-Meier analysis of disease-specific survival (DSS) for late-stage (III and IV) OPSCC was performed for all age and treatment categories, followed by a multivariate cox regression of treatment status, tumor site, race, stage, and sex per age group.",
+            "A total of 14,909 patients with OPSCC were identified. In our demographic data, we observed a significant increase in the number of patients who did not receive treatment (surgery, radiation, or combined therapy) after age 55. Kaplan-Meier analysis showed that age groups 65 to 74 and 75 to 84 had substantial benefits in DSS with surgery, radiation, or combined therapy. Multivariable analysis did not demonstrate any statistically significant difference in the hazard ratios for combined treatment among age groups 45 to 54, 55 to 64, 65 to 74, and 75 to 84."
+        ],
+        "LABELS":
+        [
+            "HYPOTHESIS",
+            "STUDY DESIGN",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Age Factors",
+            "Aged",
+            "Aged, 80 and over",
+            "Carcinoma, Squamous Cell",
+            "Female",
+            "Humans",
+            "Male",
+            "Middle Aged",
+            "Oropharyngeal Neoplasms",
+            "Retrospective Studies",
+            "Vulnerable Populations"
+        ],
+        "YEAR": "2014",
+        "reasoning_required_pred": "maybe",
+        "reasoning_free_pred": "yes",
+        "final_decision": "maybe",
+        "LONG_ANSWER": "Proportionally fewer elderly patients with OPSCC are being treated than younger individuals. These patients can have significant benefits from aggressive treatments despite their older age as shown by our survival analysis. We recommend the use of objective measures to assess patient fitness to reduce the potential for undertreatment in the elderly population."
+    },
+    "21431987":
+    {
+        "QUESTION": "Preoperative staging of patients with liver metastases of colorectal carcinoma. Does PET/CT really add something to multidetector CT?",
+        "CONTEXTS":
+        [
+            "This study was designed to determine prospectively whether the systematic use of PET/CT associated with conventional techniques could improve the accuracy of staging in patients with liver metastases of colorectal carcinoma. We also assessed the impact on the therapeutic strategy.",
+            "Between 2006 and 2008, 97 patients who were evaluated for resection of LMCRC were prospectively enrolled. Preoperative workup included multidetector-CT (MDCT) and PET/CT. In 11 patients with liver steatosis or iodinated contrast allergy, MR also was performed. Sixty-eight patients underwent laparotomy. Sensitivity, specificity, positive predictive value (PPV), and negative predictive values for hepatic and extrahepatic staging of MDCT and PET-CT were calculated.",
+            "In a lesion-by-lesion analysis of the hepatic staging, the sensitivity of MDCT/RM was superior to PET/CT (89.2 vs. 55%, p < 0.001). On the extrahepatic staging, PET/CT was superior to MDCT/MR only for the detection of locoregional recurrence (p = 0.03) and recurrence in uncommon sites (p = 0.016). New findings in PET/CT resulted in a change in therapeutic strategy in 17 patients. However, additional information was correct only in eight cases and wrong in nine patients."
+        ],
+        "LABELS":
+        [
+            "PURPOSE",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Colorectal Neoplasms",
+            "Female",
+            "Fluorodeoxyglucose F18",
+            "Follow-Up Studies",
+            "Humans",
+            "Liver Neoplasms",
+            "Male",
+            "Middle Aged",
+            "Neoplasm Recurrence, Local",
+            "Neoplasm Staging",
+            "Positron-Emission Tomography",
+            "Preoperative Care",
+            "Prognosis",
+            "Prospective Studies",
+            "Radiopharmaceuticals",
+            "Sensitivity and Specificity",
+            "Survival Rate",
+            "Tomography, X-Ray Computed"
+        ],
+        "YEAR": "2011",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "PET/CT has a limited role in hepatic staging of LMCRC. Although PET-CT has higher sensitivity for the detection of extrahepatic disease in some anatomic locations, its results are hampered by its low PPV. PET/CT provided additional useful information in 8% of the cases but also incorrect and potentially harmful data in 9% of the staging. Our findings support a more selective use of PET/CT, basically in patients with high risk of local recurrence."
+    },
+    "18319270":
+    {
+        "QUESTION": "Does confined placental mosaicism account for adverse perinatal outcomes in IVF pregnancies?",
+        "CONTEXTS":
+        [
+            "IVF singletons have poorer perinatal outcomes than singletons from spontaneous conceptions. This may be due to the influence of ovarian stimulation on the chromosomal constitution of the embryos which could be translated into localized chromosomal anomalies in the placenta. The aim of this study was to compare the incidence of confined placental mosaicism (CPM) in IVF/ICSI pregnancies and spontaneous conceptions.",
+            "We conducted a multi-centre retrospective analysis of karyotype results obtained by chorionic villus sampling (CVS), performed due to advanced maternal age (>or=36 years at 18 weeks of gestation), in the Netherlands between 1995 and 2005.",
+            "From a total of 322 246 pregnancies, 20 885 CVS results were analysed: 235 in the IVF/ICSI group and 20 650 in the control group. The mean age of women in both groups was 38.4 years (mean difference -0.08, 95% CI -0.35 to 0.18). Data relating to the fetal karyotype were missing in 143 cases in the control group. When taking into account missing data, the incidence of CPM was lower in the IVF-ICSI group than in the control group, 1.3% versus 2.2% (odds ratio 0.59, 95% CI 0.19-1.85), whereas the incidence of fetal chromosomal anomalies was increased 4.3% versus 2.4% (odds ratio 1.81, 95% CI 0.95-3.42). Neither differences were statistically significant."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Chorionic Villi Sampling",
+            "Female",
+            "Fertilization in Vitro",
+            "Fetus",
+            "Humans",
+            "Karyotyping",
+            "Mosaicism",
+            "Ovulation Induction",
+            "Placenta",
+            "Pregnancy",
+            "Pregnancy Outcome",
+            "Retrospective Studies",
+            "Sperm Injections, Intracytoplasmic"
+        ],
+        "YEAR": "2008",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "The incidence of CPM is not increased in IVF/ICSI pregnancies compared with spontaneous conceptions. CPM probably does not account for the adverse perinatal outcomes following IVF/ICSI."
+    },
+    "23736032":
+    {
+        "QUESTION": "Multidisciplinary decisions in breast cancer: does the patient receive what the team has recommended?",
+        "CONTEXTS":
+        [
+            "A multidisciplinary team (MDT) approach to breast cancer management is the gold standard. The aim is to evaluate MDT decision making in a modern breast unit.",
+            "All referrals to the breast MDT where breast cancer was diagnosed from 1 July 2009 to 30 June 2011 were included. Multidisciplinary team decisions were compared with subsequent patient management and classified as concordant or discordant.",
+            "Over the study period, there were 3230 MDT decisions relating to 705 patients. Overall, 91.5% (2956 out of 3230) of decisions were concordant, 4.5% (146 out of 3230), were discordant and 4% (128 out of 3230) had no MDT decision. Of 146 discordant decisions, 26 (17.8%) were considered 'unjustifiable' as there was no additional information available after the MDT to account for the change in management. The remaining 120 discordant MDT decisions were considered 'justifiable', as management was altered due to patient choice (n=61), additional information available after MDT (n=54) or MDT error (n=5)."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Breast Neoplasms",
+            "Carcinoma",
+            "Choice Behavior",
+            "Decision Making",
+            "Female",
+            "Guideline Adherence",
+            "Humans",
+            "Interdisciplinary Communication",
+            "Medical Errors",
+            "Patient Access to Records",
+            "Patient Care Team",
+            "Patient Compliance",
+            "Patient Education as Topic",
+            "Physician-Patient Relations",
+            "Referral and Consultation",
+            "Retrospective Studies"
+        ],
+        "YEAR": "2013",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "The vast majority of MDT decisions are implemented. Management alteration was most often due to patient choice or additional information available after the MDT. A minority of management alterations were 'unjustifiable' and the authors recommend that any patient whose treatment is subsequently changed should have MDT rediscussion prior to treatment."
+    },
+    "15053041":
+    {
+        "QUESTION": "Do acute changes in heart rate by isoproterenol affect aortic stiffness in patients with hypertension?",
+        "CONTEXTS":
+        [
+            "Increased aortic stiffness is a independent risk factor of cardiovascular disease in patients with hypertension. Acute changes of the heart rate (HR) have been reported not to affect the aortic stiffness in pacing. However, it is unknown whether acute changes in HR caused by sympathomimetics can affect the aortic stiffness in patients with hypertension. We investigated the effect of acute changes in HR produced by isoproterenol on the aortic stiffness in 17 hypertensive patientss (mean age: 59 +/- 9 years).",
+            "All vasoactive drugs were discontinued at least 3 days before the study. The carotid-to-femoral pulse wave velocity (PWV) was measured by the foot-to-foot method. The pulse waves were recorded at the baseline and at every increase of HR by 5 to 10 bpm with a gradual increase of the dose of isoproterenol. The blood pressures and HR were measured simultaneously. For the analysis, HR, PWV, compliance (C), and compliance index (Ci) were converted as percent changes (delta) from the baseline values. Percent changes of the parameters of the aortic stiffness, i.e., deltaPWV, deltaC, and deltaCi, were grouped by every 10% increase in deltaHR.",
+            "There was no significant difference among groups in deltaPWV, deltaC and deltaCi (p>0.05 for each of the group). The regression analysis showed no significant correlation of deltaHR with deltaPWV and deltaC (r = 0.18, 0.13 respectively, p>0.05 for each). deltaCi had a poor correlation with deltaHR (r = 0.22, p<0.05). However, only 4.6% of deltaCi could be referred to deltaHR (r2 = 0.046)."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Aged",
+            "Aorta",
+            "Chest Pain",
+            "Coronary Disease",
+            "Elasticity",
+            "Female",
+            "Heart Rate",
+            "Humans",
+            "Hypertension",
+            "Isoproterenol",
+            "Linear Models",
+            "Male",
+            "Middle Aged",
+            "Pulsatile Flow",
+            "Sympathomimetics"
+        ],
+        "YEAR": "2004",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "Aortic stiffness was not affected by acute changes in HR produced by isoproterenol which suggests that it is not necessary to consider acute changes in HR when measuring aortic PWV."
+    },
+    "24340838":
+    {
+        "QUESTION": "Do ventricular arrhythmias in athletes subside over time?",
+        "CONTEXTS":
+        [
+            "Sudden death in athletes can occur during sport activities and is presumably related to ventricular arrhythmias.",
+            "To investigate the long-term follow-up ofathletes with ventricular arrhythmias during an exercise test.",
+            "From a database of 56,462 athletes we identified 192 athletes (35 years old who had ventricular arrhythmias during an exercise test. Ninety athletes had>or =3 ventricular premature beats (VPB) (group A) and 102 athletes had ventricular couplets or non-sustained ventricular tachycardia during an exercise test (group B). A control group of 92 athletesfrom without ventricular arrhythmias was randomly seleclted from the database (group C). Of the 192 athletes 39 returnied for a repeat exercise test after a mean follow-up period of 70 +/- 25 months and they constitute the study population.",
+            "Twelve athletes from group A, 21 fromgroup B and 6 from group C returned for a repeat exercise test. The athletes reached a significantly lower peak heart rate during their follow-up exercise test (P = 0.001). More athletes were engaged in competitive sports during their initialexercise test than in the follow-up test (P = 0.021). Most of theathletes who had VPB and/orventricular couplets and/or NSVT during their initial exercise test had far fewer ventricular arrhythmias in the follow-up exercise test (P = 0.001)."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "OBJECTIVES",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Arrhythmias, Cardiac",
+            "Athletes",
+            "Case-Control Studies",
+            "Databases, Factual",
+            "Exercise Test",
+            "Follow-Up Studies",
+            "Heart Rate",
+            "Humans",
+            "Sports",
+            "Tachycardia, Ventricular",
+            "Time Factors",
+            "Ventricular Premature Complexes",
+            "Young Adult"
+        ],
+        "YEAR": "2013",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "Athletes engaged in competitive sports are more likely to develop ventricular arrhythmias during exercise. These arrhythmias subside over time when athletes are engaged in non-competitive sports."
+    },
+    "15208005":
+    {
+        "QUESTION": "The Omega-3 Index: a new risk factor for death from coronary heart disease?",
+        "CONTEXTS":
+        [
+            "Low intakes or blood levels of eicosapentaenoic and docosahexaenoic acids (EPA + DHA) are independently associated with increased risk of death from coronary heart disease (CHD). In randomized secondary prevention trials, fish or fish oil have been demonstrated to reduce total and CHD mortality at intakes of about 1 g/day. Red blood cell (RBC) fatty acid (FA) composition reflects long-term intake of EPA + DHA. We propose that the RBC EPA + DHA (hereafter called the Omega-3 Index) be considered a new risk factor for death from CHD.",
+            "We conducted clinical and laboratory experiments to generate data necessary for the validation of the Omega-3 Index as a CHD risk predictor. The relationship between this putative marker and risk for CHD death, especially sudden cardiac death (SCD), was then evaluated in several published primary and secondary prevention studies.",
+            "The Omega-3 Index was inversely associated with risk for CHD mortality. An Omega-3 Index of>or = 8% was associated with the greatest cardioprotection, whereas an index of<or = 4% was associated with the least."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Biomarkers",
+            "Coronary Disease",
+            "Death, Sudden, Cardiac",
+            "Double-Blind Method",
+            "Fatty Acids, Omega-3",
+            "Female",
+            "Humans",
+            "Male",
+            "Middle Aged",
+            "Risk Factors"
+        ],
+        "YEAR": "2004",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "The Omega-3 Index may represent a novel, physiologically relevant, easily modified, independent, and graded risk factor for death from CHD that could have significant clinical utility."
+    },
+    "24669960":
+    {
+        "QUESTION": "Does the sex of acute stroke patients influence the effectiveness of rt-PA?",
+        "CONTEXTS":
+        [
+            "Women have been reported to show more frequent recanalization and better recovery after intravenous (IV) recombinant tissue plasminogen activator (rt-PA) treatment for acute stroke compared with men. To investigate this we studied a series of stroke patients receiving IV rt-PA and undergoing acute transcranial doppler (TCD) examination.",
+            "Acute stroke patients received IV rt-PA and had acute TCD examination within 4 hours of symptom onset at 4 major stroke centers. TCD findings were interpreted using the Thrombolysis in Brain Ischemia (TIBI) flow grading system. The recanalization rates, and poor 3-month outcomes (modified Rankin scale>2) of men and women were compared using the chi-square test. Multiple regression analysis was used to assess sex as a predictor of recanalization and poor 3-month outcome after controlling for age, baseline NIH Stroke Scale (NIHSS), time to treatment, hypertension, and blood glucose.",
+            "369 patients had TCD examinations before or during IV rt-PA treatment. The 199 (53.9%) men and 170 (46.1%) women had mean ages of 67 ± 13 and 70 ± 14 years, respectively. The sexes did not differ significantly in baseline stroke severity, time to TCD examination, or time to thrombolysis. Of the men, 68 (34.2%) had complete recanalization, 58 (29.1%) had partial recanalization, and 73 (36.6%) had no recanalization. Of the women, 53 (31.2%) had complete recanalization, 46 (27%) had partial recanalization, and 71 (41.8%) had no recanalization (p = 0.6). Multiple regression analyses showed no difference between the sexes in recanalization rate, time to recanalization, or clinical outcome at 3 months."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Aged",
+            "Female",
+            "Fibrinolytic Agents",
+            "Humans",
+            "Male",
+            "Middle Aged",
+            "Recombinant Proteins",
+            "Sex Factors",
+            "Stroke",
+            "Tissue Plasminogen Activator",
+            "Ultrasonography, Doppler, Transcranial"
+        ],
+        "YEAR": "2014",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "In our study; sex is not a significant predictor of recanalization rate, time to recanalization or 3-month outcome in stroke patients following IV rt-PA."
+    },
+    "24671913":
+    {
+        "QUESTION": "Does SYNTAX score predict in-hospital outcomes in patients with ST elevation myocardial infarction undergoing primary percutaneous coronary intervention?",
+        "CONTEXTS":
+        [
+            "SYNTAX score (SxS) has been demonstrated to predict long-term outcomes in stable patients with coronary artery disease. But its prognostic value for patients with acute coronary syndrome remains unknown.AIM: To evaluate whether SxS could predict in-hospital outcomes for patients admitted with ST elevation myocardial infarction (STEMI) who undergo primary percutaneous coronary intervention (pPCI).",
+            "The study included 538 patients with STEMI who underwent pPCI between January 2010 and December 2012. The patients were divided into two groups: low SxS (<22) and high SxS (>22). The SxS of all patients was calculated from aninitial angiogram and TIMI flow grade of infarct related artery was calculated after pPCI. Left ventricular systolic functions of the patients were evaluated with an echocardiogram in the following week. The rates of reinfarction and mortality during hospitalisation were obtained from the medical records of our hospital.",
+            "The high SxS group had more no-reflow (41% and 25.1%, p<0.001, respectively), lower ejection fraction (38.2 ± 7.5% and 44.6 ± 8.8%, p<0.001, respectively), and greater rates of re-infarction (9.5% and 7.3%, p = 0.037, respectively) and mortality (0.9% and 0.2%, p = 0.021, respectively) during hospitalisation compared to the low SxS group. On multivariate logistic regression analysis including clinical variables, SxS was an independent predictor of no-reflow (OR 1.081, 95% CI 1.032-1.133, p = 0.001)."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Aged",
+            "Female",
+            "Hospital Mortality",
+            "Humans",
+            "Male",
+            "Middle Aged",
+            "Myocardial Infarction",
+            "Percutaneous Coronary Intervention",
+            "Poland",
+            "Prognosis",
+            "Risk Assessment",
+            "Risk Factors",
+            "Severity of Illness Index",
+            "Treatment Outcome"
+        ],
+        "YEAR": "2014",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "SxS is a useful tool that can predict in-hospital outcomes of patients with STEMI undergoing pPCI."
+    },
+    "17054994":
+    {
+        "QUESTION": "Does frozen section alter surgical management of multinodular thyroid disease?",
+        "CONTEXTS":
+        [
+            "Frozen section (FS) evaluation during thyroid surgery is often used to guide intraoperative management. We sought to determine the utility of FS in patients undergoing thyroidectomy for multinodular thyroid disease.",
+            "From May 1994 through November 2004, 236 patients with multinodular goiter underwent thyroidectomy at our institution. Patient data were retrospectively analyzed to see if a frozen section was performed during the procedure and whether it changed the patient's outcome.",
+            "Of the 236 patients, 135 (57%) had intra-operative FS. There were no differences between patients who had FS analysis and those who did not with regard to age, gender, and the incidence of malignancy. Of the patients who had FS, 4/135 (3%) were subsequently diagnosed with thyroid cancer on permanent histology. Three of these FS were misread as benign. Therefore, the sensitivity of FS for the diagnosis of thyroid cancer was only 25%. Importantly, in none of the 135 patients did FS alter the intraoperative management."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Aged",
+            "Carcinoma, Papillary",
+            "Female",
+            "Frozen Sections",
+            "Goiter, Nodular",
+            "Humans",
+            "Incidence",
+            "Intraoperative Care",
+            "Lymphoma",
+            "Male",
+            "Middle Aged",
+            "Retrospective Studies",
+            "Sensitivity and Specificity",
+            "Thyroid Neoplasms",
+            "Thyroidectomy",
+            "Treatment Outcome"
+        ],
+        "YEAR": "2006",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "While FS was commonly used in patients undergoing thyroidectomy at our institution, in no patient over the last decade did FS correctly alter the intraoperative management. Given the time required to perform FS and the cost associated with it, we believe that routine FS should not be performed in these patients."
+    },
+    "18570208":
+    {
+        "QUESTION": "Is severe macrosomia manifested at 11-14 weeks of gestation?",
+        "CONTEXTS":
+        [
+            "To determine the association between fetal biometry in the first or early second trimester and severe macrosomia at delivery.",
+            "This case-control study included 30 term severely macrosomic neonates; 90 appropriate-for-gestational age (AGA) neonates served as controls. All pregnancies underwent nuchal translucency (NT) screening at 11-14 weeks' gestation. Pregnancies were dated by accurate last menstrual period consistent with crown-rump length (CRL) measurements at the time of screening, early pregnancy CRL or date of fertilization. The association between birth weight and the difference between the measured and the expected CRL at the time of NT screening was analyzed.",
+            "The difference between measured and expected CRL, expressed both in mm and in days of gestation, was statistically greater in the severely macrosomic neonates compared with controls (mean, 6.66 +/- 4.78 mm vs. 1.17 +/- 4.6 mm, P<0.0001 and 3 +/- 2.2 days vs. 0.5 +/- 2.3 days, P<0.0001, respectively). Furthermore, there were significant correlations between the extent of macrosomia and the discrepancy between expected and measured fetal size at the time of NT screening (r = 0.47, P<0.01 and r = 0.48, P<0.01, respectively)."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVE",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Biometry",
+            "Case-Control Studies",
+            "Crown-Rump Length",
+            "Female",
+            "Fetal Macrosomia",
+            "Humans",
+            "Infant, Newborn",
+            "Nuchal Translucency Measurement",
+            "Pregnancy",
+            "Pregnancy Trimester, First",
+            "Pregnancy Trimester, Second",
+            "Retrospective Studies",
+            "Severity of Illness Index"
+        ],
+        "YEAR": "2008",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "Severe macrosomia apparently manifests as early as 11-14 weeks' gestation."
+    },
+    "9582182":
+    {
+        "QUESTION": "Does the SCL 90-R obsessive-compulsive dimension identify cognitive impairments?",
+        "CONTEXTS":
+        [
+            "To investigate the relevance of the Symptom Checklist 90-R Obsessive-Compulsive subscale to cognition in individuals with brain tumor.",
+            "A prospective study of patients assessed with a neuropsychological test battery.",
+            "A university medical center.",
+            "Nineteen adults with biopsy-confirmed diagnoses of malignant brain tumors were assessed prior to aggressive chemotherapy.",
+            "Included in the assessment were the Mattis Dementia Rating Scale, California Verbal Learning Test, Trail Making Test B, Symptom Checklist 90-R, Mood Assessment Scale, Beck Anxiety Inventory, and Chronic Illness Problem Inventory.",
+            "The SCL 90-R Obsessive-Compulsive subscale was not related to objective measures of attention, verbal memory, or age. It was related significantly to symptoms of depression (r = .81, P<.005), anxiety (r = .66, P<.005), and subjective complaints of memory problems (r = .75, P<.005). Multivariate analyses indicated that reported symptoms of depression contributed 66% of the variance in predicting SCL 90-R Obsessive-Compulsive Scores, whereas symptoms of anxiety contributed an additional 6% (P<.0001)."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVE",
+            "DESIGN",
+            "SETTING",
+            "PATIENTS",
+            "MAIN OUTCOME MEASURES",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Aged",
+            "Brain Neoplasms",
+            "Cognition Disorders",
+            "Female",
+            "Humans",
+            "Male",
+            "Middle Aged",
+            "Multivariate Analysis",
+            "Neuropsychological Tests",
+            "Obsessive-Compulsive Disorder",
+            "Personality Assessment",
+            "Predictive Value of Tests",
+            "Prospective Studies",
+            "Sensitivity and Specificity"
+        ],
+        "YEAR": "1998",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "Our data suggest that the SCL 90-R is best viewed as an indicator of unidimensional emotional distress and somatic effects of structural brain injury."
+    },
+    "25503376":
+    {
+        "QUESTION": "Does airway surgery lower serum lipid levels in obstructive sleep apnea patients?",
+        "CONTEXTS":
+        [
+            "Obstructive sleep apnea (OSA) is tightly linked to increased cardiovascular disease. Surgery is an important method to treat OSA, but its effect on serum lipid levels in OSA patients is unknown. We aimed to evaluate the effect of upper airway surgery on lipid profiles.",
+            "We performed a retrospective review of 113 adult patients with OSA who underwent surgery (nasal or uvulopalatopharyngoplasty [UPPP]) at a major, urban, academic hospital in Beijing from 2012 to 2013 who had preoperative and postoperative serum lipid profiles.",
+            "Serum TC (4.86±0.74 to 4.69±0.71) and LP(a) (median 18.50 to 10.90) all decreased significantly post-operatively (P<0.01, 0.01, respectively), with no changes in serum HDL, LDL, or TG (P>0.05, all). For UPPP patients (n=51), serum TC, HDL and LP(a) improved (P=0.01, 0.01,<0.01, respectively). For nasal patients (n=62), only the serum LP(a) decreased (P<0.01). In patients with normal serum lipids at baseline, only serum LP(a) decreased (P<0.01). In contrast, in patients with isolated hypertriglyceridemia, the serum HDL, TG and LP(a) showed significant improvements (P=0.02, 0.03,<0.01, respectively). In patients with isolated hypercholesterolemia, the serum LP(a) decreased significantly (P=0.01), with a similar trend for serum TC (P=0.06). In patients with mixed hyperlipidemia, the serum TC and LDL also decreased (P=0.02, 0.03, respectively)."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "MATERIAL AND METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Demography",
+            "Female",
+            "Humans",
+            "Lipids",
+            "Male",
+            "Polysomnography",
+            "Respiratory System",
+            "Retrospective Studies",
+            "Sleep Apnea, Obstructive"
+        ],
+        "YEAR": "2014",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "no",
+        "final_decision": "yes",
+        "LONG_ANSWER": "Surgery may improve blood lipid levels in patients with OSA, especially in patients with preoperative dyslipidemia, potentially yielding a major benefit in metabolism and cardiovascular sequelae. Prospective studies should examine this potential metabolic effect of airway surgery for OSA."
+    },
+    "21420186":
+    {
+        "QUESTION": "Could ADMA levels in young adults born preterm predict an early endothelial dysfunction?",
+        "CONTEXTS":
+        [
+            "Sporadic data present in literature report how preterm birth and low birth weight are risk factors for the development of cardiovascular diseases in later life. High levels of asymmetric dimethylarginine (ADMA), a strong inhibitor of nitric oxide synthesis, are associated with the future development of adverse cardiovascular events and cardiac death.",
+            "1) to verify the presence of a statistically significant difference between ADMA levels in young adults born preterm at extremely low birth weight (<1000 g; ex-ELBW) and those of a control group of healthy adults born at term (C) and 2) to seek correlations between ADMA levels in ex-ELBW and anthropometric and clinical parameters (gender, chronological age, gestational age, birth weight, and duration of stay in Neonatal Intensive Care Unit).",
+            "Thirty-two ex-ELBW subjects (11 males [M] and 21 females [F], aged 17-29years, mean age 22.2 ± 2.3 years) were compared with 25 C (7 M and 18F). ADMA levels were assessed by high-performance liquid chromatography with highly sensitive laser fluorescent detection.",
+            "ADMA levels were reduced in ex-ELBW subjects compared to C (0.606+0.095 vs 0.562+0.101 μmol/L, p<0.05), and significantly correlated inversely with gestational age (r=-0.61, p<0.00001) and birth weight (r=-0.57, p<0.0002)."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "AIMS",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adolescent",
+            "Adult",
+            "Arginine",
+            "Early Diagnosis",
+            "Endothelium, Vascular",
+            "Female",
+            "Gestational Age",
+            "Humans",
+            "Infant, Extremely Low Birth Weight",
+            "Infant, Low Birth Weight",
+            "Infant, Newborn",
+            "Male",
+            "Predictive Value of Tests",
+            "Premature Birth",
+            "Vascular Diseases",
+            "Young Adult"
+        ],
+        "YEAR": "2012",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "Our findings reveal a significant decrease in ADMA levels of ex-ELBW subjects compared to C, underlining a probable correlation with preterm birth and low birth weight. Taken together, these results may underlie the onset of early circulatory dysfunction predictive of increased cardiovascular risk."
+    },
+    "25725704":
+    {
+        "QUESTION": "Can clinical supervision sustain our workforce in the current healthcare landscape?",
+        "CONTEXTS":
+        [
+            "Clinical supervision is widely recognised as a mechanism for providing professional support, professional development and clinical governance for healthcare workers. There have been limited studies about the effectiveness of clinical supervision for allied health and minimal studies conducted within the Australian health context. The aim of the present study was to identify whether clinical supervision was perceived to be effective by allied health professionals and to identify components that contributed to effectiveness. Participants completed an anonymous online questionnaire, administered through the health service's intranet.",
+            "A cross-sectional study was conducted with community allied health workers (n = 82) 8 months after implementation of structured clinical supervision. Demographic data (age, gender), work-related history (profession employment level, years of experience), and supervision practice (number and length of supervision sessions) were collected through an online survey. The outcome measure, clinical supervision effectiveness, was operationalised using the Manchester Clinical Supervision Scale-26 (MCSS-26). Data were analysed with Pearson correlation (r) and independent sample t-tests (t) with significance set at 0.05 (ie the probability of significant difference set at P<0.05).",
+            "The length of the supervision sessions (r(s) ≥ 0.44), the number of sessions (r(s) ≥ 0.35) and the total period supervision had been received (r(s) ≥ 0.42) were all significantly positively correlated with the MCSS-26 domains of clinical supervision effectiveness. Three individual variables, namely 'receiving clinical supervision', 'having some choice in the allocation of clinical supervisor' and 'having a completed clinical supervision agreement', were also significantly associated with higher total MCSS-26 scores (P(s)<0.014)."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVE",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Allied Health Personnel",
+            "Female",
+            "Humans",
+            "Male",
+            "Personnel Administration, Hospital",
+            "Queensland",
+            "Surveys and Questionnaires"
+        ],
+        "YEAR": "2015",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "maybe",
+        "final_decision": "yes",
+        "LONG_ANSWER": "The results of the study demonstrate that when clinical supervision uses best practice principles, it can provide professional support for allied health workers, even during times of rapid organisational change."
+    },
+    "24516646":
+    {
+        "QUESTION": "Is the determination of specific IgE against components using ISAC 112 a reproducible technique?",
+        "CONTEXTS":
+        [
+            "The ImmunoCAP ISAC 112 is a fluoro-immunoassay that allows detection of specific IgE to 112 molecular components from 51 allergenic sources. We studied the reliability of this technique intra- and inter- assay, as well as inter-batch- and inter-laboratory-assay.",
+            "Twenty samples were studied, nineteen sera from polysensitized allergic patients, and the technique calibrator provided by the manufacturer (CTR02). We measured the sIgE from CTR02 and three patients' sera ten times in the same and in different assays. Furthermore, all samples were tested in two laboratories and with two batches of ISAC kit. To evaluate the accuracy of ISAC 112, we contrasted the determinations of CTR02 calibrator with their expected values by T Student test. To analyse the precision, we calculated the coefficient of variation (CV) of the 15 allergens that generate the calibration curve, and to analyse the repeatability and the reproducibility, we calculated the intraclass coefficient correlation (ICC) to each allergen.",
+            "The results obtained for CTR02 were similar to those expected in 7 of 15 allergens that generate the calibration curve, whereas in 8 allergens the results showed significant differences. The mean CV obtained in the CTR02 determinations was of 9.4%, and the variability of sera from patients was of 22.9%. The agreement in the intra- and inter-assay analysis was very good to 94 allergens and good to one. In the inter-batch analyse, we obtained a very good agreement to 82 allergens, good to 14, moderate to 5 allergens, poor to one, and bad to 1 allergen. In the inter-laboratory analyse, we obtained a very good agreement to 73 allergens, good to 22, moderate to 6 and poor to two allergens."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Calibration",
+            "Fluoroimmunoassay",
+            "Humans",
+            "Immunoglobulin E",
+            "Reproducibility of Results"
+        ],
+        "YEAR": "2014",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "The allergen microarray immunoassay, ISAC 112, is a repeatable and reproducible in vitro diagnostic tool for determination of sIgE beyond the own laboratory."
+    },
+    "22902073":
+    {
+        "QUESTION": "Estimated fetal weight by ultrasound: a modifiable risk factor for cesarean delivery?",
+        "CONTEXTS":
+        [
+            "The purpose of this study was to investigate whether knowledge of ultrasound-obtained estimated fetal weight (US-EFW) is a risk factor for cesarean delivery (CD).",
+            "Retrospective cohort from a single center in 2009-2010 of singleton, term live births. CD rates were compared for women with and without US-EFW within 1 month of delivery and adjusted for potential confounders.",
+            "Of the 2329 women in our cohort, 50.2% had US-EFW within 1 month of delivery. CD was significantly more common for women with US-EFW (15.7% vs 10.2%; P<.001); after we controlled for confounders, US-EFW remained an independent risk factor for CD (odds ratio, 1.44; 95% confidence interval, 1.1-1.9). The risk increased when US-EFW was>3500 g (odds ratio, 1.8; 95% confidence interval, 1.3-2.7)."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVE",
+            "STUDY DESIGN",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Birth Weight",
+            "Cesarean Section",
+            "Female",
+            "Fetal Weight",
+            "Gestational Age",
+            "Humans",
+            "Predictive Value of Tests",
+            "Pregnancy",
+            "Retrospective Studies",
+            "Risk Factors",
+            "Ultrasonography, Prenatal"
+        ],
+        "YEAR": "2012",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "Knowledge of US-EFW, above and beyond the impact of fetal size itself, increases the risk of CD. Acquisition of US-EFW near term appears to be an independent and potentially modifiable risk factor for CD."
+    },
+    "23412195":
+    {
+        "QUESTION": "Should displaced midshaft clavicular fractures be treated surgically?",
+        "CONTEXTS":
+        [
+            "This study was designed to compare clinical effectiveness of operative with nonoperative treatment for displaced midshaft clavicular fractures (DMCF).",
+            "We systematically searched electronic databases (MEDILINE, EMBASE, CLINICAL, OVID, BIOSIS and Cochrane registry of controlled clinical trials) to identify randomized controlled trials (RCTs) in which operative treatment was compared with nonoperative treatment for DMCF from 1980 to 2012. The methodologic quality of trials was assessed. Data from chosen studies were pooled with using of fixed-effects and random-effects models with mean differences and risk ratios for continuous and dichotomous variables, respectively.",
+            "Four RCTs with a total of 321 patients were screened for the present study. Results showed that the operative treatment was superior to the nonoperative treatment regarding the rate of nonunion [95 % confidence interval (CI) (0.05, 0.43), P = 0.0004], malunion [95 % CI (0.06, 0.34), P < 0.00001] and overall complication [95 % CI (0.43-0.76), P = 0.0001]. Subgroup analyses of complications revealed that significant differences were existed in the incidence of neurologic symptoms [95 % CI (0.20, 0.74), P = 0.004] and dissatisfaction with appearance [95 % CI (0.19, 0.65), P = 0.001]. Lack of consistent and standardized assessment data, insufficiency analysis that carried out showed improved functional outcomes (P < 0.05) in operative treatment."
+        ],
+        "LABELS":
+        [
+            "PURPOSE",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Clavicle",
+            "Databases, Factual",
+            "Fracture Fixation, Internal",
+            "Fractures, Bone",
+            "Humans",
+            "Postoperative Complications",
+            "Randomized Controlled Trials as Topic",
+            "Recovery of Function",
+            "Treatment Outcome"
+        ],
+        "YEAR": "2013",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "The available evidence suggests that the operative treatment for DMCF is associated with a lower rate of nonunion, malunion and complication than nonoperative treatment. This study supports traditional primary operative treatment for DMCF in active adults."
+    },
+    "9722752":
+    {
+        "QUESTION": "Does bone anchor fixation improve the outcome of percutaneous bladder neck suspension in female stress urinary incontinence?",
+        "CONTEXTS":
+        [
+            "To evaluate the outcome of a new modification of percutaneous needle suspension, using a bone anchor system for fixing the suture at the public bone, and to compare the results with those published previously.",
+            "From March 1996, 37 patients with stress urinary incontinence (>2 years) were treated using a bone anchor system. On each side the suture was attached to the pubocervical fascia and the vaginal wall via a broad 'Z'-stitch. A urodynamic investigation performed preoperatively in all patients confirmed stress incontinence and excluded detrusor instability. The outcome was assessed by either by a clinical follow-up investigation or using a standardized questionnaire, over a mean follow-up of 11 months (range 6-18).",
+            "In the 37 patients, the procedure was successful in 25 (68%), with 16 (43%) of the patients completely dry and nine (24%) significantly improved. Removal of the bone anchor and suture was necessary in two patients, because of unilateral bacterial infection in one and a bilateral soft tissue granuloma in the other. One bone anchor became dislocated in a third patient. In two cases where the treatment failed, new detrusor instability was documented urodynamically. Minor complications were prolonged wound pain in 10 (26%) and transient urinary retention or residual urine in 12 patients (32%)."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVE",
+            "PATIENTS AND METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adult",
+            "Aged",
+            "Aged, 80 and over",
+            "Bone Nails",
+            "Female",
+            "Follow-Up Studies",
+            "Humans",
+            "Middle Aged",
+            "Suture Techniques",
+            "Treatment Outcome",
+            "Urinary Bladder Diseases",
+            "Urinary Incontinence, Stress",
+            "Urodynamics",
+            "Urologic Surgical Procedures"
+        ],
+        "YEAR": "1998",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "no",
+        "final_decision": "yes",
+        "LONG_ANSWER": "The poor success rate in the study corresponds with the long-term results of conventional or modified needle suspension procedures and does not reinforce the optimistic results of bone anchoring published recently. Because of the poorer long-term results from percutaneous needle suspension than from other techniques of open retropubic bladder neck suspension, it remains questionable whether percutaneous needle suspension should be considered a first-line procedure for the treatment of female stress urinary incontinence."
+    },
+    "23870157":
+    {
+        "QUESTION": "Are intraoperative precursor events associated with postoperative major adverse events?",
+        "CONTEXTS":
+        [
+            "Precursor events are undesirable events that can lead to a subsequent adverse event and have been associated with postoperative mortality. The purpose of the present study was to determine whether precursor events are associated with a composite endpoint of major adverse cardiac events (MACE) (death, acute renal failure, stroke, infection) in a low- to medium-risk coronary artery bypass grafting, valve, and valve plus coronary artery bypass grafting population. These events might be targets for strategies aimed at quality improvement.",
+            "The present study was a retrospective cohort design performed at the Queen Elizabeth Health Science Centre. Low- to medium-risk patients who had experienced postoperative MACE were matched 1:1 with patients who had not experienced postoperative MACE. The operative notes, for both groups, were scored by 5 surgeons to determine the frequency of 4 precursor events: bleeding, difficulty weaning from cardiopulmonary bypass, repair or regrafting, and incomplete revascularization or repair. A univariate comparison of ≥1 precursor events in the matched groups was performed.",
+            "A total of 311 MACE patients (98.4%) were matched. The primary outcome occurred more frequently in the MACE group than in the non-MACE group (33% vs 24%; P = .015). The incidence of the individual events of bleeding and difficulty weaning from cardiopulmonary bypass was significantly higher in the MACE group. Those patients with a precursor event in the absence of MACE also appeared to have a greater prevalence of other important postoperative outcomes."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVES",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Aged",
+            "Blood Loss, Surgical",
+            "Cardiopulmonary Bypass",
+            "Coronary Artery Bypass",
+            "Female",
+            "Heart Valve Prosthesis Implantation",
+            "Humans",
+            "Incidence",
+            "Male",
+            "Middle Aged",
+            "Nova Scotia",
+            "Postoperative Complications",
+            "Prevalence",
+            "Quality Improvement",
+            "Quality Indicators, Health Care",
+            "Registries",
+            "Reoperation",
+            "Retrospective Studies",
+            "Risk Factors",
+            "Time Factors",
+            "Treatment Outcome"
+        ],
+        "YEAR": "2014",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "Patients undergoing cardiac surgery who are exposed to intraoperative precursor events were more likely to experience a postoperative MACE. Quality improvement techniques aimed at mitigating the consequences of precursor events might improve the surgical outcomes for cardiac surgical patients."
+    },
+    "23848044":
+    {
+        "QUESTION": "Does oxybutynin hydrochloride cause arrhythmia in children with bladder dysfunction?",
+        "CONTEXTS":
+        [
+            "This study represents a subset of a complete data set, considering only those children aged admitted to the Pediatric Surgery and Pediatric Nephrology Clinics during the period January 2011 to July 2012.",
+            "In this study, we have determined that the QT interval changes significantly depending on the use of oxybutynin. The QT changes increased cardiac arrhythmia in children."
+        ],
+        "LABELS":
+        [
+            "METHOD",
+            "RESULT"
+        ],
+        "MESHES":
+        [
+            "Adolescent",
+            "Arrhythmias, Cardiac",
+            "Child",
+            "Child, Preschool",
+            "Electrocardiography",
+            "Female",
+            "Humans",
+            "Male",
+            "Mandelic Acids",
+            "Muscarinic Antagonists",
+            "Retrospective Studies",
+            "Urinary Bladder, Overactive"
+        ],
+        "YEAR": "2013",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "For this reason, children using such drugs should be closely monitored for cardiac arrhythmia."
+    },
+    "9920954":
+    {
+        "QUESTION": "Do \"America's Best Hospitals\" perform better for acute myocardial infarction?",
+        "CONTEXTS":
+        [
+            "\"America's Best Hospitals,\" an influential list published annually by U.S. News and World Report, assesses the quality of hospitals. It is not known whether patients admitted to hospitals ranked at the top in cardiology have lower short-term mortality from acute myocardial infarction than those admitted to other hospitals or whether differences in mortality are explained by differential use of recommended therapies.",
+            "Using data from the Cooperative Cardiovascular Project on 149,177 elderly Medicare beneficiaries with acute myocardial infarction in 1994 or 1995, we examined the care and outcomes of patients admitted to three types of hospitals: those ranked high in cardiology (top-ranked hospitals); hospitals not in the top rank that had on-site facilities for cardiac catheterization, coronary angioplasty, and bypass surgery (similarly equipped hospitals); and the remaining hospitals (non-similarly equipped hospitals). We compared 30-day mortality; the rates of use of aspirin, beta-blockers, and reperfusion; and the relation of differences in rates of therapy to short-term mortality.",
+            "Admission to a top-ranked hospital was associated with lower adjusted 30-day mortality (odds ratio, 0.87; 95 percent confidence interval, 0.76 to 1.00; P=0.05 for top-ranked hospitals vs. the others). Among patients without contraindications to therapy, top-ranked hospitals had significantly higher rates of use of aspirin (96.2 percent, as compared with 88.6 percent for similarly equipped hospitals and 83.4 percent for non-similarly equipped hospitals; P<0.01) and beta-blockers (75.0 percent vs. 61.8 percent and 58.7 percent, P<0.01), but lower rates of reperfusion therapy (61.0 percent vs. 70.7 percent and 65.6 percent, P=0.03). The survival advantage associated with admission to top-ranked hospitals was less strong after we adjusted for factors including the use of aspirin and beta-blockers (odds ratio, 0.94; 95 percent confidence interval, 0.82 to 1.08; P=0.38)."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Adrenergic beta-Antagonists",
+            "Aged",
+            "Angioplasty, Balloon, Coronary",
+            "Aspirin",
+            "Female",
+            "Health Care Surveys",
+            "Hospitals",
+            "Humans",
+            "Logistic Models",
+            "Male",
+            "Medicare",
+            "Multivariate Analysis",
+            "Myocardial Infarction",
+            "Outcome and Process Assessment (Health Care)",
+            "Quality of Health Care",
+            "Severity of Illness Index",
+            "Thrombolytic Therapy",
+            "United States"
+        ],
+        "YEAR": "1999",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "Admission to a hospital ranked high on the list of \"America's Best Hospitals\" was associated with lower 30-day mortality among elderly patients with acute myocardial infarction. A substantial portion of the survival advantage may be associated with these hospitals' higher rates of use of aspirin and beta-blocker therapy."
+    },
+    "20577124":
+    {
+        "QUESTION": "Is leptin involved in phagocytic NADPH oxidase overactivity in obesity?",
+        "CONTEXTS":
+        [
+            "Hyperleptinemia and oxidative stress play a major role in the development of cardiovascular diseases in obesity. This study aimed to investigate whether there is a relationship between plasma levels of leptin and phagocytic nicotinamide adenine dinucleotide phosphate (NADPH) oxidase activity, and its potential relevance in the vascular remodeling in obese patients.",
+            "The study was performed in 164 obese and 94 normal-weight individuals (controls). NADPH oxidase activity was evaluated by luminescence in phagocytic cells. Levels of leptin were quantified by ELISA in plasma samples. Carotid intima-media thickness (cIMT) was measured by ultrasonography. In addition, we performed in-vitro experiments in human peripheral blood mononuclear cells and murine macrophages.",
+            "Phagocytic NADPH oxidase activity and leptin levels were enhanced (P<0.05) in obese patients compared with controls. NADPH oxidase activity positively correlated with leptin in obese patients. This association remained significant in a multivariate analysis. cIMT was higher (P<0.05) in obese patients compared with controls. In addition, cIMT also correlated positively with leptin and NADPH oxidase activity in obese patients. In-vitro studies showed that leptin induced NADPH oxidase activation. Inhibition of the leptin-induced NADPH oxidase activity by wortmannin and bisindolyl maleimide suggested a direct involvement of the phosphatidylinositol 3-kinase and protein kinase C pathways, respectively. Finally, leptin-induced NADPH oxidase activation promoted macrophage proliferation."
+        ],
+        "LABELS":
+        [
+            "OBJECTIVES",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Animals",
+            "Atherosclerosis",
+            "Carotid Arteries",
+            "Case-Control Studies",
+            "Cell Line",
+            "Cell Proliferation",
+            "Female",
+            "Humans",
+            "In Vitro Techniques",
+            "Leptin",
+            "Macrophages",
+            "Male",
+            "Mice",
+            "Middle Aged",
+            "NADPH Oxidases",
+            "Obesity",
+            "Oxidative Stress",
+            "Phagocytes",
+            "Superoxides",
+            "Tunica Intima"
+        ],
+        "YEAR": "2010",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "These findings show that phagocytic NADPH oxidase activity is increased in obesity and is related to preclinical atherosclerosis in this condition. We also suggest that hyperleptinemia may contribute to phagocytic NADPH oxidase overactivity in obesity."
+    },
+    "17062234":
+    {
+        "QUESTION": "Surgical management of the atherosclerotic ascending aorta: is endoaortic balloon occlusion safe?",
+        "CONTEXTS":
+        [
+            "Occlusion of the atherosclerotic ascending aorta by an endoaortic inflatable balloon has been proposed as an alternative to conventional cross-clamping to prevent injury to the vessel and distal embolization of debris. The safety and the effectiveness of endoaortic occlusion have not been documented in this setting.",
+            "Endoaortic occlusion was employed in 52 of 2,172 consecutive patients. Surgeon's choice was based on preoperative identification of aortic calcifications or intraoperative epiaortic ultrasonographic scanning. Deaths and strokes were analyzed casewise and in aggregate.",
+            "In 10 patients (19.2%), the endoaortic balloon had to be replaced by the ordinary cross-clamp because of incomplete occlusion (n = 5), hindered exposure (n = 2), or balloon rupture (n = 3). In-hospital death occurred in 13 patients (25%), and stroke on awakening from anesthesia in 2 (3.8%). The death rate of patients treated by endoaortic occlusion was significantly higher compared with all other patients (4.2%, p<0.0001) and with the expected estimate by European System for Cardiac Operative Risk Evaluation (10.5%, p = 0.05). By multivariable analysis, use of endoaortic occlusion was independently associated with in-hospital death (odds ratio = 5.609, 95% confidence interval: 2.684 to 11.719). Although the stroke rate was higher in the endoaortic occlusion group compared with all other patients, the difference was only possibly significant (3.8% versus 0.8%, p = 0.067)."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Aged",
+            "Aged, 80 and over",
+            "Aorta",
+            "Aortic Diseases",
+            "Atherosclerosis",
+            "Balloon Occlusion",
+            "Constriction",
+            "Coronary Artery Bypass",
+            "Female",
+            "Hospital Mortality",
+            "Humans",
+            "Male",
+            "Middle Aged",
+            "Retrospective Studies",
+            "Stroke",
+            "Treatment Outcome"
+        ],
+        "YEAR": "2006",
+        "reasoning_required_pred": "no",
+        "reasoning_free_pred": "no",
+        "final_decision": "no",
+        "LONG_ANSWER": "In this series, the endoaortic occlusion was frequently ineffective, and was associated with a significantly higher risk of in-hospital death and a numerically higher risk of stroke."
+    },
+    "27131771":
+    {
+        "QUESTION": "Does left atrial appendage (LAA) occlusion device alter the echocardiography and electrocardiogram parameters in patients with atrial fibrillation?",
+        "CONTEXTS":
+        [
+            "The alterations of echocardiography and electrocardiogram (ECG) in patients received left atrial appendage LAA occlusion therapy are still unclear. The present study was to evaluate the influence of LAA occlusion device on echocardiography and ECG changes in patients with atrial fibrillation (AF).",
+            "Seventy-three patients who had undergone Watchman, LAmbre and Lefort were enrolled in this study. Echocardiography and ECG results at pre- and post-operation were collected. Besides, echocardiography was also performed during follow-up visits at 1, 6 and 12months after discharge.",
+            "After LAA occlusion, a slight and measureable movement of QRS electric axis was observed in most patients. The significant differences were also observed in heart rate (HR) and the mean-mean QT interval between pre- and post-operation for all patients. There existed no significant difference in echocardiographic parameters between before and after device implantation. However, a larger left atrial (LA) diameter was detected by echocardiography during follow-up visit at 6months when compared with pre-operation parameters. Similarly, aortic root diameter (ARD) was also larger during follow-up at 12months than the baseline dimension in pre-operation."
+        ],
+        "LABELS":
+        [
+            "BACKGROUND",
+            "METHODS",
+            "RESULTS"
+        ],
+        "MESHES":
+        [
+            "Aged",
+            "Aged, 80 and over",
+            "Atrial Appendage",
+            "Atrial Fibrillation",
+            "Cardiac Catheterization",
+            "Cardiac Surgical Procedures",
+            "Echocardiography",
+            "Electrocardiography",
+            "Female",
+            "Humans",
+            "Male",
+            "Middle Aged",
+            "Prostheses and Implants",
+            "Treatment Outcome"
+        ],
+        "YEAR": "2016",
+        "reasoning_required_pred": "yes",
+        "reasoning_free_pred": "yes",
+        "final_decision": "yes",
+        "LONG_ANSWER": "LAA occlusion device resulted in a slightly movement in QRS axis, reduced HR and increased the mean-mean QT interval duration. In addition, LA diameter and ARD seemed to be larger after device implantation."
+    }
+}

@@ -167,3 +167,4 @@ cache/
 wandb/
 .DS_Store
 dataset/BioASQ/test/output/
+dataset/PubMedQA/test/output/

@@ -20,6 +20,24 @@ def data_preprocess(dataset_dir, dataset_name):
             questions_neg_test = [item[1] for item in questions_test]
             random.shuffle(questions_neg_test)
         return questions_train, answers_train, questions_neg_train, questions_test, answers_test, questions_neg_test
+    elif dataset_name == 'PubMedQA':
+        train_data_file = dataset_dir + '/PubMedQA/training.json'
+        test_data_file = dataset_dir + '/PubMedQA/test/test.json'
+        with open(train_data_file, 'r', encoding='utf-8') as f:
+            train_dataset = json.load(f)
+            item_list = [[idx, item] for idx, item in train_dataset.items()]
+            questions_train = [[item[0], item[1]['QUESTION']] for item in item_list]
+            answers_train = [item[1]['LONG_ANSWER'] for item in item_list]
+            questions_neg_train = [item[1] for item in questions_train]
+            random.shuffle(questions_neg_train)
+        with open(test_data_file, 'r', encoding='utf-8') as f:
+            test_dataset = json.load(f)
+            item_list = [[idx, item] for idx, item in test_dataset.items()]
+            questions_test = [[item[0], item[1]['QUESTION']] for item in item_list]
+            answers_test = [item[1]['LONG_ANSWER'] for item in item_list]
+            questions_neg_test = [item[1] for item in questions_test]
+            random.shuffle(questions_neg_test)
+        return questions_train, answers_train, questions_neg_train, questions_test, answers_test, questions_neg_test
     else:
         raise Exception("Unsupported dataset.")
 
@@ -46,6 +64,19 @@ def get_evidence(dataset_dir, dataset_name, sample_ids, mode='train'):
             llm_evidence_file = dataset_dir + '/BioASQ/evidence_train.json'
         else:
             llm_evidence_file = dataset_dir + '/BioASQ/test/evidence_test_1.json'
+        with open(llm_evidence_file, 'r', encoding='utf-8') as f:
+            evidence_dict = json.load(f)
+            for item in sample_ids:
+                llm_evidence.append(evidence_dict[item]["llm_evidence"])
+                paper_evidence.append(evidence_dict[item]["paper_evidence"])
+        return llm_evidence, paper_evidence
+    elif dataset_name == 'PubMedQA':
+        llm_evidence = []
+        paper_evidence = []
+        if mode == 'train':
+            llm_evidence_file = dataset_dir + '/PubMedQA/evidence_train.json'
+        else:
+            llm_evidence_file = dataset_dir + '/PubMedQA/test/evidence_test.json'
         with open(llm_evidence_file, 'r', encoding='utf-8') as f:
             evidence_dict = json.load(f)
             for item in sample_ids:
