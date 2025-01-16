@@ -5,6 +5,7 @@ from framework.graph_llm import GraphLLM
 from framework.llm_thought import LLMThought
 from framework.prompt_soft import PromptSoft
 from framework.rag import RAG
+from framework.rag_cot import RAGCoT
 
 
 framework_selector = {
@@ -14,5 +15,6 @@ framework_selector = {
     "graph_llm": GraphLLM,
     "prompt_soft": PromptSoft,
     "llm_thought": LLMThought,
-    "rag": RAG
+    "rag": RAG,
+    "rag_cot": RAGCoT
 }

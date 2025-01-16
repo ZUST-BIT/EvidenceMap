@@ -21,7 +21,7 @@ class EviMapHard(object):
         self.tokenizer = AutoTokenizer.from_pretrained(args.llm_model)
         self.tokenizer.pad_token_id = 0
         self.tokenizer.padding_side = 'left'
-        self.model = AutoModelForCausalLM.from_pretrained(args.llm_model, torch_dtype=torch.bfloat16, device_map="auto")
+        self.model = AutoModelForCausalLM.from_pretrained(args.llm_model, low_cpu_mem_usage=True, device_map="cuda:3")
         # Freeze LLM parameters
         for name, param in self.model.named_parameters():
             param.requires_grad = False
@@ -63,7 +63,7 @@ class EviMapHard(object):
         return output_text
 
     def inference(self, questions, questions_neg, sample_ids):
-        parsed_questions = get_parsed_question(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='test')
+        # parsed_questions = get_parsed_question(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='test')
         llm_evidences, paper_evidences = get_evidence(self.args.dataset_dir, self.args.dataset_name, sample_ids, mode='test')
 
         evidence_sum_list = self.summary.evidence_process(questions, paper_evidences, llm_evidences, self.args.paper_num)

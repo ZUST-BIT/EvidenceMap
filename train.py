@@ -162,7 +162,7 @@ def main(args):
 
     model = framework_selector[args.framework](args, device)
 
-    if args.framework in ['rag', 'evimap_hard', 'llm_thought']:
+    if args.framework in ['rag', 'evimap_hard', 'llm_thought', 'rag_cot']:
         # Evaluation
         evaluate_fn(test_loader, model, args, test_q_path, test_a_path, test_r_path, mode='server')
     else:
