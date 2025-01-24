@@ -43,6 +43,5 @@ python train.py
 }
 ```
 
-## Follow Our BITLab Team from ZUST!
-[BITLab](http://bit.zust.edu.cn/catalogue/information.html)
+## Follow our Team BITLab!
 ![bitlab](./pics/logo.jpg "bitlab")
