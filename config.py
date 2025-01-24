@@ -6,8 +6,8 @@ def csv_list(string):
 def set_argument():
     parser = argparse.ArgumentParser(prog='EvidenceMap')
     parser.add_argument('--project', type=str, default='EvidenceMap')
-    parser.add_argument('--framework', type=str, default='rag_cot')
-    parser.add_argument('--source', type=csv_list, default=['kg', 'paper'])
+    parser.add_argument('--framework', type=str, default='evimap_emb')
+    parser.add_argument('--source', type=csv_list, default=['llm', 'paper'])
     parser.add_argument('--analysis', type=csv_list, default=['sup', 'rel', 'sum'])
 
     parser.add_argument('--dataset_name', type=str, default='BioASQ')
@@ -27,7 +27,7 @@ def set_argument():
     parser.add_argument("--warmup_epochs", type=float, default=1)
     parser.add_argument('--batch_size', type=int, default=2)
     parser.add_argument("--grad_steps", type=int, default=2)
-    parser.add_argument('--lr', type=float, default=1e-3)
+    parser.add_argument('--lr', type=float, default=5e-4)
     parser.add_argument("--wd", type=float, default=0.01)
     parser.add_argument("--patience", type=float, default=2)
     parser.add_argument("--eval_batch_size", type=int, default=16)
@@ -43,6 +43,7 @@ def set_argument():
     parser.add_argument('--max_txt_len', type=int, default=512)
     parser.add_argument('--max_new_tokens', type=int, default=128)
     
+    parser.add_argument('--use_proj', action='store_true', default=False)
     parser.add_argument('--feature_dim', type=int, default=768) # depends on SLM's embedding dim
     parser.add_argument('--sum_hidden_dim', type=int, default=1024)
     parser.add_argument('--sum_output_dim', type=int, default=1024)

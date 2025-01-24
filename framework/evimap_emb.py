@@ -23,6 +23,11 @@ EOS = '<|end_of_text|>'
 # EOS_USER = '<|end|>'
 # EOS = '<|endoftext|>'
 
+# qwen 2.5 prompt template
+# BOS = '<|im_start|>'
+# EOS_USER = '<|endoftext|>'
+# EOS = '<|im_end|>'
+
 IGNORE_INDEX = -100
 
 
@@ -84,6 +89,12 @@ class EviMapEmb(torch.nn.Module):
                 inputs_embeds = torch.cat([bos_embeds, evience_embeds, glo_emb, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
             elif 'rel' in self.args.analysis and 'sup' in self.args.analysis:
                 inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], batch_rel_emb[i], inputs_embeds], dim=0)
+            elif 'sup' in self.args.analysis and 'sum' in self.args.analysis:
+                glo_emb = torch.mean(batch_evi_emb[i], 0).unsqueeze(0)
+                inputs_embeds = torch.cat([bos_embeds, evience_embeds, glo_emb, batch_sup_emb[i], inputs_embeds], dim=0)
+            elif 'rel' in self.args.analysis and 'sum' in self.args.analysis:
+                glo_emb = torch.mean(batch_evi_emb[i], 0).unsqueeze(0)
+                inputs_embeds = torch.cat([bos_embeds, evience_embeds, glo_emb, batch_rel_emb[i], inputs_embeds], dim=0)
             else:
                 inputs_embeds = torch.cat([bos_embeds, evience_embeds, batch_sup_emb[i], inputs_embeds], dim=0)
             batch_inputs_embeds.append(inputs_embeds)
@@ -202,9 +213,11 @@ class EviMapBuilder(torch.nn.Module):
         # for name, param in self.model.named_parameters():
         #    param.requires_grad = False
         self.word_embedding = self.model.get_input_embeddings()
-
-        self.projector = MLP(args.feature_dim, args.projector_hidden_dim, args.projector_output_dim).to(self.device)
-        # self.projector = torch.nn.Linear(args.feature_dim, args.projector_output_dim).to(self.device)
+        
+        if self.args.use_proj:
+            self.projector = MLP(args.feature_dim, args.projector_hidden_dim, args.projector_output_dim).to(self.device)
+        else:
+            self.projector = torch.nn.Linear(args.feature_dim, args.projector_output_dim).to(self.device)
 
     def cross_entropy_loss(self, output, label):
         predictions = output.view(output.shape[0] * output.shape[1], output.shape[2])
@@ -229,6 +242,8 @@ class EviMapBuilder(torch.nn.Module):
 
         support_prompt_list = [prompt_support.format(evidence=x, question=question) for x in evidence_set] # n
         relation_prompt_list = [prompt_relation.format(evidence1=pair[0], evidence2=pair[1]) for pair in itertools.combinations(evidence_set, 2)] # n*(n-1)/2
+        if not relation_prompt_list:
+            relation_prompt_list = ['No logical relationship.']
 
         support_input = self.tokenizer(support_prompt_list, padding=True, truncation=True, return_tensors="pt").to(self.device)
         relation_input = self.tokenizer(relation_prompt_list, padding=True, truncation=True, return_tensors="pt").to(self.device)
@@ -248,12 +263,16 @@ class EviMapBuilder(torch.nn.Module):
         for item in paper_evis:
             article_num += len(item)
         print("Found {} articles for {} questions.".format(article_num, self.args.batch_size))
+        evidence_set = None
         batch_evi_emb = []
         batch_sup_emb = []
         batch_rel_emb = []
         batch_evi_text = []
         for question, paper_evi, llm_evi, question_neg in zip(questions, paper_evis, llm_evis, questions_neg):
-            evidence_set = paper_evi[:max_paper_num] + [llm_evi]
+            if 'llm' in self.args.source:
+                evidence_set = paper_evi[:max_paper_num] + [llm_evi]
+            else:
+                evidence_set = paper_evi[:max_paper_num]
             if self.args.evi_rep == 'emb' or 'sum' in self.args.analysis:
                 evidence_embs = self.emb_evidence(evidence_set)
                 batch_evi_emb.append(self.projector(evidence_embs))
