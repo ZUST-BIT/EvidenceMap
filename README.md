@@ -1,4 +1,5 @@
 # EvidenceMap
+### Unleashing the Power of Small Language Models with Evidence Analysis for Biomedical Question Answering
 
 ## Framework
 ![framework](./pics/framework.png "framework")
@@ -41,3 +42,7 @@ python train.py
       url={https://arxiv.org/abs/2501.12746}, 
 }
 ```
+
+## Follow Our BITLab Team from ZUST!
+[BITLab](http://bit.zust.edu.cn/catalogue/information.html)
+![bitlab](./pics/logo.jpg "bitlab")
