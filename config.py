@@ -32,7 +32,7 @@ def set_argument():
     parser.add_argument("--patience", type=float, default=2)
     parser.add_argument("--eval_batch_size", type=int, default=16)
 
-    parser.add_argument('--api_key', type=str, default='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')
+    parser.add_argument('--api_key', type=str, default='yourAPIkey')
     parser.add_argument('--emb_model', type=str, default='all-MiniLM-L6-v2')
     parser.add_argument('--use_api', action='store_true', default=False)
     parser.add_argument('--llm_type', type=str, default='local')
