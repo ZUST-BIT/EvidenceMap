@@ -4,11 +4,14 @@
 ## Framework
 ![framework](./pics/framework.png "framework")
 
-## Requirements
+## Requirements and Settings
 ```
+python == 3.10
 torch == 2.5.1
 transformers == 4.48.1
 evaluate == 0.4.3
+precision: bfloat16 mixed-precision
+GPU: single NVIDIA A6000 GPU
 ```
 
 ## Instructions
